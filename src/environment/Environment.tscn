@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/environment/grassland.png" type="Texture" id=1]
+[ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/resources/Tree/Tree.tscn" type="PackedScene" id=3]
+
+[node name="environment" type="Node2D"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0, 0, 0, 1 )
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 960, 540 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1920, 1080 )
+
+[node name="Tree" parent="." instance=ExtResource( 3 )]
+position = Vector2( 440.868, 471.626 )
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 877.02, 526.699 )
