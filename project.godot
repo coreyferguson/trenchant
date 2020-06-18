@@ -22,6 +22,8 @@ config/icon="res://icon.png"
 [autoload]
 
 Player="*res://src/player/PlayerApi.gd"
+Inventory="*res://src/inventory/InventoryApi.gd"
+Items="*res://src/items/ItemsApi.gd"
 
 [display]
 

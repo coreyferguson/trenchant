@@ -15,6 +15,6 @@ func interact(interactor):
 	if health == 0:
 		queue_free()
 		return [
-			{ 'resource': 'wood', 'quantity': wood },
-			{ 'resource': 'sticks', 'quantity': sticks }
+			{ 'name': 'wood', 'quantity': wood },
+			{ 'name': 'sticks', 'quantity': sticks }
 		]

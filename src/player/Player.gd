@@ -57,7 +57,7 @@ func move(delta):
 	if is_moving_down: v += Vector2(0, 1)
 	if is_moving_left: v += Vector2(-1, 0)
 	v = v.normalized() * speed * delta
-	move_and_collide(v)		
+	move_and_collide(v)
 
 func is_moving():
 	return is_moving_up || is_moving_right || is_moving_down || is_moving_left
@@ -75,6 +75,7 @@ func _on_interact_timer_timeout():
 			var body = body_wr.get_ref()
 			if body.has_method('interact'):
 				var resources = body.interact(self)
+				Inventory.collect(resources)
 		else:
 			body_indexes_to_remove.push_back(i)
 	# remove bodies without references
