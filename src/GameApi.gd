@@ -6,3 +6,13 @@ var scenes = {
 
 func change_scene(scene : String):
 	return get_tree().change_scene(scenes[scene])
+
+func get_random_spawn_position():
+	var min_x = 100
+	var max_x = 1820
+	var min_y = 100
+	var max_y = 980
+	randomize()
+	var x = randi() % (min_x + max_x) - min_x
+	var y = randi() % (min_y + max_y) - min_y
+	return Vector2(x, y)

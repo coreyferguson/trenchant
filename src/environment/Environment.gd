@@ -8,4 +8,5 @@ func _ready():
 		$HUD.add_child(ExploreContainer.instance())
 	else:
 		$container.add_child(GoHomeZone.instance())
+		Zone.spawn()
 	$player.play_enter_zone_animation()

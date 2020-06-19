@@ -5,6 +5,7 @@ var BeltSlot = preload("res://src/inventory/BeltSlot.tscn")
 func _ready():
 	Inventory.connect("item_added_to_belt", self, '_on_inventory_item_added_to_belt')
 	Inventory.connect("item_removed_from_belt", self, '_on_inventory_item_removed_from_belt')
+	redraw_belt_slots()
 
 func _on_inventory_item_added_to_belt(index):
 	redraw_belt_slots()
