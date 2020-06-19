@@ -42,10 +42,8 @@ func _on_item_removed_from_backpack(index):
 	update_required_resources_state()
 
 func update_required_resources_state():
-	print('updating state')
 	if construction_name:
 		var resources = Build.resource_requirements[construction_name]
-		print('resources:' + str(resources))
 		if Inventory.has_resources(resources): 
 			modulate = Color(1, 1, 1, 1)
 			has_resources = true
