@@ -41,14 +41,14 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -50, 540 ), Vector2( 250, 540 ) ]
+"values": [ Vector2( -100, 540 ), Vector2( 75, 540 ) ]
 }
 
 [node name="player" type="KinematicBody2D"]
-position = Vector2( -50, 540 )
+position = Vector2( 75, 540 )
 collision_mask = 31
 script = ExtResource( 2 )
 __meta__ = {

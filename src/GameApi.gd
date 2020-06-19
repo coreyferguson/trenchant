@@ -16,3 +16,20 @@ func get_random_spawn_position():
 	var x = (randi() % (max_x - min_x)) + min_x
 	var y = (randi() % (max_y - min_y)) + min_y
 	return Vector2(x, y)
+
+func get_random_offset_position(from_position, radius):
+	randomize()
+	var radiusX2 = radius * 2
+	var rand_x = (randi()%radiusX2) + 1 - radius
+	var rand_y = (randi()%radiusX2) + 1 - radius
+	var rand_distance = (randi() % radius)
+	var v = Vector2(rand_x, rand_y).normalized() * rand_distance
+	return from_position + v
+
+func get_random_circumference_position(from_position, radius):
+	randomize()
+	var radiusX2 = radius * 2
+	var rand_x = (randi()%radiusX2) + 1 - radius
+	var rand_y = (randi()%radiusX2) + 1 - radius
+	var v = Vector2(rand_x, rand_y).normalized() * radius
+	return from_position + v

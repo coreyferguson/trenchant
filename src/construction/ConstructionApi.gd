@@ -3,10 +3,14 @@ extends Node
 var constructions = {
 	'campfire': {
 		'name': 'campfire',
-		'scene': preload("res://src/construction/Campfire/Campfire.tscn"),
+		'scene': preload("./Campfire/Campfire.tscn"),
+	},
+	'sheep_dog': {
+		'name': 'sheep_dog',
+		'scene': preload("./SheepFarm/SheepDog/SheepDog.tscn"),
 	},
 	'sheep_farm': {
 		'name': 'sheep_farm',
-		'scene': preload("res://src/construction/SheepFarm/SheepFarm.tscn"),
+		'scene': preload("./SheepFarm/SheepFarm.tscn"),
 	},
 }
