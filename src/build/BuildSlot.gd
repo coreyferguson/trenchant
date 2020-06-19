@@ -3,9 +3,9 @@ extends VBoxContainer
 
 signal pressed
 
-export(String) var construction_name
 export(String) var label setget set_label
 export(Texture) var icon setget set_icon
+export(String) var construction_name
 export(PackedScene) var BuildResource
 
 var has_resources = false

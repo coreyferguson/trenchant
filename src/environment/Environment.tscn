@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/environment/grassland.png" type="Texture" id=1]
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/build/categories/defense/defense_icon.png" type="Texture" id=3]
 [ext_resource path="res://src/inventory/BeltView.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/build/categories/defense/SheepFarm/sheep_farm_icon.png" type="Texture" id=5]
 [ext_resource path="res://src/build/Build.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/build/BuildSlot.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/build/categories/BuildCategories.gd" type="Script" id=8]
@@ -10,6 +12,7 @@
 [ext_resource path="res://src/build/categories/light/Campfire/Campfire.png" type="Texture" id=10]
 [ext_resource path="res://src/build/categories/BuildCategorySlots.gd" type="Script" id=11]
 [ext_resource path="res://src/build/categories/light/Campfire/BuildCampfire.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/build/categories/defense/SheepFarm/BuildSheepFarm.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/environment/Environment.gd" type="Script" id=15]
 
 [node name="environment" type="Node2D"]
@@ -36,7 +39,6 @@ __meta__ = {
 }
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-speed = 600
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -72,10 +74,22 @@ mouse_filter = 2
 
 [node name="campfire" parent="HUD/panels/MarginContainer3/build_category_slots/light_category" instance=ExtResource( 7 )]
 mouse_filter = 0
-construction_name = "campfire"
 label = "Campfire"
 icon = ExtResource( 10 )
+construction_name = "campfire"
 BuildResource = ExtResource( 12 )
+
+[node name="defense_category" type="HBoxContainer" parent="HUD/panels/MarginContainer3/build_category_slots"]
+visible = false
+margin_right = 1910.0
+margin_bottom = 87.0
+
+[node name="sheep_farm" parent="HUD/panels/MarginContainer3/build_category_slots/defense_category" instance=ExtResource( 7 )]
+margin_right = 105.0
+label = "Sheep Farm"
+icon = ExtResource( 5 )
+construction_name = "sheep_farm"
+BuildResource = ExtResource( 13 )
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/panels"]
 margin_top = 969.0
@@ -99,6 +113,10 @@ mouse_filter = 0
 label = "Light"
 icon = ExtResource( 9 )
 
+[node name="defense" parent="HUD/panels/MarginContainer2/build_categories" instance=ExtResource( 7 )]
+label = "Defense"
+icon = ExtResource( 3 )
+
 [node name="MarginContainer" type="MarginContainer" parent="HUD/panels"]
 margin_top = 983.0
 margin_right = 1920.0
@@ -120,4 +138,5 @@ mouse_filter = 0
 [node name="belt" parent="HUD/panels/MarginContainer/bottom" instance=ExtResource( 4 )]
 mouse_filter = 2
 [connection signal="pressed" from="HUD/panels/MarginContainer2/build_categories/light" to="HUD/panels/MarginContainer3/build_category_slots" method="_on_selected_build_category_light"]
+[connection signal="pressed" from="HUD/panels/MarginContainer2/build_categories/defense" to="HUD/panels/MarginContainer3/build_category_slots" method="_on_selected_build_category_defense"]
 [connection signal="show_build_menu" from="HUD/panels/MarginContainer/bottom/build" to="HUD/panels/MarginContainer2/build_categories" method="_on_build_show_build_menu"]

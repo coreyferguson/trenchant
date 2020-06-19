@@ -1,9 +1,10 @@
 extends Node
 
 var items = {
-	'rock': { 'icon': preload("res://src/items/Rock/Rock.png") },
-	'stick': { 'icon': preload("res://src/items/Stick/Stick.png") },
-	'wood': { 'icon': preload("res://src/items/Wood/Wood.png") },
+	'rock': { 'icon': preload("./Rock/Rock.png") },
+	'stick': { 'icon': preload("./Stick/Stick.png") },
+	'wood': { 'icon': preload("./Wood/Wood.png") },
+	'sheep': { 'icon': preload("./Sheep/Sheep.png") },
 }
 
 func get(name):

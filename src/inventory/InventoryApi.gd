@@ -65,21 +65,14 @@ func remove(resources):
 		remove_single_resource(resources[i])
 
 func remove_single_resource(resource):
-	var belt_indexes_to_remove = []
-	var backpack_indexes_to_remove = []
 	for i in range(belt.size()):
 		if belt[i] && belt[i].name == resource.name:
 			belt[i].quantity -= resource.quantity
-			if belt[i].quantity <= 0: belt_indexes_to_remove.push_back(i)
+			if belt[i].quantity <= 0: belt[i] = null
 			emit_signal("item_removed_from_belt", i)
 	for i in range(backpack.size()):
 		if backpack[i] && backpack[i].name == resource.name:
 			backpack[i].quantity -= resource.quantity
-			if backpack[i].quantity <= 0: backpack_indexes_to_remove.push_back(i)
+			if backpack[i].quantity <= 0: backpack[i] = null
 			emit_signal("item_removed_from_backpack", i)
-	# remove spent items
-	belt_indexes_to_remove.invert()
-	for i in range(belt_indexes_to_remove.size()): belt.remove(i)
-	backpack_indexes_to_remove.invert()
-	for i in range(backpack_indexes_to_remove.size()): backpack.remove(i)
 	

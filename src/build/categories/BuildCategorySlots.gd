@@ -7,6 +7,10 @@ func _on_selected_build_category_light():
 	hide_all_category_slots()
 	$light_category.visible = true
 
+func _on_selected_build_category_defense():
+	hide_all_category_slots()
+	$defense_category.visible = true
+
 func hide_all_category_slots():
 	$light_category.visible = false
-	
+	$defense_category.visible = false

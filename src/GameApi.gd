@@ -13,6 +13,6 @@ func get_random_spawn_position():
 	var min_y = 100
 	var max_y = 980
 	randomize()
-	var x = randi() % (min_x + max_x) - min_x
-	var y = randi() % (min_y + max_y) - min_y
+	var x = (randi() % (max_x - min_x)) + min_x
+	var y = (randi() % (max_y - min_y)) + min_y
 	return Vector2(x, y)

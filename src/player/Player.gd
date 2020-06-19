@@ -10,8 +10,8 @@ var is_interacting = false
 
 var bodies_in_interaction_range = []
 
-func _process(delta):
-	move(delta)
+func _physics_process(delta):
+	move()
 
 func update_state():
 	if Input.is_action_just_pressed("move_up"):
@@ -52,14 +52,14 @@ func update_state():
 func _unhandled_input(event):
 	update_state()
 
-func move(delta):
+func move():
 	var v = Vector2(0, 0)
 	if is_moving_up: v += Vector2(0, -1)
 	if is_moving_right: v += Vector2(1, 0)
 	if is_moving_down: v += Vector2(0, 1)
 	if is_moving_left: v += Vector2(-1, 0)
-	v = v.normalized() * speed * delta
-	move_and_collide(v)
+	v = v.normalized() * speed
+	var collision = move_and_slide(v)
 
 func is_moving():
 	return is_moving_up || is_moving_right || is_moving_down || is_moving_left
