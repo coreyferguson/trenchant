@@ -11,7 +11,6 @@ var is_interacting = false
 var bodies_in_interaction_range = []
 
 func _process(delta):
-	update_state()
 	move(delta)
 
 func update_state():
@@ -49,6 +48,9 @@ func update_state():
 		is_interacting = false
 		$interact_timer.stop()
 		play_sprite_animation()
+
+func _unhandled_input(event):
+	update_state()
 
 func move(delta):
 	var v = Vector2(0, 0)
@@ -97,3 +99,11 @@ func _on_interact_range_body_exited(body):
 	body_indexes_to_remove.invert()
 	for i in range(body_indexes_to_remove.size()):
 		bodies_in_interaction_range.remove(body_indexes_to_remove[i])
+
+func play_enter_zone_animation():
+	$sprite.play('running')
+	$animation.connect("animation_finished", self, "_on_enter_zone_animation_finished")
+	$animation.play("enter_zone_animation")
+
+func _on_enter_zone_animation_finished(name):
+	$sprite.play('waiting')

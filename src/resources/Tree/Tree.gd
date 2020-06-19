@@ -9,7 +9,6 @@ func _ready():
 	randomize()
 	wood = randi()%4+1
 	stick = randi()%8+1
-	print(wood)
 
 func interact(interactor):
 	$animation.play('shake')

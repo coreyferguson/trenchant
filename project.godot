@@ -26,6 +26,8 @@ Inventory="*res://src/inventory/InventoryApi.gd"
 Items="*res://src/items/ItemsApi.gd"
 Env="*res://src/environment/EnvironmentApi.gd"
 Build="*res://src/build/BuildApi.gd"
+Zone="*res://src/explore/ZoneApi.gd"
+Game="*res://src/GameApi.gd"
 
 [display]
 

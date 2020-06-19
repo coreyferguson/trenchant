@@ -1,10 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/environment/grassland.png" type="Texture" id=1]
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/resources/Tree/Tree.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/inventory/BeltView.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/resources/Rock/Rock.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/build/Build.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/build/BuildSlot.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/build/categories/BuildCategories.gd" type="Script" id=8]
@@ -12,16 +10,13 @@
 [ext_resource path="res://src/build/categories/light/Campfire/Campfire.png" type="Texture" id=10]
 [ext_resource path="res://src/build/categories/BuildCategorySlots.gd" type="Script" id=11]
 [ext_resource path="res://src/build/categories/light/Campfire/BuildCampfire.tscn" type="PackedScene" id=12]
-[ext_resource path="res://src/explore/ExploreView.tscn" type="PackedScene" id=13]
-[ext_resource path="res://src/style/fonts/Nobile-Regular.ttf" type="DynamicFontData" id=14]
-
-[sub_resource type="DynamicFont" id=1]
-size = 32
-font_data = ExtResource( 14 )
+[ext_resource path="res://src/environment/Environment.gd" type="Script" id=15]
 
 [node name="environment" type="Node2D"]
+script = ExtResource( 15 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -41,32 +36,15 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Tree" parent="container" instance=ExtResource( 3 )]
-position = Vector2( 744.841, 531.753 )
-
-[node name="Tree2" parent="container" instance=ExtResource( 3 )]
-position = Vector2( 809.416, 617.852 )
-
-[node name="rock" parent="container" instance=ExtResource( 5 )]
-position = Vector2( 828.69, 465.622 )
-
-[node name="rock3" parent="container" instance=ExtResource( 5 )]
-position = Vector2( 845.794, 435.486 )
-
-[node name="rock4" parent="container" instance=ExtResource( 5 )]
-position = Vector2( 880.818, 414.309 )
-
-[node name="rock2" parent="container" instance=ExtResource( 5 )]
-position = Vector2( 897.922, 455.034 )
-
 [node name="player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 863.988, 538.917 )
+speed = 600
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="panels" type="VBoxContainer" parent="HUD"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 alignment = 2
 __meta__ = {
 "_edit_lock_": true,
@@ -77,20 +55,24 @@ __meta__ = {
 margin_top = 955.0
 margin_right = 1920.0
 margin_bottom = 965.0
+mouse_filter = 2
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 10
 
 [node name="build_category_slots" type="VBoxContainer" parent="HUD/panels/MarginContainer3"]
 margin_left = 10.0
 margin_right = 1920.0
+mouse_filter = 2
 script = ExtResource( 11 )
 
 [node name="light_category" type="HBoxContainer" parent="HUD/panels/MarginContainer3/build_category_slots"]
 visible = false
 margin_right = 1910.0
 margin_bottom = 87.0
+mouse_filter = 2
 
 [node name="campfire" parent="HUD/panels/MarginContainer3/build_category_slots/light_category" instance=ExtResource( 7 )]
+mouse_filter = 0
 construction_name = "campfire"
 label = "Campfire"
 icon = ExtResource( 10 )
@@ -100,6 +82,7 @@ BuildResource = ExtResource( 12 )
 margin_top = 969.0
 margin_right = 1920.0
 margin_bottom = 979.0
+mouse_filter = 2
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 10
 
@@ -108,10 +91,12 @@ visible = false
 margin_left = 10.0
 margin_right = 1920.0
 margin_bottom = 68.0
+mouse_filter = 2
 script = ExtResource( 8 )
 
 [node name="light" parent="HUD/panels/MarginContainer2/build_categories" instance=ExtResource( 7 )]
 margin_right = 54.0
+mouse_filter = 0
 label = "Light"
 icon = ExtResource( 9 )
 
@@ -119,6 +104,7 @@ icon = ExtResource( 9 )
 margin_top = 983.0
 margin_right = 1920.0
 margin_bottom = 1080.0
+mouse_filter = 2
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 10
 
@@ -126,42 +112,13 @@ custom_constants/margin_bottom = 10
 margin_left = 10.0
 margin_right = 1920.0
 margin_bottom = 87.0
+mouse_filter = 2
 
 [node name="build" parent="HUD/panels/MarginContainer/bottom" instance=ExtResource( 6 )]
 margin_right = 53.0
+mouse_filter = 0
 
 [node name="belt" parent="HUD/panels/MarginContainer/bottom" instance=ExtResource( 4 )]
-
-[node name="CenterContainer" type="CenterContainer" parent="HUD"]
-anchor_right = 1.0
-margin_bottom = 120.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MarginContainer" type="MarginContainer" parent="HUD/CenterContainer"]
-margin_left = 714.0
-margin_right = 1206.0
-margin_bottom = 182.0
-custom_constants/margin_right = 0
-custom_constants/margin_top = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/CenterContainer/MarginContainer"]
-margin_top = 20.0
-margin_right = 492.0
-margin_bottom = 182.0
-
-[node name="Label" type="Label" parent="HUD/CenterContainer/MarginContainer/VBoxContainer"]
-margin_right = 492.0
-margin_bottom = 38.0
-custom_fonts/font = SubResource( 1 )
-text = "Explore"
-align = 1
-valign = 1
-
-[node name="explore" parent="HUD/CenterContainer/MarginContainer/VBoxContainer" instance=ExtResource( 13 )]
-margin_top = 42.0
-margin_right = 492.0
-margin_bottom = 162.0
+mouse_filter = 2
 [connection signal="pressed" from="HUD/panels/MarginContainer2/build_categories/light" to="HUD/panels/MarginContainer3/build_category_slots" method="_on_selected_build_category_light"]
 [connection signal="show_build_menu" from="HUD/panels/MarginContainer/bottom/build" to="HUD/panels/MarginContainer2/build_categories" method="_on_build_show_build_menu"]
