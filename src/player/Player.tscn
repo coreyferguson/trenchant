@@ -10,9 +10,9 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 6 ) ],
 "loop": true,
-"name": "waiting",
+"name": "interacting",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 3 ) ],
@@ -20,9 +20,9 @@ animations = [ {
 "name": "running",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 1 ) ],
 "loop": true,
-"name": "interacting",
+"name": "waiting",
 "speed": 5.0
 } ]
 
@@ -59,4 +59,5 @@ shape = SubResource( 3 )
 
 [node name="interact_timer" type="Timer" parent="."]
 [connection signal="body_entered" from="interact_range" to="." method="_on_interact_range_body_entered"]
+[connection signal="body_exited" from="interact_range" to="." method="_on_interact_range_body_exited"]
 [connection signal="timeout" from="interact_timer" to="." method="_on_interact_timer_timeout"]

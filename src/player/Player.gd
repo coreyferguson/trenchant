@@ -84,3 +84,15 @@ func _on_interact_timer_timeout():
 
 func _on_interact_range_body_entered(body):
 	bodies_in_interaction_range.push_back(weakref(body))
+
+func _on_interact_range_body_exited(body):
+	var body_indexes_to_remove = []
+	for i in range(bodies_in_interaction_range.size()):
+		if bodies_in_interaction_range[i].get_ref():
+			var other_body = bodies_in_interaction_range[i].get_ref()
+			if other_body == body: body_indexes_to_remove.push_back(i)
+		else:
+			body_indexes_to_remove.push_back(i)
+	# remove bodies without references
+	for i in range(body_indexes_to_remove.size()):
+		bodies_in_interaction_range.remove(body_indexes_to_remove[i])

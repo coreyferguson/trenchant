@@ -3,11 +3,13 @@ extends StaticBody2D
 var health = 4
 var health_capacity = 4
 var wood
-var sticks
+var stick
 
-func _init():
+func _ready():
+	randomize()
 	wood = randi()%4+1
-	sticks = randi()%8+1
+	stick = randi()%8+1
+	print(wood)
 
 func interact(interactor):
 	$animation.play('shake')
@@ -16,5 +18,5 @@ func interact(interactor):
 		queue_free()
 		return [
 			{ 'name': 'wood', 'quantity': wood },
-			{ 'name': 'sticks', 'quantity': sticks }
+			{ 'name': 'stick', 'quantity': stick }
 		]
