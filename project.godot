@@ -28,6 +28,7 @@ Env="*res://src/environment/EnvironmentApi.gd"
 Build="*res://src/build/BuildApi.gd"
 Zone="*res://src/explore/ZoneApi.gd"
 Game="*res://src/GameApi.gd"
+Construction="*res://src/construction/ConstructionApi.gd"
 
 [display]
 

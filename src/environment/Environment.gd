@@ -6,6 +6,7 @@ var GoHomeZone = preload("res://src/explore/GoHomeZone.tscn")
 func _ready():
 	if Zone.is_home():
 		$HUD.add_child(ExploreContainer.instance())
+		Env.restore_persisted_nodes()
 	else:
 		$container.add_child(GoHomeZone.instance())
 		Zone.spawn()
