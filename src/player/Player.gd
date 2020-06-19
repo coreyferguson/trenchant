@@ -94,5 +94,6 @@ func _on_interact_range_body_exited(body):
 		else:
 			body_indexes_to_remove.push_back(i)
 	# remove bodies without references
+	body_indexes_to_remove.invert()
 	for i in range(body_indexes_to_remove.size()):
 		bodies_in_interaction_range.remove(body_indexes_to_remove[i])

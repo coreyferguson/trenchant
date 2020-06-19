@@ -25,6 +25,7 @@ Player="*res://src/player/PlayerApi.gd"
 Inventory="*res://src/inventory/InventoryApi.gd"
 Items="*res://src/items/ItemsApi.gd"
 Env="*res://src/environment/EnvironmentApi.gd"
+Build="*res://src/build/BuildApi.gd"
 
 [display]
 
@@ -79,6 +80,7 @@ cancel={
 2d_physics/layer_2="resource"
 2d_physics/layer_3="friend"
 2d_physics/layer_4="enemy"
+2d_physics/layer_5="construction"
 
 [rendering]
 
