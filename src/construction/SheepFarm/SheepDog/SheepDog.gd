@@ -5,6 +5,8 @@ signal died
 export(int) var speed = 200 setget set_speed
 var speed_squared = speed*speed
 export var damage = 20
+export var health = 25
+export var health_capacity = 25
 
 var detected_bodies = []
 var attack_bodies = []
@@ -83,3 +85,6 @@ func attack_bodies_in_range():
 			yield($sprite, 'animation_finished')
 			choose_target()
 
+func attack(damage):
+	health = clamp(health-damage, 0, health_capacity)
+	if health == 0: queue_free()
