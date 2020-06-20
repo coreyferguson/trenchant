@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/construction/SheepFarm/SheepDog/sheep_dog_waiting_1.png" type="Texture" id=1]
 [ext_resource path="res://src/construction/SheepFarm/SheepDog/sheep_dog_running_1.png" type="Texture" id=2]
 [ext_resource path="res://src/construction/SheepFarm/SheepDog/sheep_dog_running_2.png" type="Texture" id=3]
 [ext_resource path="res://src/construction/SheepFarm/SheepDog/sheep_dog_waiting_2.png" type="Texture" id=4]
 [ext_resource path="res://src/construction/SheepFarm/SheepDog/SheepDog.gd" type="Script" id=5]
+[ext_resource path="res://src/construction/SheepFarm/SheepDog/sheep_dog_attacking_1.png" type="Texture" id=6]
+[ext_resource path="res://src/construction/SheepFarm/SheepDog/sheep_dog_attacking_2.png" type="Texture" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -17,12 +19,25 @@ animations = [ {
 "loop": true,
 "name": "running",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "attacking",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 11.4848
 
+[sub_resource type="CircleShape2D" id=3]
+radius = 500.0
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 100.0
+
 [node name="sheep_dog" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource( 5 )
 
 [node name="sprite" type="AnimatedSprite" parent="."]
@@ -32,6 +47,31 @@ frame = 1
 playing = true
 
 [node name="collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -5.04892, 11.2023 )
 rotation = 1.5708
 shape = SubResource( 2 )
+
+[node name="detection_area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="collision" type="CollisionShape2D" parent="detection_area"]
+visible = false
+position = Vector2( -4.57558, 10.729 )
+shape = SubResource( 3 )
+
+[node name="attack_range" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="collision2" type="CollisionShape2D" parent="attack_range"]
+position = Vector2( -4.57558, 10.729 )
+shape = SubResource( 4 )
+
+[node name="attack_delay" type="Timer" parent="."]
+one_shot = true
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="attack_range" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="attack_range" to="." method="_on_attack_range_body_exited"]

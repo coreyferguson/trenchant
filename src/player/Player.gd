@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+export var health_capacity = 100
+export var health = 100
 export var speed = 200
 
 var is_moving_up = false
@@ -107,3 +109,9 @@ func play_enter_zone_animation():
 
 func _on_enter_zone_animation_finished(name):
 	$sprite.play('waiting')
+
+func attack(damage):
+	health = clamp(health - damage, 0, health_capacity)
+	if health == 0: 
+		# TODO: end game
+		queue_free()

@@ -26,3 +26,6 @@ func persist_all_nodes():
 		if children[i].has_method('get_persisted_properties'):
 			var persisted_properties = children[i].get_persisted_properties()
 			persisted_nodes.push_back(persisted_properties)
+
+func get_player():
+	return get_node('/root/environment/player')
