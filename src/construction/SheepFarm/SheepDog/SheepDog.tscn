@@ -15,14 +15,14 @@ animations = [ {
 "name": "waiting",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "running",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "attacking",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "running",
 "speed": 5.0
 } ]
 
@@ -43,7 +43,6 @@ script = ExtResource( 5 )
 [node name="sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "waiting"
-frame = 1
 playing = true
 
 [node name="collision" type="CollisionShape2D" parent="."]

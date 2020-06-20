@@ -1,4 +1,4 @@
-extends GridContainer
+extends CenterContainer
 
 var ZoneScene = preload("res://src/explore/Zone.tscn")
 
@@ -7,7 +7,7 @@ func _ready():
 	Zone.connect("zones_to_explore_changed", self, 'redraw_zone_selections')
 
 func redraw_zone_selections():
-	var children = get_children()
+	var children = $grid.get_children()
 	for i in range(children.size()): children[i].queue_free()
 	for i in range(Zone.zones_to_explore.size()):
 		if Zone.zones_to_explore[i]:
@@ -16,7 +16,7 @@ func redraw_zone_selections():
 			zone.name = Zone.zones_to_explore[i].name
 			zone.index = i
 			zone.connect("selected", self, '_on_zone_selected')
-			add_child(zone)
+			$grid.add_child(zone)
 
 func _on_zone_selected(index):
 	Zone.go_to_available_zone(index)

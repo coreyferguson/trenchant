@@ -28,6 +28,8 @@ func _physics_process(delta):
 		target_position = home_position
 	if target_position:
 		var v = target_position - global_position
+		if v.x >= 0: $sprite.flip_h = false
+		else: $sprite.flip_h = true
 		if v.length_squared() <= pow(speed*delta, 2): 
 			move_and_collide(v)
 			choose_target()

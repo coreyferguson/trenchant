@@ -8,6 +8,8 @@ var target_position
 func _process(delta):
 	if states[current_state_index] == 'walking':
 		var v = (target_position - global_position).normalized() * delta * speed
+		if v.x >= 0: $sprite.flip_h = false
+		else: $sprite.flip_h = true
 		move_and_collide(v)
 
 func _on_state_change_timer_timeout():

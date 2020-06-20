@@ -18,7 +18,7 @@ func redraw_belt_slots():
 	for i in range(children.size()): children[i].queue_free()
 	for i in range(Inventory.belt.size()):
 		var resource = Inventory.belt[i]
-		if !resource: return
+		if !resource: continue
 		var belt_slot = BeltSlot.instance()
 		belt_slot.name = resource.name
 		belt_slot.icon = Items.get(resource.name).icon
