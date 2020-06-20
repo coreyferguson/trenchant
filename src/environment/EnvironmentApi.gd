@@ -1,5 +1,7 @@
 extends Node
 
+signal fade_finished
+
 var persisted_nodes = []
 
 func add(child):
@@ -29,3 +31,19 @@ func persist_all_nodes():
 
 func get_player():
 	return get_node('/root/environment/player')
+
+func fade_out():
+	Game.is_input_disabled = true
+	var fade = get_node('/root/environment/fade')
+	fade.fade_out()
+	yield(fade, 'finished')
+	Game.is_input_disabled = false
+	emit_signal("fade_finished")
+
+func fade_in():
+	Game.is_input_disabled = true
+	var fade = get_node('/root/environment/fade')
+	fade.fade_in()
+	yield(fade, 'finished')
+	Game.is_input_disabled = false
+	emit_signal("fade_finished")

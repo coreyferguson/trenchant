@@ -4,6 +4,7 @@ var CampfireResource = preload("res://src/construction/Campfire/Campfire.tscn")
 
 func _process(delta):
 	global_position = get_global_mouse_position()
+	if Game.is_input_disabled: return
 	if Input.is_action_just_pressed("interact"):
 		Inventory.remove(Build.resource_requirements['campfire'])
 		var campfire = CampfireResource.instance()

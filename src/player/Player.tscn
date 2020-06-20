@@ -48,7 +48,7 @@ tracks/0/keys = {
 }
 
 [node name="player" type="KinematicBody2D"]
-position = Vector2( 75, 540 )
+position = Vector2( -100, 540 )
 collision_mask = 31
 script = ExtResource( 2 )
 __meta__ = {

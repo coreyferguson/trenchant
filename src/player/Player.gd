@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal play_enter_zone_animation_finished
+
 export var health_capacity = 100
 export var health = 100
 export var speed = 200
@@ -16,6 +18,7 @@ func _physics_process(delta):
 	move()
 
 func update_state():
+	if Game.is_input_disabled: return
 	if Input.is_action_just_pressed("move_up"):
 		is_moving_up = true
 		play_sprite_animation()
@@ -104,11 +107,10 @@ func _on_interact_range_body_exited(body):
 
 func play_enter_zone_animation():
 	$sprite.play('running')
-	$animation.connect("animation_finished", self, "_on_enter_zone_animation_finished")
 	$animation.play("enter_zone_animation")
-
-func _on_enter_zone_animation_finished(name):
+	yield($animation, 'animation_finished')
 	$sprite.play('waiting')
+	emit_signal("play_enter_zone_animation_finished")
 
 func attack(damage):
 	health = clamp(health - damage, 0, health_capacity)

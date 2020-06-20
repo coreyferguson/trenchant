@@ -30,6 +30,8 @@ func is_home():
 	return current_zone == HOME
 
 func go_to_available_zone(index):
+	if !zones_to_explore[index]: return
+	Game.is_input_disabled = true
 	current_zone = zones_to_explore[index].name
 	zones_to_explore[index] = null
 	var has_more_zones = false
@@ -38,6 +40,8 @@ func go_to_available_zone(index):
 			has_more_zones = true
 			break
 	if !has_more_zones: generate_new_zones()
+	Env.fade_out()
+	yield(Env, 'fade_finished')
 	Game.change_scene('environment')
 
 func go_home():

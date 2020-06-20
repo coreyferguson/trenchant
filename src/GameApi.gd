@@ -1,8 +1,12 @@
 extends Node
 
+signal fade_out_screen_finished
+
 var scenes = {
 	'environment': 'res://src/environment/Environment.tscn'
 }
+
+var is_input_disabled = false
 
 func change_scene(scene : String):
 	return get_tree().change_scene(scenes[scene])

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/environment/grassland.png" type="Texture" id=1]
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=2]
@@ -13,12 +13,13 @@
 [ext_resource path="res://src/build/categories/BuildCategorySlots.gd" type="Script" id=11]
 [ext_resource path="res://src/build/categories/light/Campfire/BuildCampfire.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/build/categories/defense/SheepFarm/BuildSheepFarm.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/environment/Fade.gd" type="Script" id=14]
 [ext_resource path="res://src/environment/Environment.gd" type="Script" id=15]
 
 [node name="environment" type="Node2D"]
 script = ExtResource( 15 )
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
+[node name="shadow" type="CanvasModulate" parent="."]
 visible = false
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
@@ -40,6 +41,7 @@ __meta__ = {
 }
 
 [node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( -50, 540 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -142,6 +144,19 @@ mouse_filter = 0
 
 [node name="belt" parent="HUD/panels/MarginContainer/bottom" instance=ExtResource( 4 )]
 mouse_filter = 2
+
+[node name="fade" type="Control" parent="."]
+visible = false
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="tween" type="Tween" parent="fade"]
 [connection signal="pressed" from="HUD/panels/MarginContainer2/build_categories/light" to="HUD/panels/MarginContainer3/build_category_slots" method="_on_selected_build_category_light"]
 [connection signal="pressed" from="HUD/panels/MarginContainer2/build_categories/defense" to="HUD/panels/MarginContainer3/build_category_slots" method="_on_selected_build_category_defense"]
 [connection signal="show_build_menu" from="HUD/panels/MarginContainer/bottom/build" to="HUD/panels/MarginContainer2/build_categories" method="_on_build_show_build_menu"]

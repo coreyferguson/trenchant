@@ -29,7 +29,6 @@ func get_persisted_properties():
 	}
 
 func restore_persisted_state(state):
-	print('state.sheep_dogs: ' + str(state.sheep_dogs))
 	global_position = state.global_position
 	for i in range(state.sheep_dogs.size()):
 		spawn_sheep_dog(state.sheep_dogs[i].global_position)
