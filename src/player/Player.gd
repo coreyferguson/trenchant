@@ -27,7 +27,7 @@ func update_state():
 		play_sprite_animation()
 	if Input.is_action_just_pressed("move_right"):
 		is_moving_right = true
-		$sprite.flip_h = false
+		$bones/torso.scale.x = 1
 		play_sprite_animation()
 	if Input.is_action_just_released("move_right"):
 		is_moving_right = false
@@ -40,7 +40,7 @@ func update_state():
 		play_sprite_animation()
 	if Input.is_action_just_pressed("move_left"):
 		is_moving_left = true
-		$sprite.flip_h = true
+		$bones/torso.scale.x = -1
 		play_sprite_animation()
 	if Input.is_action_just_released("move_left"):
 		is_moving_left = false
@@ -70,9 +70,11 @@ func is_moving():
 	return is_moving_up || is_moving_right || is_moving_down || is_moving_left
 
 func play_sprite_animation():
-	if !is_moving() && !is_interacting: $sprite.play('waiting')
-	elif is_moving(): $sprite.play('running')
-	elif is_interacting: $sprite.play('interacting')
+	if !is_moving() && !is_interacting: $animation.play('waiting')
+	elif is_moving():
+		if is_moving_left: $animation.play('running_left')
+		else: $animation.play('running_right')
+	elif is_interacting: $animation.play('interacting')
 
 func _on_interact_timer_timeout():
 	var body_indexes_to_remove = []
@@ -106,10 +108,11 @@ func _on_interact_range_body_exited(body):
 		bodies_in_interaction_range.remove(body_indexes_to_remove[i])
 
 func play_enter_zone_animation():
-	$sprite.play('running')
 	$animation.play("enter_zone_animation")
 	yield($animation, 'animation_finished')
-	$sprite.play('waiting')
+	$animation.play('waiting')
+	yield($animation, 'animation_finished')
+	position.x += 200
 	emit_signal("play_enter_zone_animation_finished")
 
 func attack(damage):
