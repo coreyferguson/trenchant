@@ -12,7 +12,9 @@ func _init():
 	belt.resize(4)
 
 func collect(resources):
-	if !resources: return
+	print(typeof(resources))
+	print(TYPE_ARRAY)
+	if !resources || typeof(resources) != TYPE_ARRAY: return
 	for r in range(resources.size()):
 		collect_single_resource(resources[r])
 

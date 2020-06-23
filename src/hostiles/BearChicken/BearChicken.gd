@@ -3,7 +3,7 @@ extends KinematicBody2D
 export var health = 50
 export var health_capacity = 50
 export var speed = 150
-export var damage = 25
+export var damage = 15
 var potential_targets = []
 var target
 var bodies_in_attack_range = []

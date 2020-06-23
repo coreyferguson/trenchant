@@ -14,6 +14,9 @@ var is_interacting = false
 
 var bodies_in_interaction_range = []
 
+func _process(delta):
+	z_index = position.y
+
 func _physics_process(delta):
 	move()
 
@@ -83,8 +86,7 @@ func _on_interact_timer_timeout():
 		if body_wr.get_ref():
 			var body = body_wr.get_ref()
 			if body.has_method('interact'):
-				var resources = body.interact(self)
-				Inventory.collect(resources)
+				Inventory.collect(body.interact(self))
 		else:
 			body_indexes_to_remove.push_back(i)
 	# remove bodies without references
