@@ -9,7 +9,7 @@
 [ext_resource path="res://src/construction/SheepFarm/SheepDog/sheep_dog_cutout_front_shin.png" type="Texture" id=7]
 [ext_resource path="res://src/construction/SheepFarm/SheepDog/sheep_dog_cutout_tail.png" type="Texture" id=8]
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=1]
 resource_name = "attacking_left"
 length = 1.2
 loop = true
@@ -279,8 +279,7 @@ tracks/21/keys = {
 "values": [ 0.0, -10.0, 5.0 ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "attacking_right"
+[sub_resource type="Animation" id=2]
 length = 1.2
 loop = true
 step = 0.3
@@ -549,8 +548,7 @@ tracks/21/keys = {
 "values": [ 0.0, 10.0, -5.0 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "loving"
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("bones/body/tail:position")
 tracks/0/interp = 1
@@ -804,8 +802,7 @@ tracks/20/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "running"
+[sub_resource type="Animation" id=4]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -1061,7 +1058,7 @@ tracks/20/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("bones/body/tail/tail_end:position")
@@ -1316,14 +1313,14 @@ tracks/20/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="CapsuleShape2D" id=6]
 radius = 17.5425
 height = 88.1162
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=7]
 radius = 500.0
 
-[sub_resource type="CircleShape2D" id=7]
+[sub_resource type="CircleShape2D" id=8]
 radius = 100.0
 
 [node name="sheep_dog" type="KinematicBody2D"]
@@ -1346,7 +1343,6 @@ offset = Vector2( 32.6659, -3.55722 )
 [node name="tail" type="Sprite" parent="sprites"]
 position = Vector2( -36.0952, -62.4501 )
 rotation = 0.349066
-scale = Vector2( 1, 1 )
 texture = ExtResource( 8 )
 offset = Vector2( 43.2723, 19.8358 )
 
@@ -1448,15 +1444,16 @@ __meta__ = {
 }
 
 [node name="animation" type="AnimationPlayer" parent="."]
-anims/attacking_left = SubResource( 8 )
-anims/attacking_right = SubResource( 1 )
-anims/loving = SubResource( 2 )
-anims/running = SubResource( 3 )
-anims/waiting = SubResource( 4 )
+anims/attacking_left = SubResource( 1 )
+anims/attacking_right = SubResource( 2 )
+anims/loving = SubResource( 3 )
+anims/running = SubResource( 4 )
+anims/waiting = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 rotation = 1.5708
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="detection_area" type="Area2D" parent="."]
 collision_layer = 0
@@ -1464,7 +1461,7 @@ collision_mask = 8
 
 [node name="collision" type="CollisionShape2D" parent="detection_area"]
 visible = false
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="attack_range" type="Area2D" parent="."]
 collision_layer = 0
@@ -1472,7 +1469,7 @@ collision_mask = 8
 
 [node name="collision" type="CollisionShape2D" parent="attack_range"]
 visible = false
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="attack_delay" type="Timer" parent="."]
 one_shot = true

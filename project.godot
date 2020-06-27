@@ -85,6 +85,8 @@ cancel={
 2d_physics/layer_3="ally"
 2d_physics/layer_4="hostile"
 2d_physics/layer_5="construction"
+2d_physics/layer_6="hostile_projectile"
+2d_physics/layer_7="player_hitbox"
 
 [rendering]
 

@@ -2,8 +2,8 @@ extends KinematicBody2D
 
 signal play_enter_zone_animation_finished
 
-export var health_capacity = 100
-export var health = 100
+export var health_capacity = 5
+export var health = 5
 export var speed = 200
 
 var is_moving_up = false
@@ -114,11 +114,11 @@ func play_enter_zone_animation():
 	yield($animation, 'animation_finished')
 	$animation.play('waiting')
 	yield($animation, 'animation_finished')
-	position.x += 200
 	emit_signal("play_enter_zone_animation_finished")
 
 func attack(damage):
 	health = clamp(health - damage, 0, health_capacity)
+	$health_bar.set_health(health, health_capacity)
 	if health == 0: 
 		# TODO: end game
 		queue_free()
