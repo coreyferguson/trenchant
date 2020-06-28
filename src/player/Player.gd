@@ -13,6 +13,7 @@ var is_moving_left = false
 var is_interacting = false
 
 var bodies_in_interaction_range = []
+var bodies_in_punch_range = []
 
 func _process(delta):
 	z_index = position.y
@@ -56,6 +57,8 @@ func update_state():
 		is_interacting = false
 		$interact_timer.stop()
 		play_sprite_animation()
+	if Input.is_action_pressed("attack"):
+		_attack_bodies_in_punch_range()
 
 func _unhandled_input(event):
 	update_state()
@@ -119,6 +122,35 @@ func play_enter_zone_animation():
 func attack(damage):
 	health = clamp(health - damage, 0, health_capacity)
 	$health_bar.set_health(health, health_capacity)
-	if health == 0: 
+	if health == 0:
 		# TODO: end game
 		queue_free()
+
+func _on_punch_range_body_entered(body):
+	if body.has_method('attack'):
+		bodies_in_punch_range.push_back(weakref(body))
+
+func _on_punch_range_body_exited(body):
+	var indexes_to_delete = []
+	for i in range(bodies_in_punch_range.size()):
+		if !bodies_in_punch_range[i] || !bodies_in_punch_range[i].get_ref():
+			indexes_to_delete.push_back(i)
+		if bodies_in_punch_range[i].get_ref() == body:
+			indexes_to_delete.push_back(i)
+	indexes_to_delete.invert()
+	for i in range(indexes_to_delete.size()):
+		bodies_in_punch_range.remove(indexes_to_delete[i])
+
+func _attack_bodies_in_punch_range():
+	if $animation.is_playing() && $animation.current_animation == 'punch':
+		return
+	var indexes_to_delete = []
+	for i in range(bodies_in_punch_range.size()):
+		if !bodies_in_punch_range[i].get_ref():
+			indexes_to_delete.push_back(i)
+			continue
+		bodies_in_punch_range[i].get_ref().attack(1)
+	indexes_to_delete.invert()
+	for i in range(indexes_to_delete.size()):
+		bodies_in_punch_range.remove(indexes_to_delete[i])
+	$animation.play("punch")

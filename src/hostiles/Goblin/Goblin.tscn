@@ -15,7 +15,7 @@
 [ext_resource path="res://src/hostiles/Goblin/images/bow_and_arrow/arrow.png" type="Texture" id=13]
 [ext_resource path="res://src/hostiles/Goblin/Goblin.gd" type="Script" id=14]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=1]
 resource_name = "attacking"
 tracks/0/type = "value"
 tracks/0/path = NodePath("bones/body/arm_right/forearm_right/arrow:position")
@@ -474,8 +474,7 @@ tracks/37/keys = {
 "values": [ 1, 0 ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "resting"
+[sub_resource type="Animation" id=2]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("bones/body/thigh_left:position")
@@ -874,8 +873,7 @@ tracks/32/keys = {
 "values": [ 90.2806 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "running"
+[sub_resource type="Animation" id=3]
 length = 0.9
 loop = true
 step = 0.15
@@ -1207,7 +1205,7 @@ tracks/26/keys = {
 [sub_resource type="CircleShape2D" id=4]
 radius = 2500.0
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=5]
 radius = 22.4286
 
 [node name="goblin" type="KinematicBody2D"]
@@ -1218,46 +1216,46 @@ script = ExtResource( 14 )
 [node name="sprites" type="Node2D" parent="."]
 
 [node name="shin_left" type="Sprite" parent="sprites"]
-position = Vector2( -0.41169, -22.4651 )
+position = Vector2( -0.411693, -22.4651 )
 texture = ExtResource( 8 )
 offset = Vector2( 43.1539, -43.9696 )
 
 [node name="thigh_left" type="Sprite" parent="sprites"]
-position = Vector2( -0.435127, -37.4495 )
+position = Vector2( -0.43513, -37.4495 )
 texture = ExtResource( 9 )
 offset = Vector2( 43.1773, -28.9852 )
 
 [node name="foot_left" type="Sprite" parent="sprites"]
-position = Vector2( -3.18513, -4.09796 )
+position = Vector2( -3.18513, -4.0979 )
 texture = ExtResource( 4 )
 offset = Vector2( 45.9273, -62.3368 )
 
 [node name="arm_left" type="Sprite" parent="sprites"]
-position = Vector2( -6.24539, -73.9464 )
+position = Vector2( -6.24539, -73.9463 )
 texture = ExtResource( 2 )
 offset = Vector2( 48.9876, 7.5116 )
 
 [node name="forearm_left" type="Sprite" parent="sprites"]
-position = Vector2( -6.40388, -56.9339 )
+position = Vector2( -6.40387, -56.9338 )
 texture = ExtResource( 5 )
 offset = Vector2( 49.1461, -9.50085 )
 
 [node name="bow" type="Node2D" parent="sprites"]
 
 [node name="bow_grip" type="Sprite" parent="sprites/bow"]
-position = Vector2( -6.66574, -41.504 )
+position = Vector2( -6.66573, -41.5039 )
 rotation = 1.57569
 texture = ExtResource( 12 )
 offset = Vector2( -50.063, 8.98468 )
 
 [node name="bow_half_top" type="Sprite" parent="sprites/bow"]
-position = Vector2( -1.62618, -41.5672 )
-rotation = 1.0521
+position = Vector2( -1.62619, -41.5671 )
+rotation = 1.05209
 texture = ExtResource( 10 )
 offset = Vector2( -49.9752, 14.0239 )
 
 [node name="bow_half_bottom" type="Sprite" parent="sprites/bow"]
-position = Vector2( -11.9441, -41.6425 )
+position = Vector2( -11.944, -41.6424 )
 rotation = 2.09929
 texture = ExtResource( 10 )
 offset = Vector2( -49.9785, 48.8517 )
@@ -1265,20 +1263,18 @@ offset = Vector2( -49.9785, 48.8517 )
 [node name="string_half_top" type="Sprite" parent="sprites/bow"]
 position = Vector2( 27.6989, -58.3656 )
 rotation = 1.57569
-scale = Vector2( 1, 1 )
 texture = ExtResource( 11 )
 offset = Vector2( -48.4893, 44.5642 )
 
 [node name="string_half_bottom" type="Sprite" parent="sprites/bow"]
-position = Vector2( -42.9287, -58.7337 )
+position = Vector2( -42.9288, -58.7334 )
 rotation = 1.57569
-scale = Vector2( 1, 1 )
 texture = ExtResource( 11 )
 offset = Vector2( -48.4952, 9.40692 )
 
 [node name="arrow" type="Sprite" parent="sprites"]
 visible = false
-position = Vector2( -6.21086, -33.7268 )
+position = Vector2( -6.21086, -33.7267 )
 rotation = 1.5708
 texture = ExtResource( 13 )
 offset = Vector2( -44.9791, 9.07245 )
@@ -1294,12 +1290,12 @@ texture = ExtResource( 8 )
 offset = Vector2( 43.1547, -43.9716 )
 
 [node name="thigh_right" type="Sprite" parent="sprites"]
-position = Vector2( -0.43721, -37.4525 )
+position = Vector2( -0.43721, -37.4524 )
 texture = ExtResource( 9 )
 offset = Vector2( 43.1794, -28.9823 )
 
 [node name="foot_right" type="Sprite" parent="sprites"]
-position = Vector2( -3.18513, -4.10577 )
+position = Vector2( -3.18513, -4.10573 )
 texture = ExtResource( 4 )
 offset = Vector2( 45.9273, -62.329 )
 
@@ -1314,18 +1310,18 @@ texture = ExtResource( 6 )
 offset = Vector2( 46.3719, 47.1782 )
 
 [node name="ear" type="Sprite" parent="sprites"]
-position = Vector2( -11.0927, -103.838 )
+position = Vector2( -11.0927, -103.837 )
 texture = ExtResource( 3 )
 offset = Vector2( 53.8349, 37.4028 )
 
 [node name="arm_right" type="Sprite" parent="sprites"]
-position = Vector2( -6.24282, -73.9454 )
+position = Vector2( -6.24282, -73.9453 )
 z_index = 2
 texture = ExtResource( 2 )
 offset = Vector2( 48.985, 7.51062 )
 
 [node name="forearm_right" type="Sprite" parent="sprites"]
-position = Vector2( -6.40031, -56.9365 )
+position = Vector2( -6.40031, -56.9364 )
 z_index = 2
 texture = ExtResource( 5 )
 offset = Vector2( 49.1425, -9.49829 )
@@ -1489,9 +1485,9 @@ __meta__ = {
 }
 
 [node name="animation" type="AnimationPlayer" parent="."]
-anims/attacking = SubResource( 5 )
-anims/resting = SubResource( 1 )
-anims/running = SubResource( 2 )
+anims/attacking = SubResource( 1 )
+anims/resting = SubResource( 2 )
+anims/running = SubResource( 3 )
 
 [node name="state_change_timer" type="Timer" parent="."]
 wait_time = 3.0
@@ -1508,7 +1504,7 @@ shape = SubResource( 4 )
 [node name="collision" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 1.90228, -6.73293 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="animation_attack_delay" type="Timer" parent="."]
 wait_time = 0.4

@@ -1,52 +1,46 @@
 extends Node
 
 signal item_added_to_belt(index)
-signal item_added_to_backpack(index)
+signal item_added_to_backpack(item_name)
 signal item_removed_from_belt(index)
-signal item_removed_from_backpack(index)
+signal item_removed_from_backpack(item_name)
 
 var belt = []
-var backpack = []
+var backpack = {}
 
 func _init():
 	belt.resize(4)
 
 func collect(resources):
-	print(typeof(resources))
-	print(TYPE_ARRAY)
 	if !resources || typeof(resources) != TYPE_ARRAY: return
 	for r in range(resources.size()):
 		collect_single_resource(resources[r])
 
 func collect_single_resource(resource):
 	# add to existing belt item
-	for i in range(belt.size()):
-		if belt[i] && belt[i].name == resource.name:
-			print('combining "' + str(resource.name) + '" to belt slot ' + str(i+1))
-			belt[i].quantity += resource.quantity
-			emit_signal("item_added_to_belt", i)
-			return
+#	for i in range(belt.size()):
+#		if belt[i] && belt[i].name == resource.name:
+#			print('combining "' + str(resource.name) + '" to belt slot ' + str(i+1))
+#			belt[i].quantity += resource.quantity
+#			emit_signal("item_added_to_belt", i)
+#			return
 	# add to existing backpack item
-	for i in range(backpack.size()):
-		if backpack[i] && backpack[i].name == resource.name:
-			print('combining "' + str(resource.name) + '" to backpack slot ' + str(i+1))
-			backpack[i].quantity += resource.quantity
-			emit_signal("item_added_to_backpack", i)
-			return
+	if backpack.has(resource.name):
+		print('combining "' + str(resource.name) + '" to backpack')
+		backpack[resource.name].quantity += resource.quantity
+		emit_signal("item_added_to_backpack", resource.name)
+		return
 	# add new item to belt
-	for i in range(belt.size()):
-		if !belt[i]: 
-			print('adding "' + str(resource.name) + '" to belt slot ' + str(i+1))
-			belt[i] = resource
-			emit_signal("item_added_to_belt", i)
-			return
+#	for i in range(belt.size()):
+#		if !belt[i]: 
+#			print('adding "' + str(resource.name) + '" to belt slot ' + str(i+1))
+#			belt[i] = resource
+#			emit_signal("item_added_to_belt", i)
+#			return
 	# add new backpack item
-	for i in range(backpack.size()):
-		if !backpack[i]:
-			print('adding "' + str(resource.name) + '" to backpack slot ' + str(i+1))
-			backpack[i] = resource
-			emit_signal("item_added_to_backpack", i)
-			return
+	print('adding "' + str(resource.name) + '" to backpack')
+	backpack[resource.name] = resource
+	emit_signal("item_added_to_backpack", resource.name)
 
 func has_resources(resources):
 	for i in range(resources.size()):
@@ -57,9 +51,9 @@ func has_item_quantity(resource):
 	for i in range(belt.size()):
 		if belt[i] && belt[i].name == resource.name && belt[i].quantity >= resource.quantity:
 			return true
-	for i in range(backpack.size()):
-		if backpack[i] && backpack[i].name == resource.name && backpack[i].quantity >= resource.quantity:
-			return true
+	if backpack.has(resource.name) && \
+	   backpack[resource.name].quantity >= resource.quantity:
+		return true
 	return false
 
 func remove(resources):
@@ -72,9 +66,7 @@ func remove_single_resource(resource):
 			belt[i].quantity -= resource.quantity
 			if belt[i].quantity <= 0: belt[i] = null
 			emit_signal("item_removed_from_belt", i)
-	for i in range(backpack.size()):
-		if backpack[i] && backpack[i].name == resource.name:
-			backpack[i].quantity -= resource.quantity
-			if backpack[i].quantity <= 0: backpack[i] = null
-			emit_signal("item_removed_from_backpack", i)
-	
+	if backpack[resource.name]:
+		backpack[resource.name].quantity -= resource.quantity
+		if backpack[resource.name].quantity <= 0: backpack.remove(resource.name)
+		emit_signal("item_removed_from_backpack", resource.name)

@@ -80,3 +80,6 @@ func _find_and_prune_closest_body(bodies, reference_position):
 			closest_distance = distance
 			closest_body = bodies[i].get_ref()
 	return closest_body
+
+func attack(damage):
+	pass
