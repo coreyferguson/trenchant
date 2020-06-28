@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/inventory/BeltView.gd" type="Script" id=1]
+[ext_resource path="res://src/inventory/BeltSlot.tscn" type="PackedScene" id=2]
 
-[node name="belt" type="HBoxContainer"]
+[node name="belt" type="VBoxContainer"]
 margin_left = 57.0
 margin_right = 57.0
 margin_bottom = 87.0
@@ -12,3 +13,43 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="label_container" type="PanelContainer" parent="."]
+margin_right = 299.0
+margin_bottom = 28.0
+
+[node name="label" type="Label" parent="label_container"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 292.0
+margin_bottom = 21.0
+text = "Belt"
+align = 1
+
+[node name="slots" type="HBoxContainer" parent="."]
+margin_top = 32.0
+margin_right = 299.0
+margin_bottom = 119.0
+
+[node name="belt_slot0" parent="slots" instance=ExtResource( 2 )]
+margin_right = 79.0
+margin_bottom = 87.0
+trigger_string = "left click"
+
+[node name="belt_slot1" parent="slots" instance=ExtResource( 2 )]
+margin_left = 83.0
+margin_right = 172.0
+margin_bottom = 87.0
+trigger_string = "right click"
+
+[node name="belt_slot2" parent="slots" instance=ExtResource( 2 )]
+margin_left = 176.0
+margin_right = 226.0
+margin_bottom = 87.0
+trigger_string = "shift"
+
+[node name="belt_slot3" parent="slots" instance=ExtResource( 2 )]
+margin_left = 230.0
+margin_right = 299.0
+margin_bottom = 87.0
+trigger_string = "control"

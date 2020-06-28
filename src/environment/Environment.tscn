@@ -51,9 +51,9 @@ __meta__ = {
 }
 
 [node name="MarginContainer3" type="MarginContainer" parent="HUD/bottom_panel"]
-margin_top = 955.0
+margin_top = 923.0
 margin_right = 1920.0
-margin_bottom = 965.0
+margin_bottom = 933.0
 mouse_filter = 2
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 10
@@ -90,9 +90,9 @@ construction_name = "sheep_farm"
 BuildResource = ExtResource( 13 )
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/bottom_panel"]
-margin_top = 969.0
+margin_top = 937.0
 margin_right = 1920.0
-margin_bottom = 979.0
+margin_bottom = 947.0
 mouse_filter = 2
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 10
@@ -120,7 +120,7 @@ construction_name = ""
 BuildResource = null
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/bottom_panel"]
-margin_top = 983.0
+margin_top = 951.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 2
@@ -130,18 +130,27 @@ custom_constants/margin_bottom = 10
 [node name="bottom" type="HBoxContainer" parent="HUD/bottom_panel/MarginContainer"]
 margin_left = 10.0
 margin_right = 1920.0
-margin_bottom = 87.0
+margin_bottom = 119.0
 mouse_filter = 2
 
 [node name="build" parent="HUD/bottom_panel/MarginContainer/bottom" instance=ExtResource( 6 )]
 margin_right = 53.0
+margin_bottom = 119.0
 mouse_filter = 0
 
 [node name="inventory" parent="HUD/bottom_panel/MarginContainer/bottom" instance=ExtResource( 17 )]
+margin_bottom = 119.0
 
-[node name="belt" parent="HUD/bottom_panel/MarginContainer/bottom" instance=ExtResource( 4 )]
+[node name="CenterContainer" type="CenterContainer" parent="HUD/bottom_panel/MarginContainer/bottom"]
 margin_left = 150.0
-margin_right = 150.0
+margin_right = 1910.0
+margin_bottom = 119.0
+size_flags_horizontal = 3
+
+[node name="belt" parent="HUD/bottom_panel/MarginContainer/bottom/CenterContainer" instance=ExtResource( 4 )]
+margin_left = 774.0
+margin_right = 986.0
+margin_bottom = 119.0
 mouse_filter = 2
 
 [node name="inventory" parent="HUD" instance=ExtResource( 20 )]

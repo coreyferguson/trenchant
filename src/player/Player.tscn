@@ -2478,18 +2478,21 @@ script = ExtResource( 2 )
 [node name="arm_left" type="Sprite" parent="sprites"]
 position = Vector2( -193.737, -21.2927 )
 rotation = -0.280364
+scale = Vector2( 1, 1 )
 texture = ExtResource( 4 )
 offset = Vector2( 3.2714, 13.9773 )
 
 [node name="forearm_left" type="Sprite" parent="sprites"]
 position = Vector2( -190.237, -9.68589 )
-rotation = -1.91453
+rotation = -1.91452
+scale = Vector2( 1, 1 )
 texture = ExtResource( 3 )
 offset = Vector2( 3.11969, 1.85523 )
 
 [node name="hand_left" type="Sprite" parent="sprites"]
 position = Vector2( -180.168, -13.3565 )
-rotation = -1.91453
+rotation = -1.91452
+scale = Vector2( 1, 1 )
 texture = ExtResource( 8 )
 offset = Vector2( 3.05702, -8.86169 )
 
@@ -2508,13 +2511,13 @@ offset = Vector2( 0.276749, -16.1306 )
 [node name="shoe_left" type="Sprite" parent="sprites"]
 position = Vector2( -210.972, 31.7485 )
 rotation = 0.286152
-scale = Vector2( 1, 1 )
 texture = ExtResource( 1 )
 offset = Vector2( 4.15521, -46.5054 )
 
 [node name="shin_right" type="Sprite" parent="sprites"]
 position = Vector2( -187.259, 19.5096 )
 rotation = 1.07917
+scale = Vector2( 1, 1 )
 texture = ExtResource( 7 )
 offset = Vector2( 2.65108, -30.088 )
 
@@ -2526,8 +2529,9 @@ texture = ExtResource( 11 )
 offset = Vector2( 0.276749, -16.1306 )
 
 [node name="shoe_right" type="Sprite" parent="sprites"]
-position = Vector2( -202.001, 25.6759 )
-rotation = 0.68504
+position = Vector2( -202.001, 25.676 )
+rotation = 0.685038
+scale = Vector2( 1, 1 )
 texture = ExtResource( 1 )
 offset = Vector2( 4.15521, -46.5054 )
 
@@ -2547,15 +2551,13 @@ offset = Vector2( 3.2714, 13.9773 )
 
 [node name="forearm_right" type="Sprite" parent="sprites"]
 position = Vector2( -202.142, -14.921 )
-rotation = -0.476672
-scale = Vector2( 1, 1 )
+rotation = -0.476668
 texture = ExtResource( 3 )
 offset = Vector2( 3.11969, 1.85523 )
 
 [node name="hand_right" type="Sprite" parent="sprites"]
-position = Vector2( -197.169, -5.42754 )
-rotation = -0.476672
-scale = Vector2( 1, 1 )
+position = Vector2( -197.169, -5.42752 )
+rotation = -0.476668
 texture = ExtResource( 8 )
 offset = Vector2( 3.05702, -8.86169 )
 
