@@ -1,12 +1,12 @@
 extends Node2D
 
 var Tree = preload("res://src/resources/Tree/Tree.tscn")
-var min_trees_to_spawn = 3
-var max_trees_to_spawn = 10
+var min_trees_to_spawn = 1
+var max_trees_to_spawn = 3
 
 var Rock = preload("res://src/resources/Rock/Rock.tscn")
-var min_rocks_to_spawn = 3
-var max_rocks_to_spawn = 10
+var min_rocks_to_spawn = 1
+var max_rocks_to_spawn = 3
 
 var Sheep = preload("res://src/resources/Sheep/Sheep.tscn")
 

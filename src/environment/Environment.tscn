@@ -148,8 +148,8 @@ margin_bottom = 119.0
 size_flags_horizontal = 3
 
 [node name="belt" parent="HUD/bottom_panel/MarginContainer/bottom/CenterContainer" instance=ExtResource( 4 )]
-margin_left = 774.0
-margin_right = 986.0
+margin_left = 730.0
+margin_right = 1029.0
 margin_bottom = 119.0
 mouse_filter = 2
 

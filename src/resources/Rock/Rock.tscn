@@ -3,9 +3,8 @@
 [ext_resource path="res://src/resources/Rock/Rock.gd" type="Script" id=1]
 [ext_resource path="res://src/resources/Rock/Rock.png" type="Texture" id=2]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 2.86501
-height = 6.59323
+[sub_resource type="CircleShape2D" id=1]
+radius = 14.4468
 
 [node name="rock" type="StaticBody2D"]
 collision_layer = 2
@@ -16,6 +15,7 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.255775, 2.38721 )
+visible = false
+position = Vector2( 3.36766e-06, 6.67572e-06 )
 rotation = 1.5708
 shape = SubResource( 1 )

@@ -19,8 +19,9 @@ func redraw_belt_slots():
 			belt_slot.name = ""
 			belt_slot.icon = null
 		else:
-			belt_slot.name = Inventory.belt[i].name
-			belt_slot.icon = Inventory.belt[i].icon
+			var belt_item_name = Inventory.belt[i].name
+			belt_slot.name = belt_item_name
+			belt_slot.icon = Items.items[belt_item_name].icon
 		
 #	var children = get_children()
 #	for i in range(children.size()): children[i].queue_free()
