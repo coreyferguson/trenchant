@@ -37,6 +37,7 @@ __meta__ = {
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 100, 580 )
+speed = 1000
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
