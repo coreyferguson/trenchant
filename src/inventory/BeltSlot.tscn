@@ -1,17 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/inventory/images/belt_slot.png" type="Texture" id=1]
-[ext_resource path="res://src/ui/dialog.png" type="Texture" id=2]
+[ext_resource path="res://src/ui/panel_container.tres" type="StyleBox" id=2]
 [ext_resource path="res://src/inventory/BeltSlot.gd" type="Script" id=3]
 [ext_resource path="res://src/style/fonts/Font.tres" type="DynamicFont" id=4]
-
-[sub_resource type="StyleBoxTexture" id=1]
-texture = ExtResource( 2 )
-region_rect = Rect2( 0, 0, 50, 50 )
-margin_left = 15.0
-margin_right = 15.0
-margin_top = 15.0
-margin_bottom = 15.0
 
 [node name="belt_slot" type="VBoxContainer"]
 script = ExtResource( 3 )
@@ -39,14 +31,14 @@ __meta__ = {
 [node name="panel" type="PanelContainer" parent="."]
 margin_top = 54.0
 margin_right = 50.0
-margin_bottom = 103.0
-custom_styles/panel = SubResource( 1 )
+margin_bottom = 89.0
+custom_styles/panel = ExtResource( 2 )
 
 [node name="label" type="Label" parent="panel"]
-margin_left = 15.0
-margin_top = 15.0
-margin_right = 35.0
-margin_bottom = 34.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 42.0
+margin_bottom = 27.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1

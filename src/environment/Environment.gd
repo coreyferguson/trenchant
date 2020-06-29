@@ -1,18 +1,18 @@
 extends Node2D
 
-var ExploreContainer = preload("res://src/environment/ExploreContainer.tscn")
-var GoHomeZone = preload("res://src/explore/GoHomeZone.tscn")
+var ExploreView = preload("res://src/explore/ExploreView.tscn")
 
 func _ready():
 	Env.fade_in()
 	yield(Env, 'fade_finished')
 	if Zone.is_home():
 		Level.level += 1
-		$HUD.add_child(ExploreContainer.instance())
+		var explore_view = ExploreView.instance()
 		Env.restore_persisted_nodes()
+		Env.add(explore_view)
 		Hostile.spawn()
 	else:
-		$container.add_child(GoHomeZone.instance())
+#		$container.add_child(GoHomeZone.instance())
 		Zone.spawn()
 	Game.is_input_disabled = true
 	$player.play_enter_zone_animation()

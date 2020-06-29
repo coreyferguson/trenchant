@@ -1,17 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/inventory/BeltView.gd" type="Script" id=1]
 [ext_resource path="res://src/inventory/BeltSlot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/style/fonts/Font.tres" type="DynamicFont" id=3]
-[ext_resource path="res://src/ui/dialog.png" type="Texture" id=4]
-
-[sub_resource type="StyleBoxTexture" id=1]
-texture = ExtResource( 4 )
-region_rect = Rect2( 0, 0, 50, 50 )
-margin_left = 15.0
-margin_right = 15.0
-margin_top = 15.0
-margin_bottom = 15.0
+[ext_resource path="res://src/ui/panel_container.tres" type="StyleBox" id=4]
 
 [node name="belt" type="VBoxContainer"]
 margin_left = 57.0
@@ -25,15 +17,15 @@ __meta__ = {
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-margin_right = 299.0
-margin_bottom = 49.0
-custom_styles/panel = SubResource( 1 )
+margin_right = 307.0
+margin_bottom = 35.0
+custom_styles/panel = ExtResource( 4 )
 
 [node name="label" type="Label" parent="PanelContainer"]
-margin_left = 15.0
-margin_top = 15.0
-margin_right = 284.0
-margin_bottom = 34.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 299.0
+margin_bottom = 27.0
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Belt"
@@ -41,29 +33,29 @@ align = 1
 valign = 1
 
 [node name="slots" type="HBoxContainer" parent="."]
-margin_top = 53.0
-margin_right = 299.0
-margin_bottom = 140.0
+margin_top = 39.0
+margin_right = 307.0
+margin_bottom = 128.0
 
 [node name="belt_slot0" parent="slots" instance=ExtResource( 2 )]
-margin_right = 79.0
-margin_bottom = 87.0
+margin_right = 81.0
+margin_bottom = 89.0
 trigger_string = "left click"
 
 [node name="belt_slot1" parent="slots" instance=ExtResource( 2 )]
-margin_left = 83.0
-margin_right = 172.0
-margin_bottom = 87.0
+margin_left = 85.0
+margin_right = 176.0
+margin_bottom = 89.0
 trigger_string = "right click"
 
 [node name="belt_slot2" parent="slots" instance=ExtResource( 2 )]
-margin_left = 176.0
-margin_right = 226.0
-margin_bottom = 87.0
+margin_left = 180.0
+margin_right = 232.0
+margin_bottom = 89.0
 trigger_string = "shift"
 
 [node name="belt_slot3" parent="slots" instance=ExtResource( 2 )]
-margin_left = 230.0
-margin_right = 299.0
-margin_bottom = 87.0
+margin_left = 236.0
+margin_right = 307.0
+margin_bottom = 89.0
 trigger_string = "control"

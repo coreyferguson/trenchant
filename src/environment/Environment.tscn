@@ -51,9 +51,9 @@ __meta__ = {
 }
 
 [node name="MarginContainer3" type="MarginContainer" parent="HUD/bottom_panel"]
-margin_top = 886.0
+margin_top = 914.0
 margin_right = 1920.0
-margin_bottom = 896.0
+margin_bottom = 924.0
 mouse_filter = 2
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 10
@@ -90,9 +90,9 @@ construction_name = "sheep_farm"
 BuildResource = ExtResource( 13 )
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/bottom_panel"]
-margin_top = 900.0
+margin_top = 928.0
 margin_right = 1920.0
-margin_bottom = 910.0
+margin_bottom = 938.0
 mouse_filter = 2
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 10
@@ -101,7 +101,7 @@ custom_constants/margin_bottom = 10
 visible = false
 margin_left = 10.0
 margin_right = 1920.0
-margin_bottom = 68.0
+margin_bottom = 70.0
 mouse_filter = 2
 script = ExtResource( 8 )
 
@@ -116,7 +116,7 @@ label = "Defense"
 icon = ExtResource( 3 )
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/bottom_panel"]
-margin_top = 914.0
+margin_top = 942.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 2
@@ -126,29 +126,29 @@ custom_constants/margin_bottom = 10
 [node name="bottom" type="HBoxContainer" parent="HUD/bottom_panel/MarginContainer"]
 margin_left = 10.0
 margin_right = 1920.0
-margin_bottom = 156.0
+margin_bottom = 128.0
 mouse_filter = 2
 
 [node name="build" parent="HUD/bottom_panel/MarginContainer/bottom" instance=ExtResource( 6 )]
-margin_right = 69.0
-margin_bottom = 156.0
+margin_right = 55.0
+margin_bottom = 128.0
 mouse_filter = 0
 
 [node name="inventory" parent="HUD/bottom_panel/MarginContainer/bottom" instance=ExtResource( 17 )]
-margin_left = 73.0
-margin_right = 178.0
-margin_bottom = 156.0
+margin_left = 59.0
+margin_right = 150.0
+margin_bottom = 128.0
 
 [node name="CenterContainer" type="CenterContainer" parent="HUD/bottom_panel/MarginContainer/bottom"]
-margin_left = 182.0
+margin_left = 154.0
 margin_right = 1910.0
-margin_bottom = 156.0
+margin_bottom = 128.0
 size_flags_horizontal = 3
 
 [node name="belt" parent="HUD/bottom_panel/MarginContainer/bottom/CenterContainer" instance=ExtResource( 4 )]
-margin_left = 682.0
-margin_right = 1045.0
-margin_bottom = 156.0
+margin_left = 724.0
+margin_right = 1031.0
+margin_bottom = 128.0
 mouse_filter = 2
 
 [node name="inventory" parent="HUD" instance=ExtResource( 20 )]
@@ -164,9 +164,6 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
-fade_color = Color( 0, 0, 0, 0 )
-fade_out_alpha = 1.0
-fade_in_alpha = 0.0
 
 [node name="tween" type="Tween" parent="fade"]
 [connection signal="pressed" from="HUD/bottom_panel/MarginContainer2/build_categories/light" to="HUD/bottom_panel/MarginContainer3/build_category_slots" method="_on_selected_build_category_light"]

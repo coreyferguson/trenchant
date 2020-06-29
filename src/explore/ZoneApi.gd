@@ -51,6 +51,7 @@ func go_to_available_zone(index):
 
 func go_home():
 	current_zone = HOME
+	generate_new_zones()
 	Game.change_scene('environment')
 
 func spawn():
