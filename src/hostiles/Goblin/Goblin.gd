@@ -4,6 +4,8 @@ onready var Arrow = preload("./Arrow.tscn")
 
 export var speed = 100
 export var arrow_speed = 500
+export var health = 5
+export var health_capacity = 5
 
 enum STATES { SHOOTING, RUNNING }
 var current_state = STATES.RUNNING
@@ -82,4 +84,6 @@ func _find_and_prune_closest_body(bodies, reference_position):
 	return closest_body
 
 func attack(damage):
-	pass
+	health = clamp(health - damage, 0, health_capacity)
+	$health_bar.set_health(health, health_capacity)
+	if health == 0: queue_free()

@@ -7,7 +7,11 @@ var items = {
 	'wood': { 'icon': preload("./Wood/Wood.png") },
 	'fist': {
 		'icon': preload("./Fist/Fist.png"),
-		'useable': preload("res://src/items/Fist/UseFist.tscn")
+		'useable': {
+			'scene': preload("res://src/items/Fist/UseFist.tscn"),
+			'scene_instance_delay_in_seconds': 0.4,
+			'use_again_delay_in_seconds': 1,
+		}
 	},
 }
 

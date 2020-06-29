@@ -1,11 +1,14 @@
 extends StaticBody2D
 
 var quantity
+var health = 2
 
 func _ready():
 	randomize()
 	quantity = randi()%2+1
 
 func interact(interactor):
-	queue_free()
-	return [ { 'name': 'rock', 'quantity': quantity } ]
+	health -= 1
+	if health == 0:
+		queue_free()
+		return [ { 'name': 'rock', 'quantity': quantity } ]
