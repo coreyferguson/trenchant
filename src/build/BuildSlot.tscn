@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/build/build_slot.png" type="Texture" id=1]
+[ext_resource path="res://src/ui/panel_container.tres" type="StyleBox" id=2]
 [ext_resource path="res://src/style/fonts/Font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://src/build/BuildSlot.gd" type="Script" id=4]
 
@@ -33,12 +34,14 @@ __meta__ = {
 [node name="panel" type="PanelContainer" parent="."]
 margin_top = 54.0
 margin_right = 71.0
-margin_bottom = 87.0
+margin_bottom = 103.0
+custom_styles/panel = ExtResource( 2 )
 
 [node name="label" type="Label" parent="panel"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 64.0
-margin_bottom = 26.0
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 56.0
+margin_bottom = 34.0
 custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 [connection signal="pressed" from="container/button" to="." method="_on_button_pressed"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/style/fonts/Font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://src/inventory/InventorySlot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/ui/panel_container.tres" type="StyleBox" id=3]
 [ext_resource path="res://src/inventory/InventoryView.gd" type="Script" id=4]
 
 [node name="inventory" type="GridContainer"]
@@ -21,25 +22,27 @@ __meta__ = {
 
 [node name="vbox" type="VBoxContainer" parent="."]
 margin_right = 536.0
-margin_bottom = 488.0
+margin_bottom = 504.0
 
 [node name="label_container" type="PanelContainer" parent="vbox"]
 margin_right = 536.0
-margin_bottom = 33.0
+margin_bottom = 49.0
+custom_styles/panel = ExtResource( 3 )
 
 [node name="label" type="Label" parent="vbox/label_container"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 529.0
-margin_bottom = 26.0
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 521.0
+margin_bottom = 34.0
 custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Inventory"
 align = 1
 
 [node name="slots" type="GridContainer" parent="vbox"]
-margin_top = 37.0
+margin_top = 53.0
 margin_right = 536.0
-margin_bottom = 488.0
+margin_bottom = 504.0
 grow_horizontal = 0
 grow_vertical = 0
 columns = 10

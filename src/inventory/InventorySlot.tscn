@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/style/fonts/Font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://src/inventory/images/backpack_slot.png" type="Texture" id=2]
 [ext_resource path="res://src/style/fonts/Nobile-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://src/ui/panel_container.tres" type="StyleBox" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 14
@@ -34,17 +35,19 @@ __meta__ = {
 [node name="label_container" type="PanelContainer" parent="."]
 margin_top = 54.0
 margin_right = 50.0
-margin_bottom = 87.0
+margin_bottom = 103.0
+custom_styles/panel = ExtResource( 4 )
 
 [node name="hbox" type="HBoxContainer" parent="label_container"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 43.0
-margin_bottom = 26.0
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 35.0
+margin_bottom = 34.0
 
 [node name="label" type="Label" parent="label_container/hbox"]
 margin_bottom = 19.0
 custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 
 [node name="quantity" type="Label" parent="label_container/hbox"]
 margin_left = 4.0
@@ -52,3 +55,4 @@ margin_top = 1.0
 margin_right = 4.0
 margin_bottom = 17.0
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
