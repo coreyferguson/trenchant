@@ -4,9 +4,7 @@ extends Control
 signal finished
 
 export(Color) var fade_color = Color(0, 0, 0, 0)
-
-# test test
-export(float) var fade_out_alpha = 1.0 # beep boop
+export(float) var fade_out_alpha = 1.0
 export(float) var fade_in_alpha = 0.0
 
 var current_color : Color

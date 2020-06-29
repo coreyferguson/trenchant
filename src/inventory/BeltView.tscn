@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/inventory/BeltView.gd" type="Script" id=1]
 [ext_resource path="res://src/inventory/BeltSlot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/style/fonts/Font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://src/ui/panel_container.tres" type="StyleBox" id=4]
+[ext_resource path="res://src/ui/panel_container_background.tres" type="StyleBox" id=5]
 
 [node name="belt" type="VBoxContainer"]
 margin_left = 57.0
@@ -16,15 +17,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-margin_right = 307.0
+[node name="bg" type="PanelContainer" parent="."]
+margin_right = 347.0
+margin_bottom = 150.0
+custom_styles/panel = ExtResource( 5 )
+
+[node name="MarginContainer" type="MarginContainer" parent="bg"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 341.0
+margin_bottom = 144.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="vbox" type="VBoxContainer" parent="bg/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 330.0
+margin_bottom = 133.0
+
+[node name="container" type="PanelContainer" parent="bg/MarginContainer/vbox"]
+margin_right = 325.0
 margin_bottom = 35.0
 custom_styles/panel = ExtResource( 4 )
 
-[node name="label" type="Label" parent="PanelContainer"]
+[node name="label" type="Label" parent="bg/MarginContainer/vbox/container"]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 299.0
+margin_right = 317.0
 margin_bottom = 27.0
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -32,30 +54,31 @@ text = "Belt"
 align = 1
 valign = 1
 
-[node name="slots" type="HBoxContainer" parent="."]
+[node name="slots" type="HBoxContainer" parent="bg/MarginContainer/vbox"]
 margin_top = 39.0
-margin_right = 307.0
+margin_right = 325.0
 margin_bottom = 128.0
+custom_constants/separation = 10
 
-[node name="belt_slot0" parent="slots" instance=ExtResource( 2 )]
+[node name="belt_slot0" parent="bg/MarginContainer/vbox/slots" instance=ExtResource( 2 )]
 margin_right = 81.0
 margin_bottom = 89.0
 trigger_string = "left click"
 
-[node name="belt_slot1" parent="slots" instance=ExtResource( 2 )]
-margin_left = 85.0
-margin_right = 176.0
+[node name="belt_slot1" parent="bg/MarginContainer/vbox/slots" instance=ExtResource( 2 )]
+margin_left = 91.0
+margin_right = 182.0
 margin_bottom = 89.0
 trigger_string = "right click"
 
-[node name="belt_slot2" parent="slots" instance=ExtResource( 2 )]
-margin_left = 180.0
-margin_right = 232.0
+[node name="belt_slot2" parent="bg/MarginContainer/vbox/slots" instance=ExtResource( 2 )]
+margin_left = 192.0
+margin_right = 244.0
 margin_bottom = 89.0
 trigger_string = "shift"
 
-[node name="belt_slot3" parent="slots" instance=ExtResource( 2 )]
-margin_left = 236.0
-margin_right = 307.0
+[node name="belt_slot3" parent="bg/MarginContainer/vbox/slots" instance=ExtResource( 2 )]
+margin_left = 254.0
+margin_right = 325.0
 margin_bottom = 89.0
 trigger_string = "control"

@@ -34,7 +34,7 @@ func get_player():
 
 func fade_out():
 	Game.is_input_disabled = true
-	var fade = get_node('/root/environment/fade')
+	var fade = get_node('/root/environment/HUD/fade')
 	fade.fade_out()
 	yield(fade, 'finished')
 	Game.is_input_disabled = false
@@ -42,7 +42,7 @@ func fade_out():
 
 func fade_in():
 	Game.is_input_disabled = true
-	var fade = get_node('/root/environment/fade')
+	var fade = get_node('/root/environment/HUD/fade')
 	fade.fade_in()
 	yield(fade, 'finished')
 	Game.is_input_disabled = false

@@ -14,7 +14,7 @@ func _on_inventory_item_removed_from_belt(index):
 func redraw_belt_slots():
 	var children = get_children()
 	for i in range(children.size()):
-		var belt_slot = get_node('slots/belt_slot' + str(i))
+		var belt_slot = get_node('bg/MarginContainer/vbox/slots/belt_slot' + str(i))
 		if Inventory.belt[i] == null:
 			belt_slot.name = ""
 			belt_slot.icon = null

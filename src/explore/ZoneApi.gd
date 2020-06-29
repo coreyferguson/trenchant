@@ -38,8 +38,6 @@ func go_to_available_zone(index):
 	Game.is_input_disabled = true
 	current_zone = zones_to_explore[index].name
 	zones_to_explore[index] = null
-	Env.fade_out()
-	yield(Env, 'fade_finished')
 	Game.change_scene('environment')
 
 func has_more_zones():

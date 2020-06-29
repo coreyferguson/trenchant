@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://src/environment/grassland.png" type="Texture" id=1]
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=2]
@@ -15,7 +15,10 @@
 [ext_resource path="res://src/build/categories/defense/SheepFarm/BuildSheepFarm.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/environment/Fade.gd" type="Script" id=14]
 [ext_resource path="res://src/environment/Environment.gd" type="Script" id=15]
+[ext_resource path="res://src/ui/LevelView/LevelView.tscn" type="PackedScene" id=16]
 [ext_resource path="res://src/inventory/InventoryButton.tscn" type="PackedScene" id=17]
+[ext_resource path="res://src/ui/panel_container_background.tres" type="StyleBox" id=18]
+[ext_resource path="res://src/hostiles/Goblin/Goblin.tscn" type="PackedScene" id=19]
 [ext_resource path="res://src/inventory/InventoryView.tscn" type="PackedScene" id=20]
 
 [node name="environment" type="Node2D"]
@@ -35,9 +38,11 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="goblin" parent="container" instance=ExtResource( 19 )]
+position = Vector2( 508.542, 529.732 )
+
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 100, 580 )
-speed = 1000
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -52,9 +57,9 @@ __meta__ = {
 }
 
 [node name="MarginContainer3" type="MarginContainer" parent="HUD/bottom_panel"]
-margin_top = 914.0
+margin_top = 892.0
 margin_right = 1920.0
-margin_bottom = 924.0
+margin_bottom = 902.0
 mouse_filter = 2
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 10
@@ -91,9 +96,9 @@ construction_name = "sheep_farm"
 BuildResource = ExtResource( 13 )
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/bottom_panel"]
-margin_top = 928.0
+margin_top = 906.0
 margin_right = 1920.0
-margin_bottom = 938.0
+margin_bottom = 916.0
 mouse_filter = 2
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 10
@@ -111,13 +116,17 @@ margin_right = 54.0
 mouse_filter = 0
 label = "Light"
 icon = ExtResource( 9 )
+construction_name = ""
+BuildResource = null
 
 [node name="defense" parent="HUD/bottom_panel/MarginContainer2/build_categories" instance=ExtResource( 7 )]
 label = "Defense"
 icon = ExtResource( 3 )
+construction_name = ""
+BuildResource = null
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/bottom_panel"]
-margin_top = 942.0
+margin_top = 920.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 2
@@ -127,35 +136,62 @@ custom_constants/margin_bottom = 10
 [node name="bottom" type="HBoxContainer" parent="HUD/bottom_panel/MarginContainer"]
 margin_left = 10.0
 margin_right = 1920.0
-margin_bottom = 128.0
+margin_bottom = 150.0
 mouse_filter = 2
+alignment = 2
 
-[node name="build" parent="HUD/bottom_panel/MarginContainer/bottom" instance=ExtResource( 6 )]
+[node name="panel" type="PanelContainer" parent="HUD/bottom_panel/MarginContainer/bottom"]
+margin_top = 39.0
+margin_right = 178.0
+margin_bottom = 150.0
+size_flags_vertical = 8
+custom_styles/panel = ExtResource( 18 )
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/bottom_panel/MarginContainer/bottom/panel"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 172.0
+margin_bottom = 105.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="hbox" type="HBoxContainer" parent="HUD/bottom_panel/MarginContainer/bottom/panel/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 161.0
+margin_bottom = 94.0
+custom_constants/separation = 10
+
+[node name="build" parent="HUD/bottom_panel/MarginContainer/bottom/panel/MarginContainer/hbox" instance=ExtResource( 6 )]
 margin_right = 55.0
-margin_bottom = 128.0
+margin_bottom = 89.0
 mouse_filter = 0
 
-[node name="inventory" parent="HUD/bottom_panel/MarginContainer/bottom" instance=ExtResource( 17 )]
-margin_left = 59.0
-margin_right = 150.0
-margin_bottom = 128.0
+[node name="inventory" parent="HUD/bottom_panel/MarginContainer/bottom/panel/MarginContainer/hbox" instance=ExtResource( 17 )]
+margin_left = 65.0
+margin_right = 156.0
+margin_bottom = 89.0
 
 [node name="CenterContainer" type="CenterContainer" parent="HUD/bottom_panel/MarginContainer/bottom"]
-margin_left = 154.0
+margin_left = 182.0
 margin_right = 1910.0
-margin_bottom = 128.0
+margin_bottom = 150.0
 size_flags_horizontal = 3
 
 [node name="belt" parent="HUD/bottom_panel/MarginContainer/bottom/CenterContainer" instance=ExtResource( 4 )]
-margin_left = 724.0
-margin_right = 1031.0
-margin_bottom = 128.0
+margin_left = 690.0
+margin_right = 1037.0
+margin_bottom = 150.0
 mouse_filter = 2
 
 [node name="inventory" parent="HUD" instance=ExtResource( 20 )]
 visible = false
 
-[node name="fade" type="Control" parent="."]
+[node name="level_view" parent="HUD" instance=ExtResource( 16 )]
+
+[node name="fade" type="Control" parent="HUD"]
 visible = false
 margin_right = 1920.0
 margin_bottom = 1080.0
@@ -165,9 +201,10 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+fade_color = Color( 0, 0, 0, 1 )
 
-[node name="tween" type="Tween" parent="fade"]
+[node name="tween" type="Tween" parent="HUD/fade"]
 [connection signal="pressed" from="HUD/bottom_panel/MarginContainer2/build_categories/light" to="HUD/bottom_panel/MarginContainer3/build_category_slots" method="_on_selected_build_category_light"]
 [connection signal="pressed" from="HUD/bottom_panel/MarginContainer2/build_categories/defense" to="HUD/bottom_panel/MarginContainer3/build_category_slots" method="_on_selected_build_category_defense"]
-[connection signal="show_build_menu" from="HUD/bottom_panel/MarginContainer/bottom/build" to="HUD/bottom_panel/MarginContainer2/build_categories" method="_on_build_show_build_menu"]
-[connection signal="pressed" from="HUD/bottom_panel/MarginContainer/bottom/inventory" to="HUD/inventory" method="toggle_visibility"]
+[connection signal="show_build_menu" from="HUD/bottom_panel/MarginContainer/bottom/panel/MarginContainer/hbox/build" to="HUD/bottom_panel/MarginContainer2/build_categories" method="_on_build_show_build_menu"]
+[connection signal="pressed" from="HUD/bottom_panel/MarginContainer/bottom/panel/MarginContainer/hbox/inventory" to="HUD/inventory" method="toggle_visibility"]

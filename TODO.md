@@ -1,3 +1,4 @@
+- Bug: space+click = infinite looting
 - Belt with 4 slots
   - Key-mappings for each slot
 - Inventory with 50 slots
