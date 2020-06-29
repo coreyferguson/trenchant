@@ -5,13 +5,11 @@ signal item_added_to_backpack(item_name)
 signal item_removed_from_belt(index)
 signal item_removed_from_backpack(item_name)
 
-var belt = [{ 'name': 'fist' }]
-var backpack = {
-	'fist': { 'name': 'fist', 'quantity': 1 }
-}
+var belt = []
+var backpack = {}
 
 func _init():
-	belt.resize(4)
+	reset_state()
 
 func collect(resources):
 	if !resources || typeof(resources) != TYPE_ARRAY: return
@@ -50,3 +48,10 @@ func remove_single_resource(resource):
 		backpack[resource.name].quantity -= resource.quantity
 		if backpack[resource.name].quantity <= 0: backpack.remove(resource.name)
 		emit_signal("item_removed_from_backpack", resource.name)
+
+func reset_state():
+	belt = [{ 'name': 'fist' }]
+	belt.resize(4)
+	backpack = {
+		'fist': { 'name': 'fist', 'quantity': 1 }
+	}

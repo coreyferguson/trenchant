@@ -36,8 +36,8 @@ func attack(damage):
 	Player.health = clamp(Player.health - damage, 0, Player.health_capacity)
 	$health_bar.set_health(Player.health, Player.health_capacity)
 	if Player.health == 0:
-		# TODO: end game
 		queue_free()
+		Game.change_scene('game_over')
 
 func play_enter_zone_animation():
 	$animation.play("enter_zone_animation")

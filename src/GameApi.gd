@@ -3,7 +3,9 @@ extends Node
 signal fade_out_screen_finished
 
 var scenes = {
-	'environment': 'res://src/environment/Environment.tscn'
+	'environment': 'res://src/environment/Environment.tscn',
+	'game_over': 'res://src/ui/menus/MainMenu/GameOver.tscn',
+	'main_menu': 'res://src/ui/menus/MainMenu/MainMenu.tscn',
 }
 
 var is_input_disabled = false
@@ -37,3 +39,9 @@ func get_random_circumference_position(from_position, radius):
 	var rand_y = (randi()%radiusX2) + 1 - radius
 	var v = Vector2(rand_x, rand_y).normalized() * radius
 	return from_position + v
+
+func reset_state():
+	Inventory.reset_state()
+	Level.reset_state()
+	Player.reset_state()
+	Zone.reset_state()

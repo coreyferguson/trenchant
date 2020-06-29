@@ -15,7 +15,12 @@ var HOME = 'home'
 var current_zone = HOME
 
 func _ready():
+	reset_state()
+
+func reset_state():
+	zones_to_explore = []
 	zones_to_explore.resize(4)
+	current_zone = HOME
 	generate_new_zones()
 
 func generate_new_zones():

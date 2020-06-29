@@ -33,6 +33,7 @@ func spawn_rocks():
 		Env.add(rock)
 
 func spawn_sheep():
-	var sheep = Sheep.instance()
-	sheep.global_position = Game.get_random_spawn_position()
-	Env.add(sheep)
+	if randi()%5 == 0:
+		var sheep = Sheep.instance()
+		sheep.global_position = Game.get_random_spawn_position()
+		Env.add(sheep)

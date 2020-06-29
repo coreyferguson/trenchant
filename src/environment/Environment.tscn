@@ -174,7 +174,7 @@ fade_in_alpha = 0.0
 [node name="tween" type="Tween" parent="fade"]
 
 [node name="goblin" parent="." instance=ExtResource( 16 )]
-position = Vector2( 552.251, 639.803 )
+position = Vector2( 347.896, 599.627 )
 [connection signal="pressed" from="HUD/bottom_panel/MarginContainer2/build_categories/light" to="HUD/bottom_panel/MarginContainer3/build_category_slots" method="_on_selected_build_category_light"]
 [connection signal="pressed" from="HUD/bottom_panel/MarginContainer2/build_categories/defense" to="HUD/bottom_panel/MarginContainer3/build_category_slots" method="_on_selected_build_category_defense"]
 [connection signal="show_build_menu" from="HUD/bottom_panel/MarginContainer/bottom/build" to="HUD/bottom_panel/MarginContainer2/build_categories" method="_on_build_show_build_menu"]
