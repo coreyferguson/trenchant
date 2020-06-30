@@ -7,6 +7,7 @@ export(int) var quantity setget set_quantity
 var is_mouse_over_slot = false
 
 func _input(event):
+	if !label: return
 	if !is_mouse_over_slot: return
 	if !Items.items[label].has('useable'): return
 	if Input.is_action_just_pressed("use_1"):

@@ -107,6 +107,7 @@ margin_bottom = 89.0
 label = "Bow"
 icon = ExtResource( 21 )
 construction_name = "bow"
+BuildResource = null
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/bottom_panel"]
 margin_top = 906.0
@@ -130,6 +131,8 @@ margin_bottom = 89.0
 mouse_filter = 0
 label = "Light"
 icon = ExtResource( 9 )
+construction_name = ""
+BuildResource = null
 
 [node name="defense" parent="HUD/bottom_panel/MarginContainer2/build_categories" instance=ExtResource( 7 )]
 margin_left = 60.0
@@ -137,6 +140,8 @@ margin_right = 140.0
 margin_bottom = 89.0
 label = "Defense"
 icon = ExtResource( 3 )
+construction_name = ""
+BuildResource = null
 
 [node name="weapon" parent="HUD/bottom_panel/MarginContainer2/build_categories" instance=ExtResource( 7 )]
 margin_left = 144.0
@@ -144,6 +149,8 @@ margin_right = 224.0
 margin_bottom = 89.0
 label = "Weapon"
 icon = ExtResource( 19 )
+construction_name = ""
+BuildResource = null
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/bottom_panel"]
 margin_top = 920.0
@@ -231,6 +238,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 fade_color = Color( 0, 0, 0, 1 )
+fade_out_alpha = 1.0
+fade_in_alpha = 0.0
 
 [node name="tween" type="Tween" parent="HUD/fade"]
 [connection signal="pressed" from="HUD/bottom_panel/MarginContainer2/build_categories/light" to="HUD/bottom_panel/MarginContainer3/build_category_slots" method="_on_selected_build_category_light"]

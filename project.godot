@@ -36,6 +36,7 @@ Hostile="*res://src/hostiles/HostileApi.gd"
 
 window/size/width=1920
 window/size/height=1080
+window/size/fullscreen=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
@@ -106,6 +107,7 @@ use_4={
 2d_physics/layer_5="construction"
 2d_physics/layer_6="hostile_projectile"
 2d_physics/layer_7="player_hitbox"
+2d_physics/layer_8="hostile_hitbox"
 
 [rendering]
 

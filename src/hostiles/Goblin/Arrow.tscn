@@ -8,7 +8,7 @@ radius = 4.05762
 height = 56.1968
 
 [node name="arrow" type="KinematicBody2D"]
-collision_layer = 32
+collision_layer = 0
 collision_mask = 64
 script = ExtResource( 2 )
 

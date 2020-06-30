@@ -4,7 +4,9 @@ var items = {
 	'bow': {
 		'icon': preload("res://src/build/categories/weapon/bow_icon.png"),
 		'useable': {
-			# TODO: Update bow useable
+			'scene': preload("res://src/items/Bow/UseBow.tscn"),
+			'scene_instance_delay_in_seconds': 0.6,
+			'use_again_delay_in_seconds': 3,
 		}
 	},
 	'fist': {
