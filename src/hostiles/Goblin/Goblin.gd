@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal killed
+
 onready var Arrow = preload("./Arrow.tscn")
 
 export var speed = 100

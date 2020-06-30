@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://src/environment/grassland.png" type="Texture" id=1]
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=2]
@@ -18,7 +18,6 @@
 [ext_resource path="res://src/ui/LevelView/LevelView.tscn" type="PackedScene" id=16]
 [ext_resource path="res://src/inventory/InventoryButton.tscn" type="PackedScene" id=17]
 [ext_resource path="res://src/ui/panel_container_background.tres" type="StyleBox" id=18]
-[ext_resource path="res://src/hostiles/Goblin/Goblin.tscn" type="PackedScene" id=19]
 [ext_resource path="res://src/inventory/InventoryView.tscn" type="PackedScene" id=20]
 
 [node name="environment" type="Node2D"]
@@ -37,9 +36,6 @@ __meta__ = {
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="goblin" parent="container" instance=ExtResource( 19 )]
-position = Vector2( 508.542, 529.732 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 100, 580 )
@@ -179,6 +175,7 @@ margin_left = 182.0
 margin_right = 1910.0
 margin_bottom = 150.0
 size_flags_horizontal = 3
+size_flags_vertical = 8
 
 [node name="belt" parent="HUD/bottom_panel/MarginContainer/bottom/CenterContainer" instance=ExtResource( 4 )]
 margin_left = 690.0
@@ -186,8 +183,16 @@ margin_right = 1037.0
 margin_bottom = 150.0
 mouse_filter = 2
 
-[node name="inventory" parent="HUD" instance=ExtResource( 20 )]
+[node name="inventory" parent="HUD/bottom_panel/MarginContainer/bottom" instance=ExtResource( 20 )]
 visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1278.0
+margin_top = 0.0
+margin_right = 1910.0
+margin_bottom = 566.0
 
 [node name="level_view" parent="HUD" instance=ExtResource( 16 )]
 
@@ -207,4 +212,4 @@ fade_color = Color( 0, 0, 0, 1 )
 [connection signal="pressed" from="HUD/bottom_panel/MarginContainer2/build_categories/light" to="HUD/bottom_panel/MarginContainer3/build_category_slots" method="_on_selected_build_category_light"]
 [connection signal="pressed" from="HUD/bottom_panel/MarginContainer2/build_categories/defense" to="HUD/bottom_panel/MarginContainer3/build_category_slots" method="_on_selected_build_category_defense"]
 [connection signal="show_build_menu" from="HUD/bottom_panel/MarginContainer/bottom/panel/MarginContainer/hbox/build" to="HUD/bottom_panel/MarginContainer2/build_categories" method="_on_build_show_build_menu"]
-[connection signal="pressed" from="HUD/bottom_panel/MarginContainer/bottom/panel/MarginContainer/hbox/inventory" to="HUD/inventory" method="toggle_visibility"]
+[connection signal="pressed" from="HUD/bottom_panel/MarginContainer/bottom/panel/MarginContainer/hbox/inventory" to="HUD/bottom_panel/MarginContainer/bottom/inventory" method="toggle_visibility"]

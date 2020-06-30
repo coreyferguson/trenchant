@@ -3,10 +3,12 @@ extends Node2D
 export(Resource) var home_icon
 
 func _ready():
-	_redraw_zones()
 	Zone.connect("zones_to_explore_changed", self, "_redraw_zones")
+	Hostile.connect("hostiles_neutralized", self, "_redraw_zones")
 
 func _redraw_zones():
+	print(str(Hostile.are_hostiles_neutralized))
+	if !Hostile.are_hostiles_neutralized: return
 	for i in range(get_children().size()): 
 		get_children()[i].disconnect("trigger", self, "_on_area_trigger")
 	$home.disconnect("trigger", self, '_on_home_trigger')

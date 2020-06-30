@@ -1,5 +1,9 @@
 extends Node
 
+signal hostiles_neutralized
+
+var are_hostiles_neutralized = false
+
 var camps = {
 	'Goblins': {
 		'name': 'Goblins',
@@ -21,10 +25,16 @@ func spawn():
 	var groups
 	if Zone.current_zone != Zone.HOME: groups = get_camps_in_level()
 	else: groups = get_raids_in_level()
+	are_hostiles_neutralized = false
 	if groups.size() > 0:
 		var rand_index = randi() % groups.size()
-		var rand_group_scene = groups[rand_index].scene
-		Env.add(rand_group_scene.instance())
+		var Scene = groups[rand_index].scene
+		var scene = Scene.instance()
+		Env.add(scene)
+		if scene.has_signal('hostiles_neutralized'):
+			yield(scene, 'hostiles_neutralized')
+	are_hostiles_neutralized = true
+	emit_signal('hostiles_neutralized')
 
 func get_camps_in_level():
 	var camps_in_level = []
