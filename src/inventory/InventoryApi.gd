@@ -19,12 +19,10 @@ func collect(resources):
 func collect_single_resource(resource):
 	# add to existing backpack item
 	if backpack.has(resource.name):
-		print('combining "' + str(resource.name) + '" to backpack')
 		backpack[resource.name].quantity += resource.quantity
 		emit_signal("item_added_to_backpack", resource.name)
 		return
 	# add new backpack item
-	print('adding "' + str(resource.name) + '" to backpack')
 	backpack[resource.name] = resource
 	emit_signal("item_added_to_backpack", resource.name)
 
@@ -53,5 +51,10 @@ func reset_state():
 	belt = [{ 'name': 'fist' }]
 	belt.resize(4)
 	backpack = {
-		'fist': { 'name': 'fist', 'quantity': 1 }
+		'fist': { 'name': 'fist', 'quantity': 1 },
+		'bow': { 'name': 'bow', 'quantity': 1 },
 	}
+
+func set_belt_slot(index, item):
+	belt[index] = item
+	emit_signal("item_added_to_belt", index)

@@ -30,7 +30,24 @@ func _physics_process(delta):
 	_move()
 
 func _unhandled_input(event):
-	update_state()
+	if event.is_action_pressed("move_up"): is_moving_up = true
+	if event.is_action_released("move_up"): is_moving_up = false
+	if event.is_action_pressed("move_right"): is_moving_right = true
+	if event.is_action_released("move_right"): is_moving_right = false
+	if event.is_action_pressed("move_down"): is_moving_down = true
+	if event.is_action_released("move_down"): is_moving_down = false
+	if event.is_action_pressed("move_left"): is_moving_left = true
+	if event.is_action_released("move_left"): is_moving_left = false
+	if event.is_action_pressed("interact"): is_interacting = true
+	if event.is_action_released("interact"): is_interacting = false
+	if event.is_action_pressed("use_1"): is_using_belt_1 = true
+	if event.is_action_released("use_1"): is_using_belt_1 = false
+	if event.is_action_pressed("use_2"): is_using_belt_2 = true
+	if event.is_action_released("use_2"): is_using_belt_2 = false
+	if event.is_action_pressed("use_3"): is_using_belt_3 = true
+	if event.is_action_released("use_3"): is_using_belt_3 = false
+	if event.is_action_pressed("use_4"): is_using_belt_4 = true
+	if event.is_action_released("use_4"): is_using_belt_4 = false
 
 func attack(damage):
 	Player.health = clamp(Player.health - damage, 0, Player.health_capacity)
@@ -45,26 +62,6 @@ func play_enter_zone_animation():
 	$animation.play('waiting')
 	yield($animation, 'animation_finished')
 	emit_signal("play_enter_zone_animation_finished")
-
-func update_state():
-	if Input.is_action_just_pressed("move_up"): is_moving_up = true
-	if Input.is_action_just_released("move_up"): is_moving_up = false
-	if Input.is_action_just_pressed("move_right"): is_moving_right = true
-	if Input.is_action_just_released("move_right"): is_moving_right = false
-	if Input.is_action_just_pressed("move_down"): is_moving_down = true
-	if Input.is_action_just_released("move_down"): is_moving_down = false
-	if Input.is_action_just_pressed("move_left"): is_moving_left = true
-	if Input.is_action_just_released("move_left"): is_moving_left = false
-	if Input.is_action_just_pressed("interact"): is_interacting = true
-	if Input.is_action_just_released("interact"): is_interacting = false
-	if Input.is_action_just_pressed("use_1"): is_using_belt_1 = true
-	if Input.is_action_just_released("use_1"): is_using_belt_1 = false
-	if Input.is_action_just_pressed("use_2"): is_using_belt_2 = true
-	if Input.is_action_just_released("use_2"): is_using_belt_1 = false
-	if Input.is_action_just_pressed("use_3"): is_using_belt_3 = true
-	if Input.is_action_just_released("use_3"): is_using_belt_1 = false
-	if Input.is_action_just_pressed("use_4"): is_using_belt_4 = true
-	if Input.is_action_just_released("use_4"): is_using_belt_1 = false
 
 func _interact():
 	if _is_moving() || is_use_animation_playing: return

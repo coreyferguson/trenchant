@@ -900,7 +900,7 @@ tracks/35/keys = {
 "values": [ 0.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=3]
 length = 0.9
 loop = true
 step = 0.15
@@ -2961,7 +2961,7 @@ __meta__ = {
 [node name="animation" type="AnimationPlayer" parent="."]
 anims/enter_zone_animation = SubResource( 1 )
 anims/interacting = SubResource( 2 )
-anims/running_left = SubResource( 10 )
+anims/running_left = SubResource( 3 )
 anims/running_right = SubResource( 4 )
 anims/use_fist = SubResource( 5 )
 anims/waiting = SubResource( 6 )

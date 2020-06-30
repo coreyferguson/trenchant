@@ -27,7 +27,11 @@ func set_label(new_label):
 
 func _on_button_pressed():
 	emit_signal("pressed")
-	if BuildResource && has_resources: Env.add(BuildResource.instance())
+	if has_resources:
+		if BuildResource: Env.add(BuildResource.instance())
+		else:
+			Inventory.remove(Build.resource_requirements['bow'])
+			Inventory.collect([{ 'name': 'bow', 'quantity': 1 }])
 
 func _on_item_added_to_belt(index):
 	update_required_resources_state()
