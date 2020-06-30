@@ -3451,18 +3451,21 @@ script = ExtResource( 2 )
 [node name="arm_left" type="Sprite" parent="sprites"]
 position = Vector2( -193.737, -21.2927 )
 rotation = -0.280364
+scale = Vector2( 1, 1 )
 texture = ExtResource( 4 )
 offset = Vector2( 3.2714, 13.9773 )
 
 [node name="forearm_left" type="Sprite" parent="sprites"]
 position = Vector2( -190.237, -9.68589 )
-rotation = -1.91453
+rotation = -1.91452
+scale = Vector2( 1, 1 )
 texture = ExtResource( 3 )
 offset = Vector2( 3.11969, 1.85523 )
 
 [node name="hand_left" type="Sprite" parent="sprites"]
 position = Vector2( -180.168, -13.3565 )
-rotation = -1.91453
+rotation = -1.91452
+scale = Vector2( 1, 1 )
 texture = ExtResource( 8 )
 offset = Vector2( 3.05702, -8.86169 )
 
@@ -3481,13 +3484,13 @@ offset = Vector2( 0.276749, -16.1306 )
 [node name="shoe_left" type="Sprite" parent="sprites"]
 position = Vector2( -210.972, 31.7485 )
 rotation = 0.286152
-scale = Vector2( 1, 1 )
 texture = ExtResource( 1 )
 offset = Vector2( 4.15521, -46.5054 )
 
 [node name="shin_right" type="Sprite" parent="sprites"]
 position = Vector2( -187.259, 19.5096 )
 rotation = 1.07917
+scale = Vector2( 1, 1 )
 texture = ExtResource( 7 )
 offset = Vector2( 2.65108, -30.088 )
 
@@ -3499,8 +3502,9 @@ texture = ExtResource( 11 )
 offset = Vector2( 0.276749, -16.1306 )
 
 [node name="shoe_right" type="Sprite" parent="sprites"]
-position = Vector2( -202.001, 25.6759 )
-rotation = 0.68504
+position = Vector2( -202.001, 25.676 )
+rotation = 0.685038
+scale = Vector2( 1, 1 )
 texture = ExtResource( 1 )
 offset = Vector2( 4.15521, -46.5054 )
 
@@ -3508,14 +3512,14 @@ offset = Vector2( 4.15521, -46.5054 )
 visible = false
 
 [node name="string_top" type="Sprite" parent="sprites/bow"]
-position = Vector2( -206.823, -43.284 )
-rotation = -0.343732
+position = Vector2( -206.823, -43.2841 )
+rotation = -0.343724
 texture = ExtResource( 14 )
 offset = Vector2( -3.47281, 18.3678 )
 
 [node name="string_bottom" type="Sprite" parent="sprites/bow"]
 position = Vector2( -183.162, 22.6602 )
-rotation = -0.343732
+rotation = -0.343724
 scale = Vector2( 1, 1 )
 texture = ExtResource( 14 )
 offset = Vector2( -3.55707, -17.2387 )
@@ -3529,20 +3533,21 @@ offset = Vector2( 0.222351, -17.4373 )
 
 [node name="bow_top" type="Sprite" parent="sprites/bow"]
 position = Vector2( -180.782, -20.1209 )
-rotation = -0.867331
+rotation = -0.867323
 texture = ExtResource( 16 )
 offset = Vector2( -5.06946, -11.7204 )
 
 [node name="bow_bottom" type="Sprite" parent="sprites/bow"]
-position = Vector2( -177.893, -12.0946 )
-rotation = 0.179867
+position = Vector2( -177.893, -12.0945 )
+rotation = 0.179875
 scale = Vector2( 1, 1 )
 texture = ExtResource( 16 )
 offset = Vector2( -4.99072, 22.3577 )
 
 [node name="bow_grip" type="Sprite" parent="sprites/bow"]
 position = Vector2( -179.265, -15.8828 )
-rotation = -0.343732
+rotation = -0.343724
+scale = Vector2( 1, 1 )
 texture = ExtResource( 13 )
 offset = Vector2( -4.99161, -17.4577 )
 
@@ -3562,15 +3567,13 @@ offset = Vector2( 3.2714, 13.9773 )
 
 [node name="forearm_right" type="Sprite" parent="sprites"]
 position = Vector2( -202.142, -14.921 )
-rotation = -0.476672
-scale = Vector2( 1, 1 )
+rotation = -0.476668
 texture = ExtResource( 3 )
 offset = Vector2( 3.11969, 1.85523 )
 
 [node name="hand_right" type="Sprite" parent="sprites"]
-position = Vector2( -197.169, -5.42754 )
-rotation = -0.476672
-scale = Vector2( 1, 1 )
+position = Vector2( -197.169, -5.42752 )
+rotation = -0.476668
 texture = ExtResource( 8 )
 offset = Vector2( 3.05702, -8.86169 )
 

@@ -1,1 +1,1 @@
-- Update bow useable property in ItemsApi
+- infinite loot somehow? I think it was attack+loot or something like this?
