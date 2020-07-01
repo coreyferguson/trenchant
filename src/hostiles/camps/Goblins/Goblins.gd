@@ -2,7 +2,7 @@ extends Node2D
 
 signal hostiles_neutralized
 
-var Goblin = preload("../../Goblin/Goblin.tscn")
+var Goblin = preload("../../Goblin/GoblinSelfishBehavior.tscn")
 var goblins = []
 
 func _ready():

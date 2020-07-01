@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/hostiles/Goblin/images/goblin/body.png" type="Texture" id=1]
 [ext_resource path="res://src/hostiles/Goblin/images/goblin/arm.png" type="Texture" id=2]
@@ -1204,9 +1204,6 @@ tracks/26/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="CircleShape2D" id=4]
-radius = 2500.0
-
 [sub_resource type="CircleShape2D" id=5]
 radius = 22.4286
 
@@ -1495,18 +1492,6 @@ anims/attacking = SubResource( 1 )
 anims/resting = SubResource( 2 )
 anims/running = SubResource( 3 )
 
-[node name="state_change_timer" type="Timer" parent="."]
-wait_time = 3.0
-autostart = true
-
-[node name="shooting_detection_area" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 21
-
-[node name="collision" type="CollisionShape2D" parent="shooting_detection_area"]
-visible = false
-shape = SubResource( 4 )
-
 [node name="collision" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 1.90228, -6.73293 )
@@ -1528,7 +1513,4 @@ script = ExtResource( 16 )
 
 [node name="collision" type="CollisionShape2D" parent="hit_box"]
 shape = SubResource( 6 )
-[connection signal="timeout" from="state_change_timer" to="." method="_on_state_change_timer_timeout"]
-[connection signal="body_entered" from="shooting_detection_area" to="." method="_on_shooting_detection_area_body_entered"]
-[connection signal="body_exited" from="shooting_detection_area" to="." method="_on_shooting_detection_area_body_exited"]
 [connection signal="attack" from="hit_box" to="." method="attack"]
