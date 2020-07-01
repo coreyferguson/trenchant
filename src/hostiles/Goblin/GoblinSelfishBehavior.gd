@@ -5,6 +5,10 @@ var current_state = STATES.RUNNING
 
 var shooting_targets = []
 
+var health setget set_health
+
+func set_health(health): $goblin.health = health
+
 func _ready():
 	_run()
 
@@ -17,7 +21,7 @@ func _on_state_change_timer_timeout():
 func _run():
 	if !$goblin: return
 	current_state = STATES.RUNNING
-	$goblin.run_to(Game.get_random_spawn_position())
+	$goblin.move_to(Game.get_random_spawn_position())
 
 func _shoot():
 	var goblin = $goblin
@@ -25,7 +29,7 @@ func _shoot():
 	current_state = STATES.SHOOTING
 	var closest_target = _find_and_prune_closest_body(shooting_targets, self.global_position)
 	goblin.stop()
-	goblin.shoot_at(closest_target)
+	if closest_target: goblin.shoot_at(closest_target.global_position)
 
 func _on_shooting_detection_area_body_entered(body):
 	if body.has_method('attack'):

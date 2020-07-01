@@ -3,7 +3,7 @@
 [ext_resource path="res://src/hostiles/Goblin/GoblinSelfishBehavior.gd" type="Script" id=1]
 [ext_resource path="res://src/hostiles/Goblin/Goblin.tscn" type="PackedScene" id=2]
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=1]
 radius = 2500.0
 
 [node name="goblin_selfish_behavior" type="Node2D"]
@@ -21,7 +21,7 @@ collision_mask = 21
 
 [node name="collision" type="CollisionShape2D" parent="shooting_detection_area"]
 visible = false
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 [connection signal="killed" from="goblin" to="." method="_on_goblin_killed"]
 [connection signal="timeout" from="state_change_timer" to="." method="_on_state_change_timer_timeout"]
 [connection signal="body_entered" from="shooting_detection_area" to="." method="_on_shooting_detection_area_body_entered"]

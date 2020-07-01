@@ -19,6 +19,10 @@ func _ready():
 	Inventory.connect("item_added_to_backpack", self, '_on_item_added_to_backpack')
 	Inventory.connect("item_removed_from_belt", self, '_on_item_removed_from_belt')
 	Inventory.connect("item_removed_from_backpack", self, '_on_item_removed_from_backpack')
+	
+func _process(delta):
+	if Input.is_action_just_pressed("cancel") && hover_panel:
+		hover_panel.queue_free()
 
 func set_icon(new_icon):
 	icon = new_icon

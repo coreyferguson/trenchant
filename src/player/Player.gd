@@ -38,12 +38,8 @@ func _unhandled_input(event):
 	if event.is_action_released("move_down"): is_moving_down = false
 	if event.is_action_pressed("move_left"): is_moving_left = true
 	if event.is_action_released("move_left"): is_moving_left = false
-	if event.is_action_pressed("interact"): 
-		is_interacting = true
-		print('is_interacting = true')
-	if event.is_action_released("interact"): 
-		is_interacting = false
-		print('is_interacting = false')
+	if event.is_action_pressed("interact"): is_interacting = true
+	if event.is_action_released("interact"): is_interacting = false
 	if event.is_action_pressed("use_1"): is_using_belt_1 = true
 	if event.is_action_released("use_1"): is_using_belt_1 = false
 	if event.is_action_pressed("use_2"): is_using_belt_2 = true

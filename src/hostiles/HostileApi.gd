@@ -13,11 +13,16 @@ var camps = {
 	'OneBearChicken': {
 		'name': 'OneBearChicken',
 		'scene': preload('./camps/OneBearChicken/OneBearChicken.tscn'),
-		'minimum_level': 5
+		'minimum_level': 100
 	},
 }
 
 var raids = {
+	'GoblinRaid': {
+		'name': 'GoblinRaid',
+		'scene': preload("./raids/GoblinRaid/GoblinRaid.tscn"),
+		'minimum_level': 3
+	}
 }
 
 func spawn():
