@@ -4,10 +4,17 @@ signal zones_to_explore_changed
 
 var zones = {
 	'forest': {
+		'background': preload("res://src/explore/zones/Forest/background.png"),
 		'name': 'forest',
 		'icon': preload("./zones/Forest/Forest.png"),
 		'scene': preload("./zones/Forest/Forest.tscn"),
-	}
+	},
+	'quarry': {
+		'background': preload("res://src/explore/zones/Quarry/background.png"),
+		'name': 'quarry',
+		'icon': preload('./zones/Quarry/explore_icon.png'),
+		'scene': preload('./zones/Quarry/Quarry.tscn'),
+	},
 }
 
 var zones_to_explore = []

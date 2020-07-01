@@ -50,3 +50,6 @@ func fade_in():
 	yield(fade, 'finished')
 	Game.is_input_disabled = false
 	emit_signal("fade_finished")
+
+func set_background(background):
+	get_node('/root/environment/background').texture = background

@@ -17,6 +17,7 @@ var items = {
 			'use_again_delay_in_seconds': 1,
 		}
 	},
+	'obsidian': { 'icon': preload("./Obsidian/obsidian_icon.png") },
 	'rock': { 'icon': preload("./Rock/Rock.png") },
 	'sheep': { 'icon': preload("./Sheep/Sheep.png") },
 	'stick': { 'icon': preload("./Stick/Stick.png") },
