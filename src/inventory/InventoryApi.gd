@@ -44,7 +44,7 @@ func remove(resources):
 func remove_single_resource(resource):
 	if backpack[resource.name]:
 		backpack[resource.name].quantity -= resource.quantity
-		if backpack[resource.name].quantity <= 0: backpack.remove(resource.name)
+		if backpack[resource.name].quantity <= 0: backpack.erase(resource.name)
 		emit_signal("item_removed_from_backpack", resource.name)
 
 func reset_state():

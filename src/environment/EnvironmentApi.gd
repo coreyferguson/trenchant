@@ -9,6 +9,9 @@ func add(child):
 	if Zone.is_home() && child.has_method('get_persisted_properties'):
 		var persisted_properties = child.get_persisted_properties()
 		persisted_nodes.push_back(persisted_properties)
+		
+func add_to_hud(child):
+	get_node('/root/environment/HUD').add_child(child)
 
 func restore_persisted_nodes():
 	var children = get_node('/root/environment/container').get_children()

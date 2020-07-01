@@ -9,6 +9,7 @@ var scenes = {
 }
 
 var is_input_disabled = false
+var screen_size = Vector2(1920, 1080)
 
 func change_scene(scene : String):
 	return get_tree().change_scene(scenes[scene])

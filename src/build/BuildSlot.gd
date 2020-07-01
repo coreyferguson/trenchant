@@ -8,6 +8,9 @@ export(Texture) var icon setget set_icon
 export(String) var construction_name
 export(PackedScene) var BuildResource
 
+var HoverPanel = preload("res://src/build/BuildHoverPanel.tscn")
+var hover_panel
+
 var has_resources = false
 
 func _ready():
@@ -30,7 +33,7 @@ func _on_button_pressed():
 	if has_resources:
 		if BuildResource: Env.add(BuildResource.instance())
 		else:
-			Inventory.remove(Build.resource_requirements['bow'])
+			Inventory.remove(Build.builds['bow'].resource_requirements)
 			Inventory.collect([{ 'name': 'bow', 'quantity': 1 }])
 
 func _on_item_added_to_belt(index):
@@ -47,7 +50,7 @@ func _on_item_removed_from_backpack(index):
 
 func update_required_resources_state():
 	if construction_name:
-		var resources = Build.resource_requirements[construction_name]
+		var resources = Build.builds[construction_name].resource_requirements
 		if Inventory.has_resources(resources): 
 			modulate = Color(1, 1, 1, 1)
 			has_resources = true
@@ -55,3 +58,16 @@ func update_required_resources_state():
 			modulate = Color(1, 0.5, 0.5, 1)
 			has_resources = false
 
+func _on_button_mouse_entered():
+	if !construction_name: return
+	if !Build.builds[construction_name].has('hover_panel_content'): return
+	hover_panel = HoverPanel.instance()
+	hover_panel.build_name = construction_name
+	hover_panel.content = Build.builds[construction_name].hover_panel_content.instance()
+	Env.add_to_hud(hover_panel)
+
+func _on_button_mouse_exited():
+	if !construction_name: return
+	if !Build.builds[construction_name].has('hover_panel_content'): return
+	hover_panel.queue_free()
+	hover_panel = null
