@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://src/explore/zones/Forest/background.png" type="Texture" id=1]
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://src/inventory/InventoryView.tscn" type="PackedScene" id=20]
 [ext_resource path="res://src/build/categories/weapon/bow_icon.png" type="Texture" id=21]
 [ext_resource path="res://src/build/categories/weapon/spear_icon.png" type="Texture" id=22]
+[ext_resource path="res://src/hostiles/Rhino/Rhino.tscn" type="PackedScene" id=23]
 
 [node name="environment" type="Node2D"]
 script = ExtResource( 15 )
@@ -252,6 +253,9 @@ fade_out_alpha = 1.0
 fade_in_alpha = 0.0
 
 [node name="tween" type="Tween" parent="HUD/fade"]
+
+[node name="rhino" parent="." instance=ExtResource( 23 )]
+position = Vector2( 1665.88, 712.804 )
 [connection signal="pressed" from="HUD/bottom_panel/MarginContainer2/build_categories/light" to="HUD/bottom_panel/MarginContainer3/build_category_slots" method="_on_selected_build_category_light"]
 [connection signal="pressed" from="HUD/bottom_panel/MarginContainer2/build_categories/defense" to="HUD/bottom_panel/MarginContainer3/build_category_slots" method="_on_selected_build_category_defense"]
 [connection signal="pressed" from="HUD/bottom_panel/MarginContainer2/build_categories/weapon" to="HUD/bottom_panel/MarginContainer3/build_category_slots" method="_on_selected_build_category_weapon"]
