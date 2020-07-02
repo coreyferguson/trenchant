@@ -2528,7 +2528,7 @@ tracks/55/keys = {
 }
 
 [sub_resource type="Animation" id=6]
-length = 0.9
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("bones/torso/arm_left/forearm_left:position")
 tracks/0/interp = 1
@@ -2656,7 +2656,7 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0, 0.3, 0.4, 0.5, 0.6, 0.9 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0.151709, 12.1221 ), Vector2( 0.151709, 12.1221 ), Vector2( 0.152, 0 ), Vector2( 0.152, 0 ), Vector2( 0.152, 12.122 ), Vector2( 0.151709, 12.1221 ) ]
@@ -2668,7 +2668,7 @@ tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0, 0.3, 0.4, 0.5, 0.6, 0.9 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ 0.0, -180.0, -180.0, -180.0, -180.0, 0.0 ]
@@ -2680,7 +2680,7 @@ tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
-"times": PoolRealArray( 0, 0.3, 0.4, 0.5, 0.6, 0.9 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 4.36148, -22.3856 ), Vector2( 4.36148, -22.3856 ), Vector2( 15, -22.386 ), Vector2( 15, -22.386 ), Vector2( 4.361, -22.386 ), Vector2( 4.36148, -22.3856 ) ]
@@ -2692,7 +2692,7 @@ tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"times": PoolRealArray( 0, 0.3, 0.4, 0.5, 0.6, 0.9 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ 0.0, 90.0, 90.0, 90.0, 90.0, 0.0 ]
@@ -3994,58 +3994,47 @@ script = ExtResource( 2 )
 [node name="sprites" type="Node2D" parent="."]
 
 [node name="arm_left" type="Sprite" parent="sprites"]
-position = Vector2( -193.737, -21.2927 )
-rotation = -0.280364
+position = Vector2( 2.66253, -21.9885 )
 texture = ExtResource( 4 )
 offset = Vector2( 3.2714, 13.9773 )
 
 [node name="forearm_left" type="Sprite" parent="sprites"]
-position = Vector2( -190.237, -9.68589 )
-rotation = -1.91453
+position = Vector2( 2.81424, -9.8664 )
 texture = ExtResource( 3 )
 offset = Vector2( 3.11969, 1.85523 )
 
 [node name="hand_left" type="Sprite" parent="sprites"]
-position = Vector2( -180.168, -13.3565 )
-rotation = -1.91453
+position = Vector2( 2.87691, 0.850503 )
 texture = ExtResource( 8 )
 offset = Vector2( 3.05702, -8.86169 )
 
 [node name="shin_left" type="Sprite" parent="sprites"]
-position = Vector2( -202.865, 17.9779 )
-rotation = 0.436603
+position = Vector2( 3.89521, 19.3281 )
 texture = ExtResource( 7 )
 offset = Vector2( 2.65108, -30.088 )
 
 [node name="thigh_left" type="Sprite" parent="sprites"]
-position = Vector2( -195.088, 6.77651 )
-rotation = 0.436603
+position = Vector2( 6.2057, 5.88896 )
 texture = ExtResource( 11 )
 offset = Vector2( 0.276749, -16.1306 )
 
 [node name="shoe_left" type="Sprite" parent="sprites"]
-position = Vector2( -210.972, 31.7485 )
-rotation = 0.286152
-scale = Vector2( 1, 1 )
+position = Vector2( 2.37217, 35.2349 )
 texture = ExtResource( 1 )
 offset = Vector2( 4.15521, -46.5054 )
 
 [node name="shin_right" type="Sprite" parent="sprites"]
-position = Vector2( -187.259, 19.5096 )
-rotation = 1.07917
+position = Vector2( 5.78856, 19.4858 )
 texture = ExtResource( 7 )
 offset = Vector2( 2.65108, -30.088 )
 
 [node name="thigh_right" type="Sprite" parent="sprites"]
-position = Vector2( -193.251, 7.26067 )
-rotation = -0.62525
-scale = Vector2( 1, 1 )
+position = Vector2( 8.09905, 6.04674 )
 texture = ExtResource( 11 )
 offset = Vector2( 0.276749, -16.1306 )
 
 [node name="shoe_right" type="Sprite" parent="sprites"]
-position = Vector2( -202.001, 25.6759 )
-rotation = 0.68504
+position = Vector2( 4.26552, 35.3926 )
 texture = ExtResource( 1 )
 offset = Vector2( 4.15521, -46.5054 )
 
@@ -4053,48 +4042,44 @@ offset = Vector2( 4.15521, -46.5054 )
 visible = false
 
 [node name="string_top" type="Sprite" parent="sprites/bow"]
-position = Vector2( -206.823, -43.284 )
-rotation = -0.343732
+position = Vector2( 40.0366, -14.16 )
+rotation = 1.5708
 texture = ExtResource( 14 )
 offset = Vector2( -3.47281, 18.3678 )
 
 [node name="string_bottom" type="Sprite" parent="sprites/bow"]
-position = Vector2( -183.162, 22.6602 )
-rotation = -0.343732
-scale = Vector2( 1, 1 )
+position = Vector2( -30.024, -14.1059 )
+rotation = 1.5708
 texture = ExtResource( 14 )
 offset = Vector2( -3.55707, -17.2387 )
 
 [node name="arrow" type="Sprite" parent="sprites/bow"]
-position = Vector2( -186.234, 15.6517 )
-rotation = 1.09368
+position = Vector2( 49.6581, -22.2596 )
+rotation = -0.000446796
 scale = Vector2( 1, 1 )
 texture = ExtResource( 15 )
 offset = Vector2( 0.222351, -17.4373 )
 
 [node name="bow_top" type="Sprite" parent="sprites/bow"]
-position = Vector2( -180.782, -20.1209 )
-rotation = -0.867331
+position = Vector2( 9.45247, 2.55214 )
+rotation = 1.0472
 texture = ExtResource( 16 )
 offset = Vector2( -5.06946, -11.7204 )
 
 [node name="bow_bottom" type="Sprite" parent="sprites/bow"]
-position = Vector2( -177.893, -12.0946 )
-rotation = 0.179867
-scale = Vector2( 1, 1 )
+position = Vector2( 0.922034, 2.56734 )
+rotation = 2.0944
 texture = ExtResource( 16 )
 offset = Vector2( -4.99072, 22.3577 )
 
 [node name="bow_grip" type="Sprite" parent="sprites/bow"]
-position = Vector2( -179.265, -15.8828 )
-rotation = -0.343732
+position = Vector2( 4.95108, 2.5522 )
+rotation = 1.5708
 texture = ExtResource( 13 )
 offset = Vector2( -4.99161, -17.4577 )
 
 [node name="torso" type="Sprite" parent="sprites"]
-position = Vector2( -200, 0.0135221 )
-rotation = 0.174533
-scale = Vector2( 1, 1 )
+position = Vector2( 0.194403, 0.081604 )
 texture = ExtResource( 10 )
 offset = Vector2( 5.3787, -10.954 )
 
@@ -4102,51 +4087,44 @@ offset = Vector2( 5.3787, -10.954 )
 visible = false
 
 [node name="spear" type="Sprite" parent="sprites/spear"]
-position = Vector2( -195.97, -4.05249 )
-rotation = -0.480205
+position = Vector2( 27.6833, -22.6497 )
+rotation = -1.57433
+scale = Vector2( 1, 1 )
 texture = ExtResource( 17 )
 offset = Vector2( 48.1, -2.18863 )
 
 [node name="arm_right" type="Sprite" parent="sprites"]
-position = Vector2( -191.818, -21.2746 )
-rotation = 1.03166
-scale = Vector2( 1, 1 )
+position = Vector2( 15.1944, -22.3044 )
+rotation = 1.5708
 texture = ExtResource( 4 )
 offset = Vector2( 3.2714, 13.9773 )
 
 [node name="forearm_right" type="Sprite" parent="sprites"]
-position = Vector2( -202.142, -14.921 )
-rotation = -0.476672
-scale = Vector2( 1, 1 )
+position = Vector2( 15.1944, -22.1524 )
+rotation = -1.5708
 texture = ExtResource( 3 )
 offset = Vector2( 3.11969, 1.85523 )
 
 [node name="hand_right" type="Sprite" parent="sprites"]
-position = Vector2( -197.169, -5.42754 )
-rotation = -0.476672
-scale = Vector2( 1, 1 )
+position = Vector2( 25.9113, -22.2151 )
+rotation = -1.5708
 texture = ExtResource( 8 )
 offset = Vector2( 3.05702, -8.86169 )
 
 [node name="head" type="Sprite" parent="sprites"]
-position = Vector2( -193.465, -31.6328 )
-rotation = 0.174533
-scale = Vector2( 1, 1 )
+position = Vector2( 1.13491, -32.2188 )
 texture = ExtResource( 9 )
 offset = Vector2( 4.79903, 24.2076 )
 
 [node name="hair" type="Sprite" parent="sprites"]
-position = Vector2( -192.164, -41.1878 )
-rotation = 0.174533
-scale = Vector2( 1, 1 )
+position = Vector2( 0.757037, -41.8545 )
 texture = ExtResource( 6 )
 offset = Vector2( 5.1769, 33.8434 )
 
 [node name="bones" type="Node2D" parent="."]
 
 [node name="torso" type="RemoteTransform2D" parent="bones"]
-position = Vector2( -200, 0.0135221 )
-rotation = 0.174533
+position = Vector2( 0.194403, 0.081604 )
 remote_path = NodePath("../../sprites/torso")
 __meta__ = {
 "_edit_ik_": true
@@ -4154,7 +4132,6 @@ __meta__ = {
 
 [node name="arm_left" type="RemoteTransform2D" parent="bones/torso"]
 position = Vector2( 2.46813, -22.0701 )
-rotation = -0.454897
 remote_path = NodePath("../../../sprites/arm_left")
 __meta__ = {
 "_edit_bone_": true,
@@ -4163,7 +4140,6 @@ __meta__ = {
 
 [node name="forearm_left" type="RemoteTransform2D" parent="bones/torso/arm_left"]
 position = Vector2( 0.151709, 12.1221 )
-rotation = -1.63416
 remote_path = NodePath("../../../../sprites/forearm_left")
 __meta__ = {
 "_edit_bone_": true
@@ -4236,8 +4212,8 @@ __meta__ = {
 }
 
 [node name="arm_right" type="RemoteTransform2D" parent="bones/torso"]
-position = Vector2( 4.36148, -22.3856 )
-rotation = 0.857129
+position = Vector2( 15, -22.386 )
+rotation = 1.5708
 remote_path = NodePath("../../../sprites/arm_right")
 __meta__ = {
 "_edit_bone_": true,
@@ -4245,8 +4221,8 @@ __meta__ = {
 }
 
 [node name="forearm_right" type="RemoteTransform2D" parent="bones/torso/arm_right"]
-position = Vector2( 0.151709, 12.1221 )
-rotation = -1.50833
+position = Vector2( 0.152, 0 )
+rotation = -3.14159
 remote_path = NodePath("../../../../sprites/forearm_right")
 __meta__ = {
 "_edit_bone_": true
@@ -4278,7 +4254,6 @@ remote_path = NodePath("../../../../../../../sprites/spear/spear")
 
 [node name="thigh_left" type="RemoteTransform2D" parent="bones/torso"]
 position = Vector2( 6.0113, 5.80736 )
-rotation = 0.26207
 remote_path = NodePath("../../../sprites/thigh_left")
 __meta__ = {
 "_edit_bone_": true,
@@ -4295,7 +4270,6 @@ __meta__ = {
 
 [node name="shoe_left" type="RemoteTransform2D" parent="bones/torso/thigh_left/shin_left"]
 position = Vector2( -1.52304, 15.9068 )
-rotation = -0.150451
 remote_path = NodePath("../../../../../sprites/shoe_left")
 __meta__ = {
 "_edit_bone_": true,
@@ -4310,7 +4284,6 @@ __meta__ = {
 
 [node name="thigh_right" type="RemoteTransform2D" parent="bones/torso"]
 position = Vector2( 7.90465, 5.96514 )
-rotation = -0.799783
 remote_path = NodePath("../../../sprites/thigh_right")
 __meta__ = {
 "_edit_bone_": true,
@@ -4319,7 +4292,6 @@ __meta__ = {
 
 [node name="shin_right" type="RemoteTransform2D" parent="bones/torso/thigh_right"]
 position = Vector2( -2.31049, 13.4391 )
-rotation = 1.70442
 remote_path = NodePath("../../../../sprites/shin_right")
 __meta__ = {
 "_edit_bone_": true,
@@ -4328,7 +4300,6 @@ __meta__ = {
 
 [node name="shoe_right" type="RemoteTransform2D" parent="bones/torso/thigh_right/shin_right"]
 position = Vector2( -1.52304, 15.9068 )
-rotation = -0.394132
 remote_path = NodePath("../../../../../sprites/shoe_right")
 __meta__ = {
 "_edit_bone_": true,

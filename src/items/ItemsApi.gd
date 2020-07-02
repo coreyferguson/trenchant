@@ -13,7 +13,7 @@ var items = {
 		'icon': preload("./Fist/Fist.png"),
 		'useable': {
 			'scene': preload("res://src/items/Fist/UseFist.tscn"),
-			'scene_instance_delay_in_seconds': 0.4,
+			'scene_instance_delay_in_seconds': 0.2,
 			'use_again_delay_in_seconds': 0.5,
 		}
 	},
