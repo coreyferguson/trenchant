@@ -20,4 +20,11 @@ var builds = {
 			{ 'name': 'wood', 'quantity': 4 },
 		]
 	},
+	'spear': {
+		'hover_panel_content': preload('res://src/items/Spear/SpearHoverPanelContent.tscn'),
+		'resource_requirements': [
+			{ 'name': 'stick', 'quantity': 1 },
+			{ 'name': 'obsidian', 'quantity': 1 },
+		]
+	}
 }

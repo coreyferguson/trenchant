@@ -37,8 +37,8 @@ func _on_button_pressed():
 	if has_resources:
 		if BuildResource: Env.add(BuildResource.instance())
 		else:
-			Inventory.remove(Build.builds['bow'].resource_requirements)
-			Inventory.collect([{ 'name': 'bow', 'quantity': 1 }])
+			Inventory.remove(Build.builds[construction_name].resource_requirements)
+			Inventory.collect([{ 'name': construction_name, 'quantity': 1 }])
 
 func _on_item_added_to_belt(index):
 	update_required_resources_state()

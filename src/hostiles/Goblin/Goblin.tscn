@@ -1252,7 +1252,7 @@ texture = ExtResource( 12 )
 offset = Vector2( -50.063, 8.98468 )
 
 [node name="bow_half_top" type="Sprite" parent="sprites/bow"]
-position = Vector2( -1.62619, -41.567 )
+position = Vector2( -1.62619, -41.5671 )
 rotation = 1.05209
 texture = ExtResource( 10 )
 offset = Vector2( -49.9752, 14.0239 )
@@ -1264,14 +1264,13 @@ texture = ExtResource( 10 )
 offset = Vector2( -49.9785, 48.8517 )
 
 [node name="string_half_top" type="Sprite" parent="sprites/bow"]
-position = Vector2( 27.6989, -58.3655 )
+position = Vector2( 27.6989, -58.3656 )
 rotation = 1.57569
-scale = Vector2( 1, 1 )
 texture = ExtResource( 11 )
 offset = Vector2( -48.4893, 44.5642 )
 
 [node name="string_half_bottom" type="Sprite" parent="sprites/bow"]
-position = Vector2( -42.9287, -58.7336 )
+position = Vector2( -42.9288, -58.7334 )
 rotation = 1.57569
 texture = ExtResource( 11 )
 offset = Vector2( -48.4952, 9.40692 )
