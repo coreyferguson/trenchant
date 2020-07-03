@@ -23,6 +23,7 @@ var items = {
 	'spear': {
 		'icon': preload('res://src/build/categories/weapon/spear_icon.png'),
 		'useable': {
+			'rotate_sprite_node_path': 'bones/torso/arm_right/forearm_right/hand_right/fingers_right/spear',
 			'scene': preload("res://src/items/Spear/UseSpear.tscn"),
 			'scene_instance_delay_in_seconds': 0.3,
 			'use_again_delay_in_seconds': 2,

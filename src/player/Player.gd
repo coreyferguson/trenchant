@@ -74,11 +74,23 @@ func _interact():
 			if bodies[i].has_method('interact'):
 				Inventory.collect(bodies[i].interact(self))
 
+func _is_looking_left():
+	return $bones/torso.scale.x == -1
+
+func _is_looking_right():
+	return $bones/torso.scale.x == 1
+
 func _is_moving():
 	return is_moving_up || is_moving_right || is_moving_down || is_moving_left
 
 func _is_using():
 	return is_using_belt_1 || is_using_belt_2 || is_using_belt_3 || is_using_belt_4
+
+func _look_left():
+	$bones/torso.scale.x = -1
+
+func _look_right():
+	$bones/torso.scale.x = 1
 
 func _move():
 	if Game.is_input_disabled: return
@@ -86,11 +98,11 @@ func _move():
 	if is_moving_up: v += Vector2(0, -1)
 	if is_moving_right:
 		v += Vector2(1, 0)
-		$bones/torso.scale.x = 1
+		_look_right()
 	if is_moving_down: v += Vector2(0, 1)
 	if is_moving_left:
 		v += Vector2(-1, 0)
-		$bones/torso.scale.x = -1
+		_look_left()
 	v = v.normalized() * speed
 	var collision = move_and_slide(v)
 
@@ -136,9 +148,25 @@ func _use_belt_item_instantiate(item_name):
 
 func _use_belt_item_play_animation(item_name):
 	Game.is_input_disabled = true
+	var v = (get_global_mouse_position() - global_position)
+	if v.x > 0: _look_right()
+	if v.x < 0: _look_left()
 	is_use_animation_playing = true
 	if $animation.has_animation('use_' + item_name):
 		$animation.play('use_' + item_name)
+	var node_path = _get_rotate_sprite_node_path(item_name)
+	if node_path:
+		var node = get_node(node_path)
+		node.rotation = v.angle()
+		if _is_looking_left():
+			var r = PI/2 - abs(node.rotation)
+			if v.y < 0: node.rotation -= r*2
+			if v.y > 0: node.rotation += r*2
 	yield($animation, "animation_finished")
 	is_use_animation_playing = false
 	Game.is_input_disabled = false
+
+func _get_rotate_sprite_node_path(item_name):
+	var md = Items.items[item_name]
+	if !md.useable.has('rotate_sprite_node_path'): return null
+	return md.useable.rotate_sprite_node_path
