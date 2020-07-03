@@ -41,6 +41,16 @@ func get_random_circumference_position(from_position, radius):
 	var v = Vector2(rand_x, rand_y).normalized() * radius
 	return from_position + v
 
+func prune_weakref_array(weakrefs : Array):
+	var indexes_to_delete = []
+	for i in range(weakrefs.size()):
+		if !weakrefs[i] || !weakrefs[i].get_ref(): 
+			indexes_to_delete.push_back(i)
+			continue
+	indexes_to_delete.invert()
+	for i in range(indexes_to_delete.size()):
+		weakrefs.remove(indexes_to_delete[i])
+
 func reset_state():
 	Inventory.reset_state()
 	Level.reset_state()

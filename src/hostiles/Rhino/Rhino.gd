@@ -3,8 +3,8 @@ extends KinematicBody2D
 signal killed
 signal arrived_at_target_position
 
-export(int) var health = 10
-export(int) var health_capacity = 10
+export(int) var health = 12
+export(int) var health_capacity = 12
 
 enum States { RESTING, WALKING, ANNOYED, CHARGING, ATTACKING }
 var current_state
@@ -41,6 +41,14 @@ func attack(damage):
 	if health == 0: 
 		queue_free()
 		emit_signal('killed')
+	# if damaged from distant ranged attack
+	if current_state == States.RESTING || \
+	   current_state == States.WALKING || \
+	   current_state == States.ANNOYED:
+		var bodies = $charge_area.get_overlapping_bodies()
+		if bodies.size() == 0: 
+			_cancel_current_state()
+			_charge(Env.get_player())
 
 func _annoy():
 	current_state = States.ANNOYED
@@ -55,8 +63,18 @@ func _attack(body):
 	yield($animation, 'animation_finished')
 	_update_state()
 
+func _cancel_current_state():
+	$animation.stop()
+	$annoy_timer.stop()
+	$rest_timer.stop()
+	$walk_timer.stop()
+	current_state = States.RESTING
+	target_position = null
+
 func _charge(body):
+	print('charge start')
 	current_state = States.CHARGING
+	$charge_attack_area/particles.emitting = true
 	$animation.play('charging', -1, 4)
 	# look at body
 	var v = body.global_position - global_position
@@ -69,13 +87,17 @@ func _charge(body):
 	v = v.normalized() * charge_range
 	target_position = global_position + v
 	yield(self, 'arrived_at_target_position')
+	$charge_attack_area/particles.emitting = false
+	print('charge end')
 	_rest()
 
 func _rest():
+	print('rest start')
 	current_state = States.RESTING
 	$animation.play("resting")
 	$rest_timer.start()
 	yield($rest_timer, 'timeout')
+	print('rest end')
 	_update_state()
 
 func _update_state():
@@ -91,6 +113,7 @@ func _update_state():
 	elif current_state == States.WALKING: _rest()
 
 func _walk():
+	print('walk start')
 	current_state = States.WALKING
 	$animation.play('running', -1, 1)
 	target_position = Game.get_random_spawn_position()
@@ -98,6 +121,7 @@ func _walk():
 	else: $bones/body.scale.x = -1
 	$walk_timer.start()
 	yield($walk_timer, 'timeout')
+	print('walk end')
 	_update_state()
 
 func _on_charge_attack_area_body_entered(body):

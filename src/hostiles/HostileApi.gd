@@ -10,11 +10,11 @@ var camps = {
 		'scene': preload('./camps/Goblins/Goblins.tscn'),
 		'minimum_level': 2
 	},
-	'OneBearChicken': {
-		'name': 'OneBearChicken',
-		'scene': preload('./camps/OneBearChicken/OneBearChicken.tscn'),
-		'minimum_level': 100
-	},
+	'Rhinos': {
+		'name': 'Rhinos',
+		'scene': preload('./camps/Rhinos/Rhinos.tscn'),
+		'minimum_level': 2,
+	}
 }
 
 var raids = {

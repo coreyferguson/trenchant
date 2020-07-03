@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://src/hostiles/Rhino/images/ear_right.png" type="Texture" id=1]
 [ext_resource path="res://src/hostiles/Rhino/images/foot_back.png" type="Texture" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://src/hostiles/Rhino/images/shin_back.png" type="Texture" id=14]
 [ext_resource path="res://src/hostiles/Rhino/Rhino.gd" type="Script" id=15]
 [ext_resource path="res://src/ui/HealthBar/HealthBar.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/hostiles/Rhino/images/charge_particle.png" type="Texture" id=17]
+[ext_resource path="res://src/hostiles/Rhino/Hitbox.gd" type="Script" id=18]
 
 [sub_resource type="Animation" id=2]
 resource_name = "annoyed"
@@ -1584,11 +1586,25 @@ radius = 1200.0
 [sub_resource type="CircleShape2D" id=8]
 radius = 600.0
 
-[sub_resource type="CircleShape2D" id=9]
+[sub_resource type="CircleShape2D" id=13]
 radius = 220.0
 
-[sub_resource type="CircleShape2D" id=10]
+[sub_resource type="CircleShape2D" id=14]
 radius = 75.0
+
+[sub_resource type="ParticlesMaterial" id=12]
+emission_shape = 1
+emission_sphere_radius = 10.0
+flag_disable_z = true
+direction = Vector3( -1, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
+[sub_resource type="CircleShape2D" id=15]
+radius = 110.232
 
 [node name="rhino" type="KinematicBody2D"]
 position = Vector2( -0.00012207, -2.2449 )
@@ -1637,7 +1653,7 @@ texture = ExtResource( 2 )
 offset = Vector2( 135.083, -83.2001 )
 
 [node name="foot_back_right" type="Sprite" parent="sprites"]
-position = Vector2( -75.0829, -10.7999 )
+position = Vector2( -75.0829, -10.8 )
 texture = ExtResource( 2 )
 offset = Vector2( 135.083, -83.2001 )
 
@@ -1669,7 +1685,6 @@ texture = ExtResource( 12 )
 offset = Vector2( -14.5677, 50.6539 )
 
 [node name="eye_brow" type="Sprite" parent="sprites"]
-visible = false
 position = Vector2( 119.917, -124.088 )
 rotation = 0.0872665
 texture = ExtResource( 11 )
@@ -1682,7 +1697,6 @@ texture = ExtResource( 9 )
 offset = Vector2( -59.7362, 23.8212 )
 
 [node name="teeth" type="Sprite" parent="sprites"]
-visible = false
 position = Vector2( 115.848, -69.2285 )
 rotation = 0.0872665
 texture = ExtResource( 10 )
@@ -1854,16 +1868,17 @@ margin_top = -226.015
 margin_bottom = -216.015
 
 [node name="collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 2.05161, -12.4478 )
 rotation = 1.5708
 shape = SubResource( 4 )
 
 [node name="annoyed_area" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 5
 
 [node name="collision" type="CollisionShape2D" parent="annoyed_area"]
+visible = false
 position = Vector2( 54.6882, -10.4882 )
 shape = SubResource( 7 )
 
@@ -1872,20 +1887,31 @@ collision_layer = 0
 collision_mask = 5
 
 [node name="collision" type="CollisionShape2D" parent="charge_area"]
+visible = false
 shape = SubResource( 8 )
 
 [node name="attack_area" type="Area2D" parent="."]
 
 [node name="collision" type="CollisionShape2D" parent="attack_area"]
-shape = SubResource( 9 )
+visible = false
+shape = SubResource( 13 )
 
 [node name="charge_attack_area" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 5
 
 [node name="collision" type="CollisionShape2D" parent="charge_attack_area"]
+visible = false
 position = Vector2( 100, 0 )
-shape = SubResource( 10 )
+shape = SubResource( 14 )
+
+[node name="particles" type="Particles2D" parent="charge_attack_area"]
+position = Vector2( 160, 0 )
+emitting = false
+amount = 50
+local_coords = false
+process_material = SubResource( 12 )
+texture = ExtResource( 17 )
 
 [node name="rest_timer" type="Timer" parent="."]
 wait_time = 4.0
@@ -1897,4 +1923,14 @@ one_shot = true
 
 [node name="annoy_timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="hitbox" type="KinematicBody2D" parent="."]
+collision_layer = 128
+collision_mask = 0
+script = ExtResource( 18 )
+
+[node name="collision" type="CollisionShape2D" parent="hitbox"]
+position = Vector2( 11.3265, -98.1629 )
+shape = SubResource( 15 )
 [connection signal="body_entered" from="charge_attack_area" to="." method="_on_charge_attack_area_body_entered"]
+[connection signal="attack" from="hitbox" to="." method="attack"]
