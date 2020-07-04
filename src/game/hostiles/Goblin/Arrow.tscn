@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/game/hostiles/Goblin/images/bow_and_arrow/arrow.png" type="Texture" id=1]
+[ext_resource path="res://src/game/hostiles/Goblin/Arrow.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 4.05762
+height = 56.1968
+
+[node name="arrow" type="KinematicBody2D"]
+collision_layer = 0
+collision_mask = 64
+script = ExtResource( 2 )
+
+[node name="sprite" type="Sprite" parent="."]
+position = Vector2( -0.0576401, 0.124577 )
+texture = ExtResource( 1 )
+offset = Vector2( -44.7047, 8.88086 )
+
+[node name="collision" type="CollisionShape2D" parent="."]
+visible = false
+rotation = 1.5708
+shape = SubResource( 1 )

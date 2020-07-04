@@ -2,7 +2,4 @@
 - construction: campfire
   - enables good rest at home which increases rate of attack by X%
   - allows full heal when leaving home
-- weapon: spear, required resoures: obsidian & stick
-- zone: quarry
-  - resource: obsidian (common), iron (uncommon)
-- enemy: bull
+- resource: vine

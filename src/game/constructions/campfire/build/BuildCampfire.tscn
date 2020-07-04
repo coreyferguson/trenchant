@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/game/constructions/campfire/env/Campfire_1.png" type="Texture" id=1]
+[ext_resource path="res://src/game/constructions/campfire/build/BuildCampfire.gd" type="Script" id=2]
+
+
+
+
+
+
+
+[node name="build_campfire" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )

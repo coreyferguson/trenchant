@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/ui/env/hud/build/build_slot.png" type="Texture" id=1]
+[ext_resource path="res://src/ui/env/hud/dialog/panel_container.tres" type="StyleBox" id=2]
+[ext_resource path="res://src/ui/fonts/Font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://src/ui/env/hud/build/BuildSlot.gd" type="Script" id=4]
+
+
+
+
+
+
+
+[node name="build_slot" type="VBoxContainer"]
+margin_right = 71.0
+margin_bottom = 87.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="container" type="CenterContainer" parent="."]
+margin_right = 71.0
+margin_bottom = 50.0
+
+[node name="button" type="TextureButton" parent="container"]
+margin_left = 10.0
+margin_right = 60.0
+margin_bottom = 50.0
+texture_normal = ExtResource( 1 )
+
+[node name="icon" type="TextureRect" parent="container/button"]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="panel" type="PanelContainer" parent="."]
+margin_top = 54.0
+margin_right = 71.0
+margin_bottom = 89.0
+custom_styles/panel = ExtResource( 2 )
+
+[node name="label" type="Label" parent="panel"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 63.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+[connection signal="mouse_entered" from="container/button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="container/button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="container/button" to="." method="_on_button_pressed"]

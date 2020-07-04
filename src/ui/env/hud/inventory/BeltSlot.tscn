@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/ui/fonts/Font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/ui/env/hud/inventory/BeltSlot.gd" type="Script" id=2]
+[ext_resource path="res://src/ui/env/hud/inventory/images/belt_slot.png" type="Texture" id=3]
+[ext_resource path="res://src/ui/env/hud/dialog/panel_container.tres" type="StyleBox" id=4]
+
+
+[node name="belt_slot" type="VBoxContainer"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button_container" type="CenterContainer" parent="."]
+margin_right = 50.0
+margin_bottom = 50.0
+
+[node name="button" type="TextureButton" parent="button_container"]
+margin_right = 50.0
+margin_bottom = 50.0
+texture_normal = ExtResource( 3 )
+
+[node name="icon" type="TextureRect" parent="button_container/button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="panel" type="PanelContainer" parent="."]
+margin_top = 54.0
+margin_right = 50.0
+margin_bottom = 89.0
+custom_styles/panel = ExtResource( 4 )
+
+[node name="label" type="Label" parent="panel"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 42.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+valign = 1

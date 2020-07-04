@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/game/resources/tree/Tree.gd" type="Script" id=1]
+[ext_resource path="res://src/game/resources/tree/tree.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 15.7992
+
+[sub_resource type="Animation" id=2]
+resource_name = "shake"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -3.0, 3.0, 0.0 ]
+}
+
+[node name="Tree" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -2.04337, 48.3598 )
+shape = SubResource( 1 )
+
+[node name="animation" type="AnimationPlayer" parent="."]
+anims/shake = SubResource( 2 )

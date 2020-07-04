@@ -16,21 +16,21 @@ _global_script_class_icons={
 [application]
 
 config/name="Trenchant"
-run/main_scene="res://src/ui/menus/MainMenu/MainMenu.tscn"
+run/main_scene="res://src/ui/menus/main_menu/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Player="*res://src/player/PlayerApi.gd"
-Inventory="*res://src/inventory/InventoryApi.gd"
-Items="*res://src/items/ItemsApi.gd"
-Env="*res://src/environment/EnvironmentApi.gd"
-Build="*res://src/build/BuildApi.gd"
-Zone="*res://src/explore/ZoneApi.gd"
-Game="*res://src/GameApi.gd"
-Construction="*res://src/construction/ConstructionApi.gd"
-Level="*res://src/explore/LevelApi.gd"
-Hostile="*res://src/hostiles/HostileApi.gd"
+Player="*res://src/game/player/PlayerApi.gd"
+Inventory="*res://src/game/InventoryApi.gd"
+Items="*res://src/game/ItemsApi.gd"
+Env="*res://src/game/environment/EnvironmentApi.gd"
+Build="*res://src/game/BuildApi.gd"
+Zone="*res://src/game/ZoneApi.gd"
+Game="*res://src/game/GameApi.gd"
+Construction="*res://src/game/ConstructionApi.gd"
+Level="*res://src/game/LevelApi.gd"
+Hostile="*res://src/game/HostileApi.gd"
 
 [display]
 
