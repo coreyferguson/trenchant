@@ -18,14 +18,6 @@
 [ext_resource path="res://src/game/items/bow/env/images/bow_top.png" type="Texture" id=16]
 [ext_resource path="res://src/game/items/spear/env/spear.png" type="Texture" id=17]
 
-
-
-
-
-
-
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "enter_zone_animation"
 length = 0.9

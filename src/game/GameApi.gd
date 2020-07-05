@@ -4,8 +4,8 @@ signal fade_out_screen_finished
 
 var scenes = {
 	'environment': 'res://src/game/environment/Environment.tscn',
-	'game_over': 'res://src/ui/menus/MainMenu/GameOver.tscn',
-	'main_menu': 'res://src/ui/menus/MainMenu/MainMenu.tscn',
+	'game_over': 'res://src/ui/menus/game_over/GameOver.tscn',
+	'main_menu': 'res://src/ui/menus/main_menu/MainMenu.tscn',
 }
 
 var is_input_disabled = false

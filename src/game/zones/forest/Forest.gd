@@ -6,7 +6,7 @@ var max_trees_to_spawn = 3
 
 var Rock = preload('res://src/game/resources/rock/Rock.tscn')
 var min_rocks_to_spawn = 1
-var max_rocks_to_spawn = 3
+var max_rocks_to_spawn = 1
 
 var Sheep = preload("res://src/game/resources/sheep/Sheep.tscn")
 
