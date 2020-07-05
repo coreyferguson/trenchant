@@ -3,10 +3,7 @@
 [ext_resource path="res://src/ui/env/hud/dialog/panel_container_background.tres" type="StyleBox" id=1]
 [ext_resource path="res://src/ui/fonts/Nobile-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://src/ui/fonts/Font.tres" type="DynamicFont" id=3]
-
-[sub_resource type="StreamTexture" id=1]
-flags = 4
-load_path = "res://.import/bow_icon.png-3a7a7e4bea4ae92dd443849903060dbb.stex"
+[ext_resource path="res://src/game/constructions/campfire/build/Campfire.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=2]
 size = 32
@@ -14,7 +11,7 @@ font_data = ExtResource( 2 )
 
 [node name="bow_hover_panel_content" type="MarginContainer"]
 margin_right = 322.0
-margin_bottom = 166.0
+margin_bottom = 86.0
 rect_min_size = Vector2( 322, 86 )
 mouse_filter = 2
 __meta__ = {
@@ -23,7 +20,7 @@ __meta__ = {
 
 [node name="vbox" type="VBoxContainer" parent="."]
 margin_right = 322.0
-margin_bottom = 166.0
+margin_bottom = 86.0
 
 [node name="hbox" type="HBoxContainer" parent="vbox"]
 margin_right = 322.0
@@ -42,23 +39,22 @@ margin_left = 6.0
 margin_top = 6.0
 margin_right = 56.0
 margin_bottom = 56.0
-texture = SubResource( 1 )
+texture = ExtResource( 4 )
 
 [node name="label" type="Label" parent="vbox/hbox"]
 margin_left = 66.0
 margin_top = 12.0
-margin_right = 133.0
+margin_right = 207.0
 margin_bottom = 50.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Bow"
+text = "Campfire"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="vbox"]
 margin_top = 66.0
 margin_right = 322.0
-margin_bottom = 106.0
+margin_bottom = 86.0
 custom_fonts/normal_font = ExtResource( 3 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
-text = "Bow and arrow.
-Use sticks as ammo."
+text = "Replenishes health when leaving home."
 fit_content_height = true

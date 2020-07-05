@@ -8,6 +8,7 @@ var builds = {
 		],
 	},
 	'campfire': {
+		'hover_panel_content': preload('./constructions/campfire/build/CampfireHoverPanelContent.tscn'),
 		'resource_requirements': [
 			{ 'name': 'wood', 'quantity': 2 },
 			{ 'name': 'stick', 'quantity': 4 },

@@ -4,7 +4,6 @@
 [ext_resource path="res://src/game/constructions/campfire/env/Campfire_1.png" type="Texture" id=2]
 [ext_resource path="res://src/game/constructions/campfire/env/Campfire.gd" type="Script" id=3]
 
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
@@ -23,9 +22,11 @@ script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -0.263519, 10.5408 )
 rotation = 1.5708
 shape = SubResource( 2 )

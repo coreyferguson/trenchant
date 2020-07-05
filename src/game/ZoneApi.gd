@@ -1,5 +1,6 @@
 extends Node
 
+signal leaving_zone
 signal zones_to_explore_changed
 
 var zones = {
@@ -36,12 +37,14 @@ func generate_new_zones():
 	emit_signal("zones_to_explore_changed")
 
 func go_home():
+	emit_signal('leaving_zone')
 	current_zone = HOME
 	generate_new_zones()
 	Game.change_scene('environment')
 
 func go_to_available_zone(index):
 	if !zones_to_explore[index]: return
+	emit_signal('leaving_zone')
 	Game.is_input_disabled = true
 	current_zone = zones_to_explore[index].name
 	zones_to_explore[index] = null

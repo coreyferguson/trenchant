@@ -35,7 +35,6 @@ func _physics_process(delta):
 		else: move_and_slide(d)
 		if target_position.distance_to(global_position) < 20:
 			emit_signal('arrived_at_target_position')
-			print('arrived at target position')
 
 func attack(damage):
 	health = clamp(health - damage, 0, health_capacity)
@@ -80,7 +79,6 @@ func _cancel_current_state():
 	target_position = null
 
 func _charge(body):
-	print('charge start')
 	current_state = States.CHARGING
 	$charge_attack_area/particles.emitting = true
 	$animation.play('charging', -1, 4)
@@ -94,7 +92,6 @@ func _charge(body):
 	target_position = global_position + v
 	yield(self, 'arrived_at_target_position')
 	$charge_attack_area/particles.emitting = false
-	print('charge end')
 	_rest()
 
 func _look_at(target_position):
@@ -109,12 +106,10 @@ func _look_right():
 	$bones/body.scale.x = 1
 
 func _rest():
-	print('rest start')
 	current_state = States.RESTING
 	$animation.play("resting")
 	$rest_timer.start()
 	yield($rest_timer, 'timeout')
-	print('rest end')
 	_update_state()
 
 func _update_state():
@@ -130,14 +125,12 @@ func _update_state():
 	elif current_state == States.WALKING: _rest()
 
 func _walk():
-	print('walk start')
 	current_state = States.WALKING
 	$animation.play('running', -1, 1)
 	target_position = Game.get_random_spawn_position()
 	_look_at(target_position)
 	$walk_timer.start()
 	yield($walk_timer, 'timeout')
-	print('walk end')
 	_update_state()
 
 func _on_charge_attack_area_body_entered(body):

@@ -21,7 +21,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Player="*res://src/game/player/PlayerApi.gd"
+Player="*res://src/game/PlayerApi.gd"
 Inventory="*res://src/game/InventoryApi.gd"
 Items="*res://src/game/ItemsApi.gd"
 Env="*res://src/game/environment/EnvironmentApi.gd"
@@ -31,6 +31,7 @@ Game="*res://src/game/GameApi.gd"
 Construction="*res://src/game/ConstructionApi.gd"
 Level="*res://src/game/LevelApi.gd"
 Hostile="*res://src/game/HostileApi.gd"
+Buffs="*res://src/game/BuffsApi.gd"
 
 [display]
 
