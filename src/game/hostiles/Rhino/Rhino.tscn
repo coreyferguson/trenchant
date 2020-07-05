@@ -19,8 +19,6 @@
 [ext_resource path="res://src/game/hostiles/Rhino/images/teeth.png" type="Texture" id=17]
 [ext_resource path="res://src/game/hostiles/Rhino/images/charge_particle.png" type="Texture" id=18]
 
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "annoyed"
 loop = true
@@ -1649,12 +1647,12 @@ texture = ExtResource( 13 )
 offset = Vector2( 138.398, 68.693 )
 
 [node name="foot_back_left" type="Sprite" parent="sprites"]
-position = Vector2( -75.0829, -10.8 )
+position = Vector2( -75.0828, -10.7999 )
 texture = ExtResource( 1 )
 offset = Vector2( 135.083, -83.2001 )
 
 [node name="foot_back_right" type="Sprite" parent="sprites"]
-position = Vector2( -75.0829, -10.8 )
+position = Vector2( -75.0828, -10.7999 )
 texture = ExtResource( 1 )
 offset = Vector2( 135.083, -83.2001 )
 

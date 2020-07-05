@@ -1,107 +1,92 @@
 extends KinematicBody2D
 
-signal died
+export(int) var speed = 200
+export(int) var damage = 1
+export(int) var health = 5 setget _set_health
+export(int) var health_capacity = 5
 
-export(int) var speed = 200 setget set_speed
-var speed_squared = speed*speed
-export var damage = 10
-export var health = 25
-export var health_capacity = 25
+var proximity_to_player = 200
+var proximity_to_player_squared = pow(proximity_to_player, 2)
 
-var detected_bodies = []
-var attack_bodies = []
-var target
-var home_position
-var is_moving_left = true
-var is_moving_right = false
+enum States { FOLLOWING, CHASING, ATTACKING }
+var current_state = States.FOLLOWING
+
+var chasing_target
 
 func _ready():
-	$animation.play('waiting')
-	home_position = global_position
-
-func _process(delta):
-	attack_bodies_in_range()
-	z_index = position.y
+	_update_state()
 
 func _physics_process(delta):
-	var target_position
-	if target && target.get_ref():
-		target_position = target.get_ref().global_position
-	elif global_position != home_position:
-		target_position = home_position
-	if target_position:
-		var v = target_position - global_position
-		if v.x >= 0: 
-			is_moving_left = false
-			is_moving_right = true
-			$bones/body.scale.x = 1
+	if current_state == States.CHASING:
+		if !chasing_target || !chasing_target.get_ref():
+			_update_state()
+			return
+		var v = chasing_target.get_ref().global_position - global_position
+		v = v.normalized() * speed
+		if v.x > 0: _look_right()
+		if v.x < 0: _look_left()
+		if v.length_squared() > 0: $animation.play('running')
+		move_and_slide(v)
+	if current_state == States.FOLLOWING:
+		var target_destination = global_position - Env.get_player().global_position
+		target_destination = target_destination.normalized() * proximity_to_player
+		target_destination = Env.get_player().global_position + target_destination
+		var d = target_destination - global_position
+		var v = d.normalized() * speed
+		if v.x > 0: _look_right()
+		if v.x < 0: _look_left()
+		var v_delta = v * delta
+		if d.length_squared() > v_delta.length_squared(): 
+			$animation.play('running')
+			move_and_slide(v)
 		else: 
-			is_moving_left = true
-			is_moving_right = false
-			$bones/body.scale.x = -1
-		if v.length_squared() <= pow(speed*delta, 2): 
-			move_and_collide(v)
-			choose_target()
-		else: move_and_slide(v.normalized() * speed)
-
-func set_speed(new_speed):
-	speed = new_speed
-	speed_squared = speed * speed
-	
-func choose_target():
-	if detected_bodies.size() > 0: 
-		target = detected_bodies[0]
-		$animation.play('running')
-	elif global_position == home_position:
-		target = null
-		$animation.play('waiting')
-	else:
-		$animation.play('running')
-
-func _on_detection_area_body_entered(body):
-	if body.has_method('attack'): 
-		detected_bodies.push_back(weakref(body))
-		choose_target()
-
-func _on_detection_area_body_exited(body):
-	if body.has_method('attack'):
-		for i in range(detected_bodies.size()):
-			if detected_bodies[i].get_ref() == body:
-				detected_bodies.remove(i)
-				break
-		choose_target()
-
-func _on_attack_range_body_entered(body):
-	if body.has_method('attack'): attack_bodies.push_back(weakref(body))
-
-func _on_attack_range_body_exited(body):
-	var indexes_to_delete = []
-	if body.has_method('attack'):
-		for i in range(attack_bodies.size()):
-			if !attack_bodies[i].get_ref() && attack_bodies[i].get_ref() == body:
-				indexes_to_delete = i
-	indexes_to_delete.invert()
-	for i in range(indexes_to_delete.size()):
-		attack_bodies.remove(indexes_to_delete[i])
-
-func attack_bodies_in_range():
-	if $attack_delay.is_stopped() && attack_bodies.size() > 0:
-		for i in range(attack_bodies.size()):
-			var body = attack_bodies[i].get_ref()
-			if body && body.has_method('attack'):
-				body.attack(damage)
-				$attack_delay.start()
-				if is_moving_right: $animation.play('attacking_right')
-				if is_moving_left: $animation.play('attacking_left')
-		if $animation.is_playing() && $animation.current_animation == 'attacking':
-			yield($animation, 'animation_finished')
-			choose_target()
+			if d.length_squared() < 5: $animation.play('waiting')
+			move_and_slide(d)
 
 func attack(damage):
-	health = clamp(health-damage, 0, health_capacity)
+	_set_health(health-damage)
 	if health == 0: queue_free()
 
-func interact(interactor):
-	$animation.play("loving")
-	yield($animation, 'animation_finished')
-	$animation.play("waiting")
+func _attack(body):
+	current_state = States.ATTACKING
+	var v = body.global_position - global_position
+	if v.x < 0: $animation.play("attack_left")
+	else: $animation.play("attack_right")
+	if body.has_method('attack'): body.attack(damage)
+	yield($animation, "animation_finished")
+	_update_state()
+
+func _chase(body):
+	current_state = States.CHASING
+	chasing_target = weakref(body)
+
+func _follow():
+	current_state = States.FOLLOWING
+
+func _is_in_range_of_player():
+	var v = Env.get_player().global_position - global_position
+	return v.length_squared() <= proximity_to_player_squared
+
+func _look_left():
+	$bones/body.scale.x = -1
+
+func _look_right():
+	$bones/body.scale.x = 1
+
+func _set_health(new_health):
+	health = clamp(new_health, 0, health_capacity)
+	$health_bar.set_health(health, health_capacity)
+
+func _update_state():
+	var attack_area_bodies = $attack_area.get_overlapping_bodies()
+	if attack_area_bodies.size() > 0:
+		_attack(attack_area_bodies[0])
+		return
+	var detection_area_bodies = $detection_area.get_overlapping_bodies()
+	if detection_area_bodies.size() > 0:
+		_chase(detection_area_bodies[0])
+		return
+	_follow()
+
+func _on_detection_area_body_entered(body):
+	if current_state == States.FOLLOWING: _chase(body)

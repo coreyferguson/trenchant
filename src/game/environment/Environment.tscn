@@ -37,7 +37,6 @@ __meta__ = {
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 100, 580 )
-speed = 600
 
 [node name="container" type="Node2D" parent="."]
 __meta__ = {
@@ -111,7 +110,6 @@ margin_bottom = 89.0
 label = "Bow"
 icon = ExtResource( 21 )
 construction_name = "bow"
-BuildResource = null
 
 [node name="spear" parent="HUD/bottom_panel/MarginContainer3/build_category_slots/weapon_category" instance=ExtResource( 7 )]
 margin_left = 54.0
@@ -120,7 +118,6 @@ margin_bottom = 89.0
 label = "Spear"
 icon = ExtResource( 22 )
 construction_name = "spear"
-BuildResource = null
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/bottom_panel"]
 margin_top = 906.0
@@ -144,8 +141,6 @@ margin_bottom = 89.0
 mouse_filter = 0
 label = "Light"
 icon = ExtResource( 9 )
-construction_name = ""
-BuildResource = null
 
 [node name="defense" parent="HUD/bottom_panel/MarginContainer2/build_categories" instance=ExtResource( 7 )]
 margin_left = 60.0
@@ -153,8 +148,6 @@ margin_right = 140.0
 margin_bottom = 89.0
 label = "Defense"
 icon = ExtResource( 3 )
-construction_name = ""
-BuildResource = null
 
 [node name="weapon" parent="HUD/bottom_panel/MarginContainer2/build_categories" instance=ExtResource( 7 )]
 margin_left = 144.0
@@ -162,8 +155,6 @@ margin_right = 223.0
 margin_bottom = 89.0
 label = "Weapon"
 icon = ExtResource( 19 )
-construction_name = ""
-BuildResource = null
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/bottom_panel"]
 margin_top = 920.0

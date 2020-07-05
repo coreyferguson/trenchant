@@ -16,7 +16,7 @@ var builds = {
 		],
 	},
 	'sheep_farm': {
-		'resource_requirements': [
+		'hover_panel_content': preload('./constructions/sheep_farm/build/SheepFarmHoverPanelContent.tscn'),		'resource_requirements': [
 			{ 'name': 'sheep', 'quantity': 2 },
 			{ 'name': 'wood', 'quantity': 4 },
 		]

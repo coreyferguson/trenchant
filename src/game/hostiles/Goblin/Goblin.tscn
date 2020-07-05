@@ -17,8 +17,6 @@
 [ext_resource path="res://src/ui/env/health_bar/HealthBar.tscn" type="PackedScene" id=15]
 [ext_resource path="res://src/game/hostiles/Goblin/HitBox.gd" type="Script" id=16]
 
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "attacking"
 tracks/0/type = "value"

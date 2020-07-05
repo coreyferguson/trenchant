@@ -29,12 +29,15 @@ func _physics_process(delta):
 	if current_state == States.CHARGING: speed = speed_charging
 	if current_state == States.WALKING || current_state == States.CHARGING:
 		var d = target_position - global_position
-		var v = d.normalized() * speed
-		var v_delta = v * delta
-		if d.length_squared() > v_delta.length_squared(): move_and_slide(v)
-		else: move_and_slide(d)
-		if target_position.distance_to(global_position) < 20:
+		var v = d.normalized() * speed * delta
+		var collision = move_and_collide(v)
+		if collision && collision.collider: 
+			_cancel_current_state()
+			_rest()
+			return
+		if target_position.distance_to(global_position) < 5:
 			emit_signal('arrived_at_target_position')
+			
 
 func attack(damage):
 	health = clamp(health - damage, 0, health_capacity)
@@ -77,6 +80,7 @@ func _cancel_current_state():
 	$walk_timer.stop()
 	current_state = States.RESTING
 	target_position = null
+	$charge_attack_area/particles.emitting = false
 
 func _charge(body):
 	current_state = States.CHARGING

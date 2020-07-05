@@ -21,7 +21,7 @@ func _ready():
 	$health_bar.set_health(Player.health, Player.health_capacity)
 
 func _process(delta):
-	z_index = position.y
+	z_index = global_position.y
 	_interact()
 	_use_belt_items()
 	_update_animation()

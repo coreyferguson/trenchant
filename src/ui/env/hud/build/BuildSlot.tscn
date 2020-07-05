@@ -5,12 +5,6 @@
 [ext_resource path="res://src/ui/fonts/Font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://src/ui/env/hud/build/BuildSlot.gd" type="Script" id=4]
 
-
-
-
-
-
-
 [node name="build_slot" type="VBoxContainer"]
 margin_right = 71.0
 margin_bottom = 87.0

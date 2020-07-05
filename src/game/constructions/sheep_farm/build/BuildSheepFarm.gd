@@ -1,15 +1,26 @@
 extends Sprite
 
 var PostBuildResource = preload("../env/SheepFarm.tscn")
+var SheepDog = preload('../env/sheep_dog/SheepDog.tscn')
 
 func _process(delta):
 	global_position = get_global_mouse_position()
+
+func _unhandled_input(event):
 	if Game.is_input_disabled: return
-	if Input.is_action_just_pressed("interact"):
-		Inventory.remove(Build.resource_requirements['sheep_farm'])
-		var inst = PostBuildResource.instance()
-		inst.global_position = get_global_mouse_position()
-		Env.add(inst)
+	if event.is_action_pressed("use_1"):
+		# build sheep farm
+		Inventory.remove(Build.builds['sheep_farm'].resource_requirements)
+		var farm = PostBuildResource.instance()
+		farm.global_position = get_global_mouse_position()
+		Env.add(farm)
+		# spawn a sheep dog
+		var dog = SheepDog.instance()
+		dog.global_position = Game.get_random_circumference_position(\
+			farm.global_position, 100)
+		Env.add(dog)
+		# cleanup
+		get_tree().set_input_as_handled()
 		queue_free()
-	if Input.is_action_just_pressed("cancel"):
+	if event.is_action_pressed("cancel"):
 		queue_free()
