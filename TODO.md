@@ -1,5 +1,8 @@
 - throw rocks
-- construction: campfire
-  - enables good rest at home which increases rate of attack by X%
-  - allows full heal when leaving home
 - resource: vine
+- zone: snow with resource: sheep
+- running over zone trigger is not obvious
+- constructions not reset after death
+- rotate spear vertically in icon so it doesn't look like an arrow
+- don't allow multiple spears/bows/sheep_farms to be constructed
+- need build items for single-resources: sheep, obsidian

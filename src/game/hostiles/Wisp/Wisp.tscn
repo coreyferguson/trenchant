@@ -1,0 +1,102 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://src/ui/env/health_bar/HealthBar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game/hostiles/Wisp/images/pulse_1.png" type="Texture" id=2]
+[ext_resource path="res://src/game/hostiles/Wisp/images/pulse_2.png" type="Texture" id=3]
+[ext_resource path="res://src/game/hostiles/Wisp/Wisp.gd" type="Script" id=4]
+[ext_resource path="res://src/game/hostiles/Wisp/images/pulse_4.png" type="Texture" id=5]
+[ext_resource path="res://src/game/hostiles/Wisp/images/sprite.png" type="Texture" id=6]
+[ext_resource path="res://src/game/hostiles/Wisp/images/pulse_3.png" type="Texture" id=7]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 22.8372
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "pulse",
+"speed": 30.0
+} ]
+
+[sub_resource type="Animation" id=3]
+resource_name = "moving"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("animated_sprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -10 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "waiting"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("animated_sprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -5 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 800.0
+
+[node name="sprite" type="KinematicBody2D"]
+collision_layer = 136
+collision_mask = 0
+script = ExtResource( 4 )
+
+[node name="collision" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
+[node name="animated_sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+animation = "pulse"
+frame = 6
+playing = true
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+anims/moving = SubResource( 3 )
+anims/waiting = SubResource( 4 )
+
+[node name="state_change_timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="tween" type="Tween" parent="."]
+
+[node name="heal_delay" type="Timer" parent="."]
+one_shot = true
+
+[node name="heal_area" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 8
+
+[node name="collision" type="CollisionShape2D" parent="heal_area"]
+shape = SubResource( 5 )
+
+[node name="heal_particles_container" type="Node2D" parent="."]
+
+[node name="health_bar" parent="." instance=ExtResource( 1 )]
+margin_top = -65.4803
+margin_bottom = -55.4803
+[connection signal="timeout" from="state_change_timer" to="." method="_on_state_change_timer_timeout"]

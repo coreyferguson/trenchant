@@ -20,7 +20,10 @@ var target_position
 onready var charge_attack_area = $charge_attack_area
 
 func _ready():
+	var original_rest_wait_time = $rest_timer.wait_time
+	$rest_timer.wait_time = randf() * original_rest_wait_time
 	_rest()
+	$rest_timer.wait_time = original_rest_wait_time
 
 func _physics_process(delta):
 	z_index = global_position.y

@@ -10,6 +10,12 @@ var zones = {
 		'icon': preload("./zones/forest/forest_icon.png"),
 		'scene': preload("./zones/forest/Forest.tscn"),
 	},
+	'snow': {
+		'background': preload("./zones/snow/background.png"),
+		'name': 'snow',
+		'icon': preload("./zones/snow/explore_icon.png"),
+		'scene': preload("./zones/snow/Snow.tscn"),
+	},
 	'quarry': {
 		'background': preload("./zones/quarry/background.png"),
 		'name': 'quarry',

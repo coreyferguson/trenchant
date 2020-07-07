@@ -10,6 +10,11 @@ var camps = {
 		'scene': preload('./hostiles/camps/Goblins/Goblins.tscn'),
 		'minimum_level': 2
 	},
+	'GoblinsWithWisp': {
+		'name': 'GoblinsWithWisp',
+		'scene': preload('./hostiles/camps/GoblinsWithWisp/GoblinsWithWisp.tscn'),
+		'minimum_level': 7
+	},
 	'Rhinos': {
 		'name': 'Rhinos',
 		'scene': preload('./hostiles/camps/Rhinos/Rhinos.tscn'),

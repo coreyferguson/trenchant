@@ -1600,6 +1600,8 @@ gravity = Vector3( 0, 0, 0 )
 initial_velocity = 50.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
+scale = 2.0
+scale_random = 1.0
 
 [sub_resource type="CircleShape2D" id=12]
 radius = 110.232
@@ -1897,7 +1899,8 @@ shape = SubResource( 10 )
 [node name="particles" type="Particles2D" parent="charge_attack_area"]
 position = Vector2( 160, 0 )
 emitting = false
-amount = 50
+amount = 75
+lifetime = 1.5
 local_coords = false
 process_material = SubResource( 11 )
 texture = ExtResource( 18 )
@@ -1922,5 +1925,8 @@ script = ExtResource( 12 )
 visible = false
 position = Vector2( 11.3265, -98.1629 )
 shape = SubResource( 12 )
+
+[node name="random_start_timer" type="Timer" parent="."]
+one_shot = true
 [connection signal="body_entered" from="charge_attack_area" to="." method="_on_charge_attack_area_body_entered"]
 [connection signal="attack" from="hitbox" to="." method="attack"]
