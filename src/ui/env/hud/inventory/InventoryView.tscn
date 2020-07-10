@@ -6,12 +6,6 @@
 [ext_resource path="res://src/ui/env/hud/inventory/InventoryView.gd" type="Script" id=4]
 [ext_resource path="res://src/ui/env/hud/dialog/panel_container_background.tres" type="StyleBox" id=5]
 
-
-
-
-
-
-
 [node name="inventory" type="MarginContainer"]
 anchor_left = 1.0
 anchor_top = 1.0
@@ -21,6 +15,7 @@ margin_left = -51.0
 margin_top = -87.0
 grow_horizontal = 0
 grow_vertical = 0
+mouse_filter = 2
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
@@ -78,7 +73,7 @@ margin_right = 590.0
 margin_bottom = 524.0
 grow_horizontal = 0
 grow_vertical = 0
-mouse_filter = 0
+mouse_filter = 2
 custom_constants/vseparation = 10
 custom_constants/hseparation = 10
 columns = 10

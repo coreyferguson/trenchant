@@ -17,8 +17,22 @@ var items = {
 			'use_again_delay_in_seconds': 0.5,
 		}
 	},
-	'obsidian': { 'icon': preload("./items/obsidian/obsidian_icon.png") },
-	'rock': { 'icon': preload("./items/rock/rock_icon.png") },
+	'obsidian': {
+		'icon': preload("./items/obsidian/obsidian_icon.png"),
+		'useable': {
+			'scene': preload('./items/obsidian/UseObsidian.tscn'),
+			'scene_instance_delay_in_seconds': 0.3,
+			'use_again_delay_in_seconds': 0.5,
+		}
+	},
+	'rock': {
+		'icon': preload("./items/rock/rock_icon.png"),
+		'useable': {
+			'scene': preload('./items/rock/UseRock.tscn'),
+			'scene_instance_delay_in_seconds': 0.3,
+			'use_again_delay_in_seconds': 0.5,
+		}
+	},
 	'sheep': { 'icon': preload("./items/sheep/sheep_icon.png") },
 	'spear': {
 		'icon': preload('./items/spear/build/spear_icon.png'),

@@ -5,8 +5,8 @@
 [ext_resource path="res://src/ui/env/hud/inventory/images/belt_slot.png" type="Texture" id=3]
 [ext_resource path="res://src/ui/env/hud/dialog/panel_container.tres" type="StyleBox" id=4]
 
-
 [node name="belt_slot" type="VBoxContainer"]
+mouse_filter = 2
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -15,10 +15,12 @@ __meta__ = {
 [node name="button_container" type="CenterContainer" parent="."]
 margin_right = 50.0
 margin_bottom = 50.0
+mouse_filter = 2
 
 [node name="button" type="TextureButton" parent="button_container"]
 margin_right = 50.0
 margin_bottom = 50.0
+mouse_filter = 2
 texture_normal = ExtResource( 3 )
 
 [node name="icon" type="TextureRect" parent="button_container/button"]
@@ -33,6 +35,7 @@ __meta__ = {
 margin_top = 54.0
 margin_right = 50.0
 margin_bottom = 89.0
+mouse_filter = 2
 custom_styles/panel = ExtResource( 4 )
 
 [node name="label" type="Label" parent="panel"]

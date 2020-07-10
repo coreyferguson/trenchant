@@ -28,7 +28,6 @@ func _ready():
 	animation_player.play('waiting')
 	state_change_timer.wait_time = randf() * default_state_change_wait_time
 	state_change_timer.start()
-	print('sprite random start timer: ' + str(state_change_timer.wait_time))
 	state_change_timer.wait_time = default_state_change_wait_time
 
 func _physics_process(delta):

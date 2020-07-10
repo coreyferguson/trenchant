@@ -63,6 +63,12 @@ func play_enter_zone_animation():
 	yield($animation, 'animation_finished')
 	emit_signal("play_enter_zone_animation_finished")
 
+# get path to node that should be rotated during "use_*" animations
+func _get_rotate_sprite_node_path(item_name):
+	var md = Items.items[item_name]
+	if !md.useable.has('rotate_sprite_node_path'): return null
+	return md.useable.rotate_sprite_node_path
+	
 func _interact():
 	if _is_moving() || is_use_animation_playing: return
 	if !is_interacting: return
@@ -140,33 +146,27 @@ func _use_belt_item_instantiate(item_name):
 	var md = Items.items[item_name]
 	$instance_delay_timer.wait_time = md.useable.scene_instance_delay_in_seconds
 	$instance_delay_timer.start()
+	yield($instance_delay_timer, "timeout")
 	var instance = md.useable.scene.instance()
 	instance.global_position = global_position
 	Env.add(instance)
-	yield($instance_delay_timer, "timeout")
-	instance.use()
 
 func _use_belt_item_play_animation(item_name):
-	Game.is_input_disabled = true
 	var v = (get_global_mouse_position() - global_position)
 	if v.x > 0: _look_right()
 	if v.x < 0: _look_left()
-	is_use_animation_playing = true
 	if $animation.has_animation('use_' + item_name):
+		Game.is_input_disabled = true
+		is_use_animation_playing = true
 		$animation.play('use_' + item_name)
-	var node_path = _get_rotate_sprite_node_path(item_name)
-	if node_path:
-		var node = get_node(node_path)
-		node.rotation = v.angle()
-		if _is_looking_left():
-			var r = PI/2 - abs(node.rotation)
-			if v.y < 0: node.rotation -= r*2
-			if v.y > 0: node.rotation += r*2
-	yield($animation, "animation_finished")
-	is_use_animation_playing = false
-	Game.is_input_disabled = false
-
-func _get_rotate_sprite_node_path(item_name):
-	var md = Items.items[item_name]
-	if !md.useable.has('rotate_sprite_node_path'): return null
-	return md.useable.rotate_sprite_node_path
+		var node_path = _get_rotate_sprite_node_path(item_name)
+		if node_path:
+			var node = get_node(node_path)
+			node.rotation = v.angle()
+			if _is_looking_left():
+				var r = PI/2 - abs(node.rotation)
+				if v.y < 0: node.rotation -= r*2
+				if v.y > 0: node.rotation += r*2
+		yield($animation, "animation_finished")
+		is_use_animation_playing = false
+		Game.is_input_disabled = false

@@ -1604,7 +1604,7 @@ scale = 2.0
 scale_random = 1.0
 
 [sub_resource type="CircleShape2D" id=12]
-radius = 110.232
+radius = 137.449
 
 [node name="rhino" type="KinematicBody2D"]
 position = Vector2( -0.00012207, -2.2449 )
@@ -1922,7 +1922,6 @@ collision_mask = 0
 script = ExtResource( 12 )
 
 [node name="collision" type="CollisionShape2D" parent="hitbox"]
-visible = false
 position = Vector2( 11.3265, -98.1629 )
 shape = SubResource( 12 )
 
