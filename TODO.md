@@ -1,4 +1,3 @@
-- UseRock.tscn for some reason isn't visible?
 - resource: vine
 - zone: snow with resource: sheep
 - running over zone trigger is not obvious

@@ -3532,7 +3532,7 @@ tracks/42/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=14]
 resource_name = "use_rock"
 length = 0.5
 tracks/0/type = "value"
@@ -4052,7 +4052,7 @@ tracks/42/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=15]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprites/bow:visible")
@@ -4451,7 +4451,7 @@ tracks/32/keys = {
 "values": [ 0.0, 77.8656, 0.0 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=16]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("bones/torso/thigh_right/shin_right/shoe_right/toes_right:position")
@@ -4958,10 +4958,10 @@ tracks/41/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="CircleShape2D" id=10]
+[sub_resource type="CircleShape2D" id=17]
 radius = 19.904
 
-[sub_resource type="CircleShape2D" id=11]
+[sub_resource type="CircleShape2D" id=18]
 radius = 50.0
 
 [sub_resource type="CapsuleShape2D" id=12]
@@ -4977,18 +4977,21 @@ script = ExtResource( 2 )
 [node name="arm_left" type="Sprite" parent="sprites"]
 position = Vector2( -193.737, -21.2927 )
 rotation = -0.280364
+scale = Vector2( 1, 1 )
 texture = ExtResource( 4 )
 offset = Vector2( 3.2714, 13.9773 )
 
 [node name="forearm_left" type="Sprite" parent="sprites"]
 position = Vector2( -190.237, -9.68589 )
-rotation = -1.91453
+rotation = -1.91452
+scale = Vector2( 1, 1 )
 texture = ExtResource( 3 )
 offset = Vector2( 3.11969, 1.85523 )
 
 [node name="hand_left" type="Sprite" parent="sprites"]
 position = Vector2( -180.168, -13.3565 )
-rotation = -1.91453
+rotation = -1.91452
+scale = Vector2( 1, 1 )
 texture = ExtResource( 8 )
 offset = Vector2( 3.05702, -8.86169 )
 
@@ -5007,13 +5010,13 @@ offset = Vector2( 0.276749, -16.1306 )
 [node name="shoe_left" type="Sprite" parent="sprites"]
 position = Vector2( -210.972, 31.7485 )
 rotation = 0.286152
-scale = Vector2( 1, 1 )
 texture = ExtResource( 1 )
 offset = Vector2( 4.15521, -46.5054 )
 
 [node name="shin_right" type="Sprite" parent="sprites"]
 position = Vector2( -187.259, 19.5096 )
 rotation = 1.07917
+scale = Vector2( 1, 1 )
 texture = ExtResource( 7 )
 offset = Vector2( 2.65108, -30.088 )
 
@@ -5025,8 +5028,9 @@ texture = ExtResource( 11 )
 offset = Vector2( 0.276749, -16.1306 )
 
 [node name="shoe_right" type="Sprite" parent="sprites"]
-position = Vector2( -202.001, 25.6759 )
-rotation = 0.68504
+position = Vector2( -202.001, 25.676 )
+rotation = 0.685038
+scale = Vector2( 1, 1 )
 texture = ExtResource( 1 )
 offset = Vector2( 4.15521, -46.5054 )
 
@@ -5034,20 +5038,21 @@ offset = Vector2( 4.15521, -46.5054 )
 visible = false
 
 [node name="string_top" type="Sprite" parent="sprites/bow"]
-position = Vector2( -206.823, -43.284 )
-rotation = -0.343728
+position = Vector2( -206.823, -43.2841 )
+rotation = -0.343724
 texture = ExtResource( 14 )
 offset = Vector2( -3.47281, 18.3678 )
 
 [node name="string_bottom" type="Sprite" parent="sprites/bow"]
 position = Vector2( -183.162, 22.6602 )
-rotation = -0.343728
+rotation = -0.343724
+scale = Vector2( 1, 1 )
 texture = ExtResource( 14 )
 offset = Vector2( -3.55707, -17.2387 )
 
 [node name="arrow" type="Sprite" parent="sprites/bow"]
 visible = false
-position = Vector2( -166.406, 54.0492 )
+position = Vector2( -166.407, 54.0493 )
 rotation = 1.09368
 scale = Vector2( 1, 1 )
 texture = ExtResource( 15 )
@@ -5055,20 +5060,21 @@ offset = Vector2( 0.222351, -17.4373 )
 
 [node name="bow_top" type="Sprite" parent="sprites/bow"]
 position = Vector2( -180.782, -20.1209 )
-rotation = -0.867328
+rotation = -0.867323
 texture = ExtResource( 16 )
 offset = Vector2( -5.06946, -11.7204 )
 
 [node name="bow_bottom" type="Sprite" parent="sprites/bow"]
-position = Vector2( -177.893, -12.0946 )
-rotation = 0.179871
+position = Vector2( -177.893, -12.0945 )
+rotation = 0.179875
 scale = Vector2( 1, 1 )
 texture = ExtResource( 16 )
 offset = Vector2( -4.99072, 22.3577 )
 
 [node name="bow_grip" type="Sprite" parent="sprites/bow"]
 position = Vector2( -179.265, -15.8828 )
-rotation = -0.343728
+rotation = -0.343724
+scale = Vector2( 1, 1 )
 texture = ExtResource( 13 )
 offset = Vector2( -4.99161, -17.4577 )
 
@@ -5083,9 +5089,8 @@ offset = Vector2( 5.3787, -10.954 )
 visible = false
 
 [node name="spear" type="Sprite" parent="sprites/spear"]
-position = Vector2( -195.97, -4.05249 )
-rotation = -0.480205
-scale = Vector2( 1, 1 )
+position = Vector2( -195.97, -4.05246 )
+rotation = -0.480201
 texture = ExtResource( 17 )
 offset = Vector2( 48.1, -2.18863 )
 
@@ -5105,15 +5110,14 @@ offset = Vector2( 5.1769, 33.8434 )
 
 [node name="rock" type="Sprite" parent="sprites"]
 visible = false
-position = Vector2( -195.052, -2.2427 )
-rotation = -0.476672
-scale = Vector2( 1, 1 )
+position = Vector2( -195.052, -2.24267 )
+rotation = -0.476668
 texture = ExtResource( 18 )
 
 [node name="obsidian" type="Sprite" parent="sprites"]
 visible = false
-position = Vector2( -195.052, -2.24271 )
-rotation = -0.476672
+position = Vector2( -195.052, -2.24267 )
+rotation = -0.476668
 texture = ExtResource( 19 )
 
 [node name="arm_right" type="Sprite" parent="sprites"]
@@ -5125,15 +5129,13 @@ offset = Vector2( 3.2714, 13.9773 )
 
 [node name="forearm_right" type="Sprite" parent="sprites"]
 position = Vector2( -202.142, -14.921 )
-rotation = -0.476672
-scale = Vector2( 1, 1 )
+rotation = -0.476668
 texture = ExtResource( 3 )
 offset = Vector2( 3.11969, 1.85523 )
 
 [node name="hand_right" type="Sprite" parent="sprites"]
-position = Vector2( -197.169, -5.42754 )
-rotation = -0.476672
-scale = Vector2( 1, 1 )
+position = Vector2( -197.169, -5.42752 )
+rotation = -0.476668
 texture = ExtResource( 8 )
 offset = Vector2( 3.05702, -8.86169 )
 
@@ -5367,14 +5369,14 @@ anims/running_right = SubResource( 4 )
 anims/use_bow = SubResource( 5 )
 anims/use_fist = SubResource( 6 )
 anims/use_obsidian = SubResource( 13 )
-anims/use_rock = SubResource( 7 )
-anims/use_spear = SubResource( 8 )
-anims/waiting = SubResource( 9 )
+anims/use_rock = SubResource( 14 )
+anims/use_spear = SubResource( 15 )
+anims/waiting = SubResource( 16 )
 
 [node name="collision" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 8.8383, 33.8828 )
-shape = SubResource( 10 )
+shape = SubResource( 17 )
 
 [node name="interact_range" type="Area2D" parent="."]
 position = Vector2( 8.8378, 33.8881 )
@@ -5384,7 +5386,7 @@ collision_mask = 6
 
 [node name="collision" type="CollisionShape2D" parent="interact_range"]
 visible = false
-shape = SubResource( 11 )
+shape = SubResource( 18 )
 
 [node name="interact_timer" type="Timer" parent="."]
 one_shot = true

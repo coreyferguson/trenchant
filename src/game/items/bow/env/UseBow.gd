@@ -19,3 +19,4 @@ func _physics_process(delta):
 		arrow.global_position = global_position - Vector2(0, 25)
 		arrow.velocity = (target - arrow.global_position).normalized() * arrow_speed
 		arrow.rotation = arrow.velocity.angle()
+	queue_free()

@@ -16,7 +16,7 @@ func change_scene(scene : String):
 
 func get_random_spawn_position():
 	var min_x = 750
-	var max_x = 1820
+	var max_x = 1610
 	var min_y = 100
 	var max_y = 920
 	randomize()
