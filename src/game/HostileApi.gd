@@ -13,12 +13,12 @@ var camps = {
 	'GoblinsWithWisp': {
 		'name': 'GoblinsWithWisp',
 		'scene': preload('./hostiles/camps/GoblinsWithWisp/GoblinsWithWisp.tscn'),
-		'minimum_level': 7
+		'minimum_level': 8
 	},
 	'Rhinos': {
 		'name': 'Rhinos',
 		'scene': preload('./hostiles/camps/Rhinos/Rhinos.tscn'),
-		'minimum_level': 2,
+		'minimum_level': 5,
 	}
 }
 
@@ -26,7 +26,7 @@ var raids = {
 	'GoblinRaid': {
 		'name': 'GoblinRaid',
 		'scene': preload("./hostiles/raids/GoblinRaid/GoblinRaid.tscn"),
-		'minimum_level': 3
+		'minimum_level': 4
 	}
 }
 

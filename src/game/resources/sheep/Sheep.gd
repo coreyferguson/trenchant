@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+var health = 2
 var speed = 50
 var states = [ 'waiting', 'walking', 'eating' ]
 var current_state_index = 0
@@ -22,5 +23,7 @@ func _on_state_change_timer_timeout():
 	elif states[current_state_index] == 'waiting': $sprite.play('waiting')
 
 func interact(interactor):
-	queue_free()
-	return [ { 'name': 'sheep', 'quantity': 1 } ]
+	health -= 1
+	if health == 0:
+		queue_free()
+		return [ { 'name': 'sheep', 'quantity': 1 } ]

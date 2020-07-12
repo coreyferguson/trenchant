@@ -43,7 +43,6 @@ var items = {
 			'use_again_delay_in_seconds': 2,
 		}
 	},
-	'stick': { 'icon': preload("./items/stick/stick_icon.png") },
 	'wood': { 'icon': preload("./items/wood/wood_icon.png") },
 }
 
