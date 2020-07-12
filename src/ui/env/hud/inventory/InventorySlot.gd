@@ -41,10 +41,8 @@ func _cancel():
 	is_mouse_over_slot = false
 
 func _on_button_mouse_entered():
-	print('InventorySlot._on_button_mouse_entered')
 	is_mouse_over_slot = true
 
 func _on_button_mouse_exited():
-	print('InventorySlot._on_button_mouse_exited')
 	is_mouse_over_slot = false
 

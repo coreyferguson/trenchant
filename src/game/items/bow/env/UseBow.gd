@@ -3,7 +3,7 @@ extends Node2D
 var Arrow = preload('./Arrow.tscn')
 
 var arrow_speed = 500
-var required_resources = [ { 'name': 'wood', 'quantity': 1 } ]
+var required_resources = [ { 'name': 'bow', 'quantity': 1 } ]
 
 var has_physics_completed_once = false
 

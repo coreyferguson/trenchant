@@ -5,8 +5,7 @@ signal pressed
 
 export(String) var label setget set_label
 export(Texture) var icon setget set_icon
-export(String) var construction_name
-export(PackedScene) var BuildResource
+export(String) var build_name
 
 var HoverPanel = preload("./BuildHoverPanel.tscn")
 var hover_panel
@@ -35,10 +34,16 @@ func set_label(new_label):
 func _on_button_pressed():
 	emit_signal("pressed")
 	if has_resources:
-		if BuildResource: Env.add(BuildResource.instance())
-		else:
-			Inventory.remove(Build.builds[construction_name].resource_requirements)
-			Inventory.collect([{ 'name': construction_name, 'quantity': 1 }])
+		var build = Build.builds[build_name]
+		if build.has('construction_produced_build_scene'):
+			Env.add(build.construction_produced_build_scene.instance())
+		if build.has('item_produced_name'):
+			var quantity
+			if !build.has('item_produced_quantity'): quantity = 1
+			else: quantity = build.item_produced_quantity
+			Inventory.remove(build.resource_requirements)
+			Inventory.collect([{ 'name': build_name, 'quantity': quantity }])
+		
 
 func _on_item_added_to_belt(index):
 	update_required_resources_state()
@@ -53,8 +58,8 @@ func _on_item_removed_from_backpack(index):
 	update_required_resources_state()
 
 func update_required_resources_state():
-	if construction_name:
-		var resources = Build.builds[construction_name].resource_requirements
+	if build_name:
+		var resources = Build.builds[build_name].resource_requirements
 		if Inventory.has_resources(resources): 
 			modulate = Color(1, 1, 1, 1)
 			has_resources = true
@@ -63,15 +68,15 @@ func update_required_resources_state():
 			has_resources = false
 
 func _on_button_mouse_entered():
-	if !construction_name: return
-	if !Build.builds[construction_name].has('hover_panel_content'): return
+	if !build_name: return
+	if !Build.builds[build_name].has('hover_panel_content'): return
 	hover_panel = HoverPanel.instance()
-	hover_panel.build_name = construction_name
-	hover_panel.content = Build.builds[construction_name].hover_panel_content.instance()
+	hover_panel.build_name = build_name
+	hover_panel.content = Build.builds[build_name].hover_panel_content.instance()
 	Env.add_to_hud(hover_panel)
 
 func _on_button_mouse_exited():
-	if !construction_name: return
-	if !Build.builds[construction_name].has('hover_panel_content'): return
+	if !build_name: return
+	if !Build.builds[build_name].has('hover_panel_content'): return
 	hover_panel.queue_free()
 	hover_panel = null
