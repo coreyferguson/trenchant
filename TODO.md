@@ -4,3 +4,4 @@
 - running over zone trigger is not obvious
 - need build items for single-resources: sheep, obsidian
 - z-index of player vs goblin
+- rename backpack to inventory and make hotkey "I"

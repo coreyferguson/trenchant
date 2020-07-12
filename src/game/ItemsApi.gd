@@ -1,6 +1,14 @@
 extends Node
 
 var items = {
+	'boots': {
+		'icon': preload("./items/boots/boots_icon.png"),
+		'useable': {
+			'scene': preload("./items/boots/UseBoots.tscn"),
+			'scene_instance_delay_in_seconds': 0.01,
+			'use_again_delay_in_seconds': 0.5,
+		}
+	},
 	'bow': {
 		'icon': preload("./items/bow/build/bow_icon.png"),
 		'useable': {
@@ -44,6 +52,7 @@ var items = {
 		}
 	},
 	'wood': { 'icon': preload("./items/wood/wood_icon.png") },
+	'wool': { 'icon': preload('./items/wool/wool_icon.png') }
 }
 
 func get(name):

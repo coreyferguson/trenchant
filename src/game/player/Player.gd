@@ -68,7 +68,10 @@ func _get_rotate_sprite_node_path(item_name):
 	var md = Items.items[item_name]
 	if !md.useable.has('rotate_sprite_node_path'): return null
 	return md.useable.rotate_sprite_node_path
-	
+
+func _get_speed_buff_multiplier():
+	return 1 + Buffs.get_buff_count_for_all_sources('movement_speed')
+
 func _interact():
 	if _is_moving() || is_use_animation_playing: return
 	if !is_interacting: return
@@ -109,7 +112,7 @@ func _move():
 	if is_moving_left:
 		v += Vector2(-1, 0)
 		_look_left()
-	v = v.normalized() * speed
+	v = v.normalized() * speed * _get_speed_buff_multiplier()
 	var collision = move_and_slide(v)
 
 func _on_interact_timer_timeout():

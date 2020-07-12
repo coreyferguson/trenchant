@@ -1,6 +1,14 @@
 extends Node
 
 var builds = {
+	'boots': {
+		'hover_panel_content': preload('./items/boots/BootsHoverPanelContent.tscn'),
+		'item_produced_name': 'boots',
+		'item_produced_quantity': 10,
+		'resource_requirements': [
+			{ 'name': 'wool', 'quantity': 2 },
+		],
+	},
 	'bow': {
 		'hover_panel_content': preload('./items/bow/build/BowHoverPanelContent.tscn'),
 		'item_produced_name': 'bow',
