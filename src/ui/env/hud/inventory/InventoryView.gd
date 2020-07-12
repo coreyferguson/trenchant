@@ -30,6 +30,6 @@ func _redraw_backpack_slots():
 	item_names.sort()
 	for i in range(item_names.size()):
 		var slot = $background/margin/vbox/slots.get_node('inventory_slot' + str(i))
-		slot.icon = Items.items[item_names[i]].icon
+		slot.icon = Items.get(item_names[i]).icon
 		slot.label = item_names[i]
 		slot.quantity = Inventory.backpack[item_names[i]].quantity

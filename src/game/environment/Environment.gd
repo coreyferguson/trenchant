@@ -22,9 +22,9 @@ func _ready():
 	Game.is_input_disabled = false
 
 func _apply_buff_sheep_dog():
-	if Buffs.has_global_buff('sheep_dog'):
+	if Buffs.has_buff('sheep_dog'):
 		var SheepDog = \
-			Buffs.get_global_buff('sheep_dog', 'construction', 'sheep_farm')\
+			Buffs.get_buff('sheep_dog', 'construction', 'sheep_farm')\
 			.context.scene
 		var sheep_dog = SheepDog.instance()
 		sheep_dog.global_position = Game.get_random_circumference_position(\

@@ -3012,7 +3012,7 @@ tracks/39/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=7]
 resource_name = "use_obsidian"
 length = 0.5
 tracks/0/type = "value"
@@ -3532,7 +3532,7 @@ tracks/42/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=8]
 resource_name = "use_rock"
 length = 0.5
 tracks/0/type = "value"
@@ -4052,7 +4052,7 @@ tracks/42/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=9]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprites/bow:visible")
@@ -4451,7 +4451,7 @@ tracks/32/keys = {
 "values": [ 0.0, 77.8656, 0.0 ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=10]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("bones/torso/thigh_right/shin_right/shoe_right/toes_right:position")
@@ -4958,13 +4958,13 @@ tracks/41/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="CircleShape2D" id=17]
+[sub_resource type="CircleShape2D" id=11]
 radius = 19.904
 
-[sub_resource type="CircleShape2D" id=18]
+[sub_resource type="CircleShape2D" id=12]
 radius = 50.0
 
-[sub_resource type="CapsuleShape2D" id=12]
+[sub_resource type="CapsuleShape2D" id=13]
 radius = 17.4076
 height = 67.3945
 
@@ -5368,15 +5368,15 @@ anims/running_left = SubResource( 3 )
 anims/running_right = SubResource( 4 )
 anims/use_bow = SubResource( 5 )
 anims/use_fist = SubResource( 6 )
-anims/use_obsidian = SubResource( 13 )
-anims/use_rock = SubResource( 14 )
-anims/use_spear = SubResource( 15 )
-anims/waiting = SubResource( 16 )
+anims/use_obsidian = SubResource( 7 )
+anims/use_rock = SubResource( 8 )
+anims/use_spear = SubResource( 9 )
+anims/waiting = SubResource( 10 )
 
 [node name="collision" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 8.8383, 33.8828 )
-shape = SubResource( 17 )
+shape = SubResource( 11 )
 
 [node name="interact_range" type="Area2D" parent="."]
 position = Vector2( 8.8378, 33.8881 )
@@ -5386,7 +5386,7 @@ collision_mask = 6
 
 [node name="collision" type="CollisionShape2D" parent="interact_range"]
 visible = false
-shape = SubResource( 18 )
+shape = SubResource( 12 )
 
 [node name="interact_timer" type="Timer" parent="."]
 one_shot = true
@@ -5399,7 +5399,7 @@ script = ExtResource( 5 )
 [node name="collision" type="CollisionShape2D" parent="hit_box"]
 visible = false
 position = Vector2( 4.75684, -7.72986 )
-shape = SubResource( 12 )
+shape = SubResource( 13 )
 
 [node name="health_bar" parent="." instance=ExtResource( 12 )]
 margin_left = -250.0

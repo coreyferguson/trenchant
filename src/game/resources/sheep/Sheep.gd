@@ -27,3 +27,9 @@ func interact(interactor):
 	if health == 0:
 		queue_free()
 		return [ { 'name': 'sheep', 'quantity': 1 } ]
+
+func attack(damage):
+	health = clamp(health-damage, 0, 2)
+	if health == 0:
+		queue_free()
+		Inventory.collect([{ 'name': 'wool', 'quantity': 1 }])

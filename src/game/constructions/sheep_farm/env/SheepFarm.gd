@@ -4,7 +4,7 @@ var SheepDog = preload("./sheep_dog/SheepDog.tscn")
 
 func _ready():
 	if Zone.is_home():
-		Buffs.add_global_buff(\
+		Buffs.add_buff(\
 			'sheep_dog', \
 			'construction', \
 			'sheep_farm', \
