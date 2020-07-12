@@ -137,6 +137,7 @@ margin_bottom = 89.0
 mouse_filter = 0
 label = "Light"
 icon = ExtResource( 9 )
+build_name = ""
 
 [node name="defense" parent="HUD/bottom_panel/MarginContainer2/build_categories" instance=ExtResource( 7 )]
 margin_left = 60.0
@@ -144,6 +145,7 @@ margin_right = 140.0
 margin_bottom = 89.0
 label = "Defense"
 icon = ExtResource( 3 )
+build_name = ""
 
 [node name="weapon" parent="HUD/bottom_panel/MarginContainer2/build_categories" instance=ExtResource( 7 )]
 margin_left = 144.0
@@ -151,6 +153,7 @@ margin_right = 223.0
 margin_bottom = 89.0
 label = "Weapon"
 icon = ExtResource( 19 )
+build_name = ""
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/bottom_panel"]
 margin_top = 920.0

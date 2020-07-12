@@ -1,7 +1,6 @@
+- rotate spear vertically in icon so it doesn't look like an arrow
+- constructions not reset after death
 - resource: vine
 - running over zone trigger is not obvious
-- constructions not reset after death
-- rotate spear vertically in icon so it doesn't look like an arrow
-- don't allow multiple spears/bows/sheep_farms to be constructed
 - need build items for single-resources: sheep, obsidian
 - z-index of player vs goblin

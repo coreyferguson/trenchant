@@ -4,7 +4,7 @@ var builds = {
 	'bow': {
 		'hover_panel_content': preload('./items/bow/build/BowHoverPanelContent.tscn'),
 		'item_produced_name': 'bow',
-		'item_produced_quantity': 10,
+		'item_produced_quantity': 20,
 		'resource_requirements': [
 			{ 'name': 'wood', 'quantity': 2 },
 		],

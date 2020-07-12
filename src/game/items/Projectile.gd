@@ -8,6 +8,7 @@ export(float) var range_radius = 500
 export(Shape2D) var collision_shape setget _set_collision_shape
 export(String) var resource_name_to_consume
 export(int) var resource_quantity_to_consume
+export(PackedScene) var scene_to_instance_on_drop
 
 var velocity
 var max_range_position
@@ -30,9 +31,17 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision && collision.collider.has_method('attack'):
 		collision.collider.attack(damage)
-		queue_free()
+		_drop_resource()
 	elif global_position.distance_to(max_range_position) < 5:
-		queue_free()
+		_drop_resource()
+
+func _drop_resource():
+	queue_free()
+	if scene_to_instance_on_drop: 
+		var inst = scene_to_instance_on_drop.instance()
+		inst.global_position = global_position
+		Env.add(inst)
+	
 
 func _set_collision_shape(new_collision_shape):
 	collision_shape = new_collision_shape
