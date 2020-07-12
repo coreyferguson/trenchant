@@ -57,8 +57,13 @@ func reset_state():
 	belt.resize(4)
 	backpack = {
 		'fist': { 'name': 'fist', 'quantity': 1 },
+		'rock': { 'name': '', 'quantity': 100 },
+		'wood': { 'name': '', 'quantity': 100 },
+		'obsidian': { 'name': '', 'quantity': 100 },
+		'sheep': { 'name': '', 'quantity': 100 },
 	}
 
 func set_belt_slot(index, item):
+	print('InventoryApi.set_belt_slot(index, item): ' + str(index) + ', ' + str(item.name))
 	belt[index] = item
 	emit_signal("item_added_to_belt", index)

@@ -7,6 +7,7 @@ export(int) var quantity setget set_quantity
 var is_mouse_over_slot = false
 
 func _input(event):
+	if event.is_action_pressed('cancel'): _cancel()
 	if !label: return
 	if !is_mouse_over_slot: return
 	if !Items.items[label].has('useable'): return
@@ -36,9 +37,14 @@ func set_quantity(new_quantity):
 	if quantity == null: $label_container/hbox/quantity.text = ""
 	else: $label_container/hbox/quantity.text = str(quantity)
 
+func _cancel():
+	is_mouse_over_slot = false
+
 func _on_button_mouse_entered():
+	print('InventorySlot._on_button_mouse_entered')
 	is_mouse_over_slot = true
 
 func _on_button_mouse_exited():
+	print('InventorySlot._on_button_mouse_exited')
 	is_mouse_over_slot = false
 
