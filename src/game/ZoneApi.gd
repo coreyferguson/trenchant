@@ -50,6 +50,7 @@ func go_home():
 
 func go_to_available_zone(index):
 	if !zones_to_explore[index]: return
+	if current_zone == HOME: Env.persist_all_nodes()
 	emit_signal('leaving_zone')
 	Game.is_input_disabled = true
 	current_zone = zones_to_explore[index].name

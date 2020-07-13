@@ -109,6 +109,7 @@ use_4={
 2d_physics/layer_6="hostile_projectile"
 2d_physics/layer_7="player_hitbox"
 2d_physics/layer_8="hostile_hitbox"
+2d_physics/layer_9="ally_hitbox"
 
 [rendering]
 

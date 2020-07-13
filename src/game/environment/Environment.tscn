@@ -55,7 +55,7 @@ __meta__ = {
 }
 
 [node name="MarginContainer3" type="MarginContainer" parent="HUD/bottom_panel"]
-margin_top = 803.0
+margin_top = 892.0
 margin_right = 1920.0
 margin_bottom = 902.0
 mouse_filter = 2
@@ -65,11 +65,11 @@ custom_constants/margin_bottom = 10
 [node name="build_category_slots" type="VBoxContainer" parent="HUD/bottom_panel/MarginContainer3"]
 margin_left = 10.0
 margin_right = 1920.0
-margin_bottom = 89.0
 mouse_filter = 2
 script = ExtResource( 11 )
 
 [node name="construction_category" type="HBoxContainer" parent="HUD/bottom_panel/MarginContainer3/build_category_slots"]
+visible = false
 margin_right = 1910.0
 margin_bottom = 89.0
 mouse_filter = 2

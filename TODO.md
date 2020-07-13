@@ -4,3 +4,5 @@
 - hover over items in backpack shows description, reuse build descriptions
 - resource: vine
 - running over zone trigger is not obvious
+- goblin raid shooting arrows animation messed up
+- punching to my left doesn't hit sheep?
