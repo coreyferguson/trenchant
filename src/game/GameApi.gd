@@ -53,6 +53,7 @@ func prune_weakref_array(weakrefs : Array):
 
 func reset_state():
 	Buffs.reset_state()
+	Env.reset_state()
 	Inventory.reset_state()
 	Level.reset_state()
 	Player.reset_state()

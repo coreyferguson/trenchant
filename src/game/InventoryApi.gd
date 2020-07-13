@@ -53,7 +53,7 @@ func remove_single_resource(resource):
 		emit_signal("item_removed_from_backpack", resource.name)
 
 func reset_state():
-	belt = [ { 'name': 'fist' } ]
+	belt = [ { 'name': 'fist' }, { 'name': 'spear' } ]
 	belt.resize(4)
 	backpack = {
 		'fist': { 'name': 'fist', 'quantity': 1 },

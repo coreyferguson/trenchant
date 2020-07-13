@@ -1,14 +1,13 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://src/game/zones/forest/background.png" type="Texture" id=1]
 [ext_resource path="res://src/game/player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/ui/env/hud/build/categories/defense_icon.png" type="Texture" id=3]
+[ext_resource path="res://src/game/constructions/barrier/build/barrier_icon.png" type="Texture" id=3]
 [ext_resource path="res://src/ui/env/hud/inventory/BeltView.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/game/constructions/sheep_farm/build/sheep_farm_icon.png" type="Texture" id=5]
 [ext_resource path="res://src/ui/env/hud/build/Build.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/ui/env/hud/build/BuildSlot.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/ui/env/hud/build/categories/BuildCategories.gd" type="Script" id=8]
-[ext_resource path="res://src/ui/env/hud/build/categories/light_icon.png" type="Texture" id=9]
 [ext_resource path="res://src/game/constructions/campfire/build/Campfire.png" type="Texture" id=10]
 [ext_resource path="res://src/ui/env/hud/build/categories/BuildCategorySlots.gd" type="Script" id=11]
 [ext_resource path="res://src/game/items/boots/boots_icon.png" type="Texture" id=12]
@@ -17,7 +16,6 @@
 [ext_resource path="res://src/ui/env/hud/level/LevelView.tscn" type="PackedScene" id=16]
 [ext_resource path="res://src/ui/env/hud/inventory/InventoryButton.tscn" type="PackedScene" id=17]
 [ext_resource path="res://src/ui/env/hud/dialog/panel_container_background.tres" type="StyleBox" id=18]
-[ext_resource path="res://src/ui/env/hud/build/categories/weapon_icon.png" type="Texture" id=19]
 [ext_resource path="res://src/ui/env/hud/inventory/InventoryView.tscn" type="PackedScene" id=20]
 [ext_resource path="res://src/game/items/bow/build/bow_icon.png" type="Texture" id=21]
 [ext_resource path="res://src/game/items/spear/build/spear_icon.png" type="Texture" id=22]
@@ -70,13 +68,13 @@ margin_right = 1920.0
 mouse_filter = 2
 script = ExtResource( 11 )
 
-[node name="light_category" type="HBoxContainer" parent="HUD/bottom_panel/MarginContainer3/build_category_slots"]
+[node name="construction_category" type="HBoxContainer" parent="HUD/bottom_panel/MarginContainer3/build_category_slots"]
 visible = false
 margin_right = 1910.0
 margin_bottom = 89.0
 mouse_filter = 2
 
-[node name="campfire" parent="HUD/bottom_panel/MarginContainer3/build_category_slots/light_category" instance=ExtResource( 7 )]
+[node name="campfire" parent="HUD/bottom_panel/MarginContainer3/build_category_slots/construction_category" instance=ExtResource( 7 )]
 margin_right = 86.0
 margin_bottom = 89.0
 mouse_filter = 0
@@ -84,24 +82,19 @@ label = "Campfire"
 icon = ExtResource( 10 )
 build_name = "campfire"
 
-[node name="defense_category" type="HBoxContainer" parent="HUD/bottom_panel/MarginContainer3/build_category_slots"]
-visible = false
-margin_right = 1910.0
-margin_bottom = 89.0
-
-[node name="sheep_farm" parent="HUD/bottom_panel/MarginContainer3/build_category_slots/defense_category" instance=ExtResource( 7 )]
+[node name="sheep_farm" parent="HUD/bottom_panel/MarginContainer3/build_category_slots/construction_category" instance=ExtResource( 7 )]
 margin_right = 107.0
 margin_bottom = 89.0
 label = "Sheep Farm"
 icon = ExtResource( 5 )
 build_name = "sheep_farm"
 
-[node name="weapon_category" type="HBoxContainer" parent="HUD/bottom_panel/MarginContainer3/build_category_slots"]
+[node name="tool_category" type="HBoxContainer" parent="HUD/bottom_panel/MarginContainer3/build_category_slots"]
 visible = false
 margin_right = 1910.0
 margin_bottom = 89.0
 
-[node name="boots" parent="HUD/bottom_panel/MarginContainer3/build_category_slots/weapon_category" instance=ExtResource( 7 )]
+[node name="boots" parent="HUD/bottom_panel/MarginContainer3/build_category_slots/tool_category" instance=ExtResource( 7 )]
 margin_left = 54.0
 margin_right = 114.0
 margin_bottom = 89.0
@@ -109,14 +102,14 @@ label = "Boots"
 icon = ExtResource( 12 )
 build_name = "boots"
 
-[node name="bow" parent="HUD/bottom_panel/MarginContainer3/build_category_slots/weapon_category" instance=ExtResource( 7 )]
+[node name="bow" parent="HUD/bottom_panel/MarginContainer3/build_category_slots/tool_category" instance=ExtResource( 7 )]
 margin_right = 50.0
 margin_bottom = 89.0
 label = "Bow & Arrow"
 icon = ExtResource( 21 )
 build_name = "bow"
 
-[node name="spear" parent="HUD/bottom_panel/MarginContainer3/build_category_slots/weapon_category" instance=ExtResource( 7 )]
+[node name="spear" parent="HUD/bottom_panel/MarginContainer3/build_category_slots/tool_category" instance=ExtResource( 7 )]
 margin_left = 54.0
 margin_right = 114.0
 margin_bottom = 89.0
@@ -140,28 +133,20 @@ margin_bottom = 70.0
 mouse_filter = 2
 script = ExtResource( 8 )
 
-[node name="light" parent="HUD/bottom_panel/MarginContainer2/build_categories" instance=ExtResource( 7 )]
-margin_right = 56.0
+[node name="construction" parent="HUD/bottom_panel/MarginContainer2/build_categories" instance=ExtResource( 7 )]
+margin_right = 116.0
 margin_bottom = 89.0
 mouse_filter = 0
-label = "Light"
-icon = ExtResource( 9 )
-build_name = ""
-
-[node name="defense" parent="HUD/bottom_panel/MarginContainer2/build_categories" instance=ExtResource( 7 )]
-margin_left = 60.0
-margin_right = 140.0
-margin_bottom = 89.0
-label = "Defense"
+label = "Construction"
 icon = ExtResource( 3 )
 build_name = ""
 
-[node name="weapon" parent="HUD/bottom_panel/MarginContainer2/build_categories" instance=ExtResource( 7 )]
-margin_left = 144.0
-margin_right = 223.0
+[node name="tool" parent="HUD/bottom_panel/MarginContainer2/build_categories" instance=ExtResource( 7 )]
+margin_left = 120.0
+margin_right = 178.0
 margin_bottom = 89.0
-label = "Weapon"
-icon = ExtResource( 19 )
+label = "Tools"
+icon = ExtResource( 21 )
 build_name = ""
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/bottom_panel"]
@@ -257,8 +242,7 @@ fade_out_alpha = 1.0
 fade_in_alpha = 0.0
 
 [node name="tween" type="Tween" parent="HUD/fade"]
-[connection signal="pressed" from="HUD/bottom_panel/MarginContainer2/build_categories/light" to="HUD/bottom_panel/MarginContainer3/build_category_slots" method="_on_selected_build_category_light"]
-[connection signal="pressed" from="HUD/bottom_panel/MarginContainer2/build_categories/defense" to="HUD/bottom_panel/MarginContainer3/build_category_slots" method="_on_selected_build_category_defense"]
-[connection signal="pressed" from="HUD/bottom_panel/MarginContainer2/build_categories/weapon" to="HUD/bottom_panel/MarginContainer3/build_category_slots" method="_on_selected_build_category_weapon"]
+[connection signal="pressed" from="HUD/bottom_panel/MarginContainer2/build_categories/construction" to="HUD/bottom_panel/MarginContainer3/build_category_slots" method="_on_selected_build_category_construction"]
+[connection signal="pressed" from="HUD/bottom_panel/MarginContainer2/build_categories/tool" to="HUD/bottom_panel/MarginContainer3/build_category_slots" method="_on_selected_build_category_tool"]
 [connection signal="show_build_menu" from="HUD/bottom_panel/MarginContainer/bottom/panel/MarginContainer/hbox/build" to="HUD/bottom_panel/MarginContainer2/build_categories" method="_on_build_show_build_menu"]
 [connection signal="pressed" from="HUD/bottom_panel/MarginContainer/bottom/panel/MarginContainer/hbox/inventory" to="HUD/bottom_panel/MarginContainer/bottom/inventory" method="toggle_visibility"]

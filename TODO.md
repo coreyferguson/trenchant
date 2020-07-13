@@ -1,7 +1,6 @@
-- rotate spear vertically in icon so it doesn't look like an arrow
-- constructions not reset after death
-- resource: vine
-- running over zone trigger is not obvious
-- need build items for single-resources: sheep, obsidian
+- raid of goblins sometimes spawns 10 goblins! (might be when they switch to selfish mode?) spawn sheep farm in their behavior change trigger
 - z-index of player vs goblin
 - rename backpack to inventory and make hotkey "I"
+- hover over items in backpack shows description, reuse build descriptions
+- resource: vine
+- running over zone trigger is not obvious

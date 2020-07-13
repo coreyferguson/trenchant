@@ -146,12 +146,14 @@ func _use_belt_items():
 	if is_using_belt_4: _use_belt_item(3)
 	
 func _use_belt_item_instantiate(item_name):
+	var v = (get_global_mouse_position() - global_position)
 	var md = Items.items[item_name]
 	$instance_delay_timer.wait_time = md.useable.scene_instance_delay_in_seconds
 	$instance_delay_timer.start()
 	yield($instance_delay_timer, "timeout")
 	var instance = md.useable.scene.instance()
 	instance.global_position = global_position
+	instance.rotation = v.angle()
 	Env.add(instance)
 
 func _use_belt_item_play_animation(item_name):

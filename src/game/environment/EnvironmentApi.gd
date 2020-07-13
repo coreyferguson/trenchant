@@ -16,6 +16,14 @@ func add_to_build(child):
 func add_to_hud(child):
 	get_node('/root/environment/HUD').add_child(child)
 
+func persist_all_nodes():
+	persisted_nodes.resize(0)
+	var children = get_node('/root/environment/container').get_children()
+	for i in range(children.size()):
+		if children[i].has_method('get_persisted_properties'):
+			var persisted_properties = children[i].get_persisted_properties()
+			persisted_nodes.push_back(persisted_properties)
+
 func restore_persisted_nodes():
 	var children = get_node('/root/environment/container').get_children()
 	for i in range(children.size()): children[i].queue_free()
@@ -27,13 +35,8 @@ func restore_persisted_nodes():
 		get_node('/root/environment/container').add_child(scene)
 	persist_all_nodes() # sometimes necessary when new nodes added while restoring
 
-func persist_all_nodes():
-	persisted_nodes.resize(0)
-	var children = get_node('/root/environment/container').get_children()
-	for i in range(children.size()):
-		if children[i].has_method('get_persisted_properties'):
-			var persisted_properties = children[i].get_persisted_properties()
-			persisted_nodes.push_back(persisted_properties)
+func reset_state():
+	persisted_nodes = []
 
 func get_player():
 	return get_node('/root/environment/player')
