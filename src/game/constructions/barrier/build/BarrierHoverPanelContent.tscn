@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/ui/env/hud/dialog/panel_container_background.tres" type="StyleBox" id=1]
+[ext_resource path="res://src/ui/fonts/Nobile-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://src/ui/fonts/Font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://src/game/constructions/barrier/build/barrier_icon.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 2 )
+
+[node name="bow_hover_panel_content" type="MarginContainer"]
+margin_right = 322.0
+margin_bottom = 86.0
+rect_min_size = Vector2( 322, 86 )
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vbox" type="VBoxContainer" parent="."]
+margin_right = 322.0
+margin_bottom = 86.0
+
+[node name="hbox" type="HBoxContainer" parent="vbox"]
+margin_right = 322.0
+margin_bottom = 62.0
+
+[node name="PanelContainer" type="PanelContainer" parent="vbox/hbox"]
+margin_right = 42.0
+margin_bottom = 62.0
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vbox/hbox/PanelContainer"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 36.0
+margin_bottom = 56.0
+texture = ExtResource( 4 )
+
+[node name="label" type="Label" parent="vbox/hbox"]
+margin_left = 46.0
+margin_top = 12.0
+margin_right = 151.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Barrier"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="vbox"]
+margin_top = 66.0
+margin_right = 322.0
+margin_bottom = 86.0
+custom_fonts/normal_font = ExtResource( 3 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Blocks a number of attacks."
+fit_content_height = true

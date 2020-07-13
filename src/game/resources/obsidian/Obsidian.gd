@@ -9,4 +9,4 @@ func interact(interactor):
 	health -= 1
 	if health == 0:
 		queue_free()
-		return [ { 'name': 'obsidian', 'quantity': 1 } ]
+		return [ { 'name': 'obsidian', 'quantity': 2 } ]

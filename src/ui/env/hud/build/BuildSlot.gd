@@ -7,6 +7,8 @@ export(String) var label setget set_label
 export(Texture) var icon setget set_icon
 export(String) var build_name
 
+var PointAndPlaceConstruction = preload('res://src/game/constructions/PointAndPlaceConstruction.tscn')
+
 var HoverPanel = preload("./BuildHoverPanel.tscn")
 var hover_panel
 
@@ -35,8 +37,10 @@ func _on_button_pressed():
 	emit_signal("pressed")
 	if has_resources:
 		var build = Build.builds[build_name]
-		if build.has('construction_produced_build_scene'):
-			Env.add(build.construction_produced_build_scene.instance())
+		if Construction.constructions.has(build_name):
+			var build_instance = PointAndPlaceConstruction.instance()
+			build_instance.construction_name = build_name
+			Env.add(build_instance)
 		if build.has('item_produced_name'):
 			var quantity
 			if !build.has('item_produced_quantity'): quantity = 1

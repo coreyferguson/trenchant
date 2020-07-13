@@ -1,6 +1,13 @@
 extends Node
 
 var builds = {
+	'barrier': {
+		'hover_panel_content': preload('./constructions/barrier/build/BarrierHoverPanelContent.tscn'),
+		'resource_requirements': [
+			{ 'name': 'wood', 'quantity': 2 },
+			{ 'name': 'obsidian', 'quantity': 1 },
+		],
+	},
 	'boots': {
 		'hover_panel_content': preload('./items/boots/BootsHoverPanelContent.tscn'),
 		'item_produced_name': 'boots',
@@ -18,7 +25,6 @@ var builds = {
 		],
 	},
 	'campfire': {
-		'construction_produced_build_scene': preload('./constructions/campfire/build/BuildCampfire.tscn'),
 		'hover_panel_content': preload('./constructions/campfire/build/CampfireHoverPanelContent.tscn'),
 		'resource_requirements': [
 			{ 'name': 'rock', 'quantity': 1 },
@@ -26,7 +32,6 @@ var builds = {
 		],
 	},
 	'sheep_farm': {
-		'construction_produced_build_scene': preload('./constructions/sheep_farm/build/BuildSheepFarm.tscn'),
 		'hover_panel_content': preload('./constructions/sheep_farm/build/SheepFarmHoverPanelContent.tscn'),
 		'resource_requirements': [
 			{ 'name': 'sheep', 'quantity': 1 },

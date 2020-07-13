@@ -16,4 +16,3 @@ func _unhandled_input(event):
 		queue_free()
 	if event.is_action_pressed("cancel"):
 		queue_free()
-		

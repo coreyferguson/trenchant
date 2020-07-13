@@ -42,7 +42,7 @@ func remove(resources):
 		remove_single_resource(resources[i])
 
 func remove_single_resource(resource):
-	if backpack[resource.name]:
+	if backpack.has(resource.name):
 		backpack[resource.name].quantity -= resource.quantity
 		if backpack[resource.name].quantity <= 0: 
 			backpack.erase(resource.name)
@@ -57,6 +57,11 @@ func reset_state():
 	belt.resize(4)
 	backpack = {
 		'fist': { 'name': 'fist', 'quantity': 1 },
+		'wood': { 'name': 'wood', 'quantity': 5 },
+		'obsidian': { 'name': 'obsidian', 'quantity': 5 },
+		'wool': { 'name': 'wool', 'quantity': 5 },
+		'sheep': { 'name': 'sheep', 'quantity': 5 },
+		'rock': { 'name': 'rock', 'quantity': 5 },
 	}
 
 func set_belt_slot(index, item):
