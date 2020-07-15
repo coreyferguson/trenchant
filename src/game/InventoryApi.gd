@@ -57,6 +57,7 @@ func reset_state():
 	belt.resize(4)
 	backpack = {
 		'fist': { 'name': 'fist', 'quantity': 1 },
+		'obsidian': { 'name': 'obsidian', 'quantity': 10 },
 	}
 
 func set_belt_slot(index, item):

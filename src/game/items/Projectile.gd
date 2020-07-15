@@ -40,6 +40,10 @@ func _drop_resource():
 	if scene_to_instance_on_drop: 
 		var inst = scene_to_instance_on_drop.instance()
 		inst.global_position = global_position
+		inst.resources = [{
+			'name': resource_name_to_consume,
+			'quantity': 1
+		}]
 		Env.add(inst)
 	
 
