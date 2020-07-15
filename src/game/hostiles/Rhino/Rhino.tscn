@@ -1609,7 +1609,7 @@ radius = 137.449
 [node name="rhino" type="KinematicBody2D"]
 position = Vector2( -0.00012207, -2.2449 )
 collision_layer = 8
-collision_mask = 0
+collision_mask = 16
 script = ExtResource( 16 )
 __meta__ = {
 "_edit_group_": true
@@ -1874,7 +1874,7 @@ shape = SubResource( 7 )
 
 [node name="charge_area" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 5
+collision_mask = 21
 
 [node name="collision" type="CollisionShape2D" parent="charge_area"]
 visible = false
@@ -1882,6 +1882,7 @@ shape = SubResource( 8 )
 
 [node name="attack_area" type="Area2D" parent="."]
 position = Vector2( 0, -40 )
+collision_mask = 21
 
 [node name="collision" type="CollisionShape2D" parent="attack_area"]
 visible = false
@@ -1889,7 +1890,7 @@ shape = SubResource( 9 )
 
 [node name="charge_attack_area" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 5
+collision_mask = 257
 
 [node name="collision" type="CollisionShape2D" parent="charge_attack_area"]
 visible = false

@@ -1,7 +1,7 @@
 extends StaticBody2D
 
-export(int) var health_capacity = 2
-export(int) var health = 2
+export(int) var health_capacity = 3
+export(int) var health = 3
 
 func _ready():
 	$health_bar.set_health(health, health_capacity)

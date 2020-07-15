@@ -148,6 +148,7 @@ margin_bottom = 89.0
 mouse_filter = 0
 label = "Construction"
 icon = ExtResource( 3 )
+build_name = ""
 
 [node name="tool" parent="HUD/bottom_panel/MarginContainer2/build_categories" instance=ExtResource( 7 )]
 margin_left = 120.0
@@ -155,6 +156,7 @@ margin_right = 178.0
 margin_bottom = 89.0
 label = "Tools"
 icon = ExtResource( 21 )
+build_name = ""
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/bottom_panel"]
 margin_top = 920.0

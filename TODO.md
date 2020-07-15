@@ -1,3 +1,6 @@
+- all constructions take damage
+- sheep dog spawns for sheep_farm at home only
+- change sheep_dog behavior to attack-on-sight
 - raid of goblins sometimes spawns 10 goblins! (might be when they switch to selfish mode?) spawn sheep farm in their behavior change trigger
 - z-index of player vs goblin
 - rename backpack to inventory and make hotkey "I"

@@ -34,7 +34,7 @@ func _physics_process(delta):
 		var d = target_position - global_position
 		var v = d.normalized() * speed * delta
 		var collision = move_and_collide(v)
-		if collision && collision.collider: 
+		if current_state == States.CHARGING && collision && collision.collider: 
 			_cancel_current_state()
 			_rest()
 			return

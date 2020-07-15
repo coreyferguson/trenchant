@@ -4,8 +4,7 @@ var builds = {
 	'barrier': {
 		'hover_panel_content': preload('./constructions/barrier/build/BarrierHoverPanelContent.tscn'),
 		'resource_requirements': [
-			{ 'name': 'wood', 'quantity': 1 },
-			{ 'name': 'obsidian', 'quantity': 1 },
+			{ 'name': 'wood', 'quantity': 1 }
 		],
 	},
 	'boots': {

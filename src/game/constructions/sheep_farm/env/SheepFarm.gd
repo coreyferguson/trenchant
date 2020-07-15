@@ -10,6 +10,9 @@ func _ready():
 			'sheep_farm', \
 			{ 'scene': SheepDog })
 
+func attack(damage):
+	queue_free()
+
 func get_persisted_properties():
 	return {
 		'scene': Construction.constructions['sheep_farm'].scene,
