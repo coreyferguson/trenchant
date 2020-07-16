@@ -14,11 +14,6 @@ func _unhandled_input(event):
 		var farm = PostBuildResource.instance()
 		farm.global_position = get_global_mouse_position()
 		Env.add(farm)
-		# spawn a sheep dog
-		var dog = SheepDog.instance()
-		dog.global_position = Game.get_random_circumference_position(\
-			farm.global_position, 100)
-		Env.add(dog)
 		# cleanup
 		get_tree().set_input_as_handled()
 		queue_free()

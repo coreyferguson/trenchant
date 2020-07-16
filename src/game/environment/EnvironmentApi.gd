@@ -30,9 +30,9 @@ func restore_persisted_nodes():
 	for i in range(persisted_nodes.size()):
 		var Scene = persisted_nodes[i].scene
 		var scene = Scene.instance()
-		get_node('/root/environment/container').add_child(scene)
 		if scene.has_method('restore_persisted_state'):
 			scene.restore_persisted_state(persisted_nodes[i].state)
+		get_node('/root/environment/container').add_child(scene)
 	persist_all_nodes() # sometimes necessary when new nodes added while restoring
 
 func reset_state():

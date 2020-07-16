@@ -4,12 +4,10 @@ export(int) var speed = 200
 export(int) var damage = 1
 export(int) var health = 5 setget _set_health
 export(int) var health_capacity = 5
+export(Vector2) var home_position
 
-var proximity_to_player = 200
-var proximity_to_player_squared = pow(proximity_to_player, 2)
-
-enum States { FOLLOWING, CHASING, ATTACKING }
-var current_state = States.FOLLOWING
+enum States { WAITING, CHASING, ATTACKING }
+var current_state = States.WAITING
 
 var chasing_target
 
@@ -17,6 +15,7 @@ func _ready():
 	_update_state()
 
 func _physics_process(delta):
+	z_index = global_position.y
 	if current_state == States.CHASING:
 		if !chasing_target || !chasing_target.get_ref():
 			_update_state()
@@ -27,11 +26,8 @@ func _physics_process(delta):
 		if v.x < 0: _look_left()
 		if v.length_squared() > 0: $animation.play('running')
 		move_and_slide(v)
-	if current_state == States.FOLLOWING:
-		var target_destination = global_position - Env.get_player().global_position
-		target_destination = target_destination.normalized() * proximity_to_player
-		target_destination = Env.get_player().global_position + target_destination
-		var d = target_destination - global_position
+	if current_state == States.WAITING:
+		var d = home_position - global_position
 		var v = d.normalized() * speed
 		if v.x > 0: _look_right()
 		if v.x < 0: _look_left()
@@ -60,13 +56,6 @@ func _chase(body):
 	current_state = States.CHASING
 	chasing_target = weakref(body)
 
-func _follow():
-	current_state = States.FOLLOWING
-
-func _is_in_range_of_player():
-	var v = Env.get_player().global_position - global_position
-	return v.length_squared() <= proximity_to_player_squared
-
 func _look_left():
 	$bones/body.scale.x = -1
 
@@ -86,7 +75,10 @@ func _update_state():
 	if detection_area_bodies.size() > 0:
 		_chase(detection_area_bodies[0])
 		return
-	_follow()
+	_wait()
 
 func _on_detection_area_body_entered(body):
-	if current_state == States.FOLLOWING: _chase(body)
+	if current_state == States.WAITING: _chase(body)
+
+func _wait():
+	current_state = States.WAITING
